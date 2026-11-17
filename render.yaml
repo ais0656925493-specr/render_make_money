@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: src-page-cm
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npx next start -p $PORT
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_SETTING_TIME
+        sync: false
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+      - key: NOTIFICATION_TOKEN
+        sync: false
+      - key: NOTIFICATION_CHAT
+        sync: false
+      - key: WEBHOOK_URL
+        sync: false
+      - key: NEXT_PUBLIC_NOTIFICATION_ENABLED
+        sync: false
