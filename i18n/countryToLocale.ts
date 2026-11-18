@@ -131,6 +131,55 @@ const COUNTRY_DEFAULT: Record<string, AppLocale> = {
   AT: 'de',
   LI: 'de',
   CH: 'de',
+
+  // —— Tiếng Ý ——
+  IT: 'it',
+  SM: 'it',
+  VA: 'it',
+
+  // —— Tiếng Hà Lan (Bỉ: tiếng Hà Lan là ngôn ngữ phổ biến nhất) ——
+  NL: 'nl',
+  BE: 'nl',
+  SR: 'nl',
+  AW: 'nl',
+  SX: 'nl',
+  CW: 'nl',
+
+  // —— Tiếng Ba Lan ——
+  PL: 'pl',
+
+  // —— Tiếng Thổ Nhĩ Kỳ ——
+  TR: 'tr',
+
+  // —— Tiếng Nga ——
+  RU: 'ru',
+  BY: 'ru',
+  KZ: 'ru',
+  KG: 'ru',
+
+  // —— Tiếng Hindi ——
+  IN: 'hi',
+
+  // —— Bahasa Melayu ——
+  MY: 'ms',
+  BN: 'ms',
+
+  // —— Tiếng Ukraina ——
+  UA: 'uk',
+
+  // —— Filipino ——
+  PH: 'fil',
+
+  // —— Tiếng Thụy Điển (SE; SV là El Salvador, đã gán tiếng Tây Ban Nha) ——
+  SE: 'sv',
+
+  // —— Tiếng Hy Lạp ——
+  GR: 'el',
+  CY: 'el',
+
+  // —— Tiếng Romania ——
+  RO: 'ro',
+  MD: 'ro',
 }
 
 export function countryCodeToAppLocale(countryCode: string | undefined): AppLocale {

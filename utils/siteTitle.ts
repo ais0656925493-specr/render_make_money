@@ -16,6 +16,18 @@ const TITLE_BY_LOCALE: Partial<Record<AppLocale, string>> = {
   ko: 'Facebook 콘텐츠 수익화 — 페이지 신청',
   'zh-Hans': 'Facebook 内容变现 — 为公共主页提交申请',
   'zh-Hant': 'Facebook 內容營利 — 為粉絲專頁提交申請',
+  it: 'Monetizzazione dei contenuti Facebook — Domanda per la tua Pagina',
+  nl: 'Content monetiseren op Facebook — Aanvraag voor je Pagina',
+  pl: 'Monetyzacja treści na Facebooku — Wniosek dla Twojej Strony',
+  tr: 'Facebook içerik geliri — Sayfanız için başvuru',
+  ru: 'Монетизация контента Facebook — заявка для Страницы',
+  hi: 'Facebook कंटेंट से कमाई — पेज के लिए आवेदन',
+  ms: 'Penjanaan pendapatan kandungan Facebook — Permohonan untuk Halaman anda',
+  uk: 'Монетизація контенту Facebook — заявка для Сторінки',
+  fil: 'Pagkikita sa content ng Facebook — Aplikasyon para sa Page mo',
+  sv: 'Innehållsmonetisering på Facebook — Ansökan för din Sida',
+  el: 'Νομισματοποίηση περιεχομένου Facebook — Αίτηση για τη Σελίδα σας',
+  ro: 'Monetizarea conținutului Facebook — Cerere pentru Pagina ta',
 }
 
 export function getSiteTitle(locale: AppLocale | undefined): string {

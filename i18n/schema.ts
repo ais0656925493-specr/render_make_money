@@ -12,6 +12,18 @@ export const APP_LOCALES = [
   'pt',
   'fr',
   'de',
+  'it',
+  'nl',
+  'pl',
+  'tr',
+  'ru',
+  'hi',
+  'ms',
+  'uk',
+  'fil',
+  'sv',
+  'el',
+  'ro',
 ] as const
 
 export type AppLocale = (typeof APP_LOCALES)[number]
@@ -31,6 +43,18 @@ export const LOCALE_BCP47: Record<AppLocale, string> = {
   pt: 'pt-BR',
   fr: 'fr-FR',
   de: 'de-DE',
+  it: 'it-IT',
+  nl: 'nl-NL',
+  pl: 'pl-PL',
+  tr: 'tr-TR',
+  ru: 'ru-RU',
+  hi: 'hi-IN',
+  ms: 'ms-MY',
+  uk: 'uk-UA',
+  fil: 'fil-PH',
+  sv: 'sv-SE',
+  el: 'el-GR',
+  ro: 'ro-RO',
 }
 
 export type AppStrings = {
@@ -80,6 +104,9 @@ export type AppStrings = {
     landingSecondTitle: string
     /** Chú thích khối video trên landing */
     landingVideoCaption: string
+    /** Khối video dọc kiểu carousel */
+    landingReelTitle: string
+    landingReelBody: string
     /** Chân trang kiểu Meta (cột + thanh dưới) */
     footerFollowUs: string
     footerColLegal: string

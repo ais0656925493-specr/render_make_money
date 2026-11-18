@@ -51,6 +51,9 @@ export const vi: AppStrings = {
     landingSecondTitle: 'Bắt đầu với kiếm tiền từ nội dung trên Facebook',
     landingVideoCaption:
       'Video giới thiệu chính thức: cách nhà sáng tạo dùng công cụ Trang Facebook và tiếp cận kiếm tiền từ nội dung một cách phù hợp.',
+    landingReelTitle: 'Bắt đầu với chương trình Kiếm tiền từ nội dung trên Facebook',
+    landingReelBody:
+      'Học hỏi từ những người sáng tạo nội dung khác đang kiếm tiền trên Facebook.',
     footerFollowUs: 'Theo dõi chúng tôi',
     footerColLegal: 'Chính sách & quy định',
     footerColMonetize: 'Kiếm tiền từ nội dung',

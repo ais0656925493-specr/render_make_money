@@ -47,6 +47,8 @@ export const pt: AppStrings = {
     landingSecondTitle: 'Get started with Facebook content monetization',
     landingVideoCaption:
       'Official overview video: how creators use Facebook Page tools and approach content monetization responsibly.',
+    landingReelTitle: 'Get started with the Facebook content monetization program',
+    landingReelBody: 'Learn from other creators who are earning from their content on Facebook.',
     footerFollowUs: 'Follow us',
     footerColLegal: 'Legal & policies',
     footerColMonetize: 'Monetization',

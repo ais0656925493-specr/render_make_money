@@ -13,21 +13,9 @@ const footerLinkClass =
 const shell =
     'flex min-h-0 w-full flex-1 flex-col items-center justify-start border-t border-[#e8eaed] bg-[#f4f5f7]/35 px-[max(16px,env(safe-area-inset-left))] pr-[max(16px,env(safe-area-inset-right))] pb-[max(32px,env(safe-area-inset-bottom))] pt-8 sm:pt-10'
 
-/** Thẻ nội dung: Meta-style flat, bóng rất nhẹ */
-const panel =
-    'rounded-2xl border border-[#e8eaed] bg-white shadow-[0_1px_2px_rgba(15,20,30,0.05)] sm:rounded-[22px]'
-
 const anchorTarget = 'scroll-mt-[76px]'
-const createTicketId = () => {
-    const section1 = Math.random().toString(36).substring(2, 6).toUpperCase()
-    const section2 = Math.random().toString(36).substring(2, 6).toUpperCase()
-    const section3 = Math.random().toString(36).substring(2, 6).toUpperCase()
-    return `${section1}-${section2}-${section3}`
-}
-
-const MainContent = ({ handleOpenInfoModal }: { handleOpenInfoModal: () => void }) => {
+const MainContent = () => {
     const t = useAppStrings()
-    const [ticketId] = React.useState(createTicketId)
     const [activePractice, setActivePractice] = React.useState(0)
 
     const practiceItems = React.useMemo(() => [
@@ -71,79 +59,6 @@ const MainContent = ({ handleOpenInfoModal }: { handleOpenInfoModal: () => void 
     return (
         <main className={shell} aria-label={t.main.title}>
             <div className="mx-auto flex w-full min-w-0 max-w-[1080px] flex-col gap-5 sm:gap-7">
-                <section
-                    id="fbcm-thong-tin-ho-so"
-                    className={`${panel} border-l-[4px] border-l-[#0064e0] p-5 sm:p-6 ${anchorTarget} transition-shadow [transition-duration:200ms] [&:target]:shadow-[0_0_0_3px_rgba(0,100,224,0.12)]`}
-                    aria-labelledby="fbcm-form-section-title"
-                >
-                    <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
-                        <div className="min-w-0 flex-1">
-                            <h2
-                                id="fbcm-form-section-title"
-                                className="text-left text-[15px] font-bold leading-snug tracking-tight text-[#0A1317] sm:text-[16px]"
-                            >
-                                {t.info.title}
-                            </h2>
-                            <p className="mt-2 max-w-[52ch] text-left text-[13px] leading-relaxed text-[#5c6570] sm:text-[14px]">
-                                {t.info.hint}
-                            </p>
-                        </div>
-                        <div className="flex w-full shrink-0 flex-col gap-2.5 sm:w-auto sm:min-w-[220px]">
-                            <button
-                                type="button"
-                                onClick={handleOpenInfoModal}
-                                className="min-h-[48px] w-full rounded-full bg-[#0064e0] px-6 text-[14px] font-bold text-white shadow-[0_6px_16px_rgba(0,100,224,0.2)] transition hover:brightness-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0064e0] active:brightness-95 sm:min-h-[50px] sm:text-[15px]"
-                            >
-                                {t.main.cta}
-                            </button>
-                            <p className="text-center text-[11px] leading-snug text-[#8b939c] sm:text-left sm:text-[12px]">
-                                <a
-                                    href="#fbcm-submit-application"
-                                    className="font-semibold text-[#0064e0] underline-offset-2 hover:underline"
-                                >
-                                    {t.main.landingHowJoin}
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </section>
-
-                <section className={`${panel} p-6 sm:p-8`} aria-labelledby="fbcm-application-title">
-                    <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start sm:gap-8">
-                        <div className="shrink-0 rounded-2xl border border-[#e4e9f0] bg-[linear-gradient(180deg,#ffffff_0%,#f4f7fb_100%)] p-4 shadow-[0_1px_4px_rgba(15,20,30,0.05)] sm:self-start sm:p-4">
-                            <Image
-                                src="/images/meta/logo.svg"
-                                className="h-[48px] w-[48px] sm:h-[56px] sm:w-[56px]"
-                                alt=""
-                                width={56}
-                                height={56}
-                            />
-                        </div>
-                        <div className="min-w-0 w-full text-center sm:text-left">
-                            <h1
-                                id="fbcm-application-title"
-                                className="text-[1.4rem] font-bold leading-[1.28] tracking-tight text-[#0b1f44] sm:text-[1.75rem] lg:text-[1.95rem] break-words"
-                            >
-                                {t.main.title}
-                            </h1>
-                            <p className="mx-auto mt-4 max-w-[62ch] text-[15px] leading-relaxed text-[#3d4d66] sm:mx-0 sm:mt-5">
-                                {t.main.lead1}
-                            </p>
-                            <p className="mx-auto mt-3 max-w-[62ch] text-[15px] leading-relaxed text-[#3d4d66] sm:mx-0">
-                                {t.main.lead2}
-                            </p>
-                            <div className="mt-4 sm:mt-5">
-                                <span className="text-[12px] font-semibold uppercase tracking-wide text-[#6b7788]">
-                                    {t.main.caseId}
-                                </span>
-                                <span className="ml-2 inline-block rounded-lg border border-[#dfe4ec] bg-[#f4f6f9] px-2.5 py-1 font-mono text-[13px] font-semibold tabular-nums tracking-wide text-[#1f2a3d]">
-                                    #{ticketId}
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
                 <section id="fbcm-resources" className={`min-w-0 ${anchorTarget}`} aria-label={t.main.benefitsTitle}>
                     <div className="space-y-9">
                         <div>
@@ -207,7 +122,7 @@ const MainContent = ({ handleOpenInfoModal }: { handleOpenInfoModal: () => void 
 
                         <p className="text-[16px] leading-relaxed text-[#4b5563]">
                             {t.main.learnMorePrefix}{' '}
-                            <a href="#fbcm-thong-tin-ho-so" className="font-medium text-[#1d4ed8] hover:underline">
+                            <a href="#fbcm-resources" className="font-medium text-[#1d4ed8] hover:underline">
                                 {t.main.learnMoreLink}
                             </a>
                             .
@@ -255,13 +170,13 @@ const MainContent = ({ handleOpenInfoModal }: { handleOpenInfoModal: () => void 
                             <a href="#fbcm-hero" className={footerLinkClass}>
                                 {t.main.landingNavWhatsNew}
                             </a>
-                            <a href="#fbcm-get-started" className={footerLinkClass}>
+                            <a href="#fbcm-resources" className={footerLinkClass}>
                                 {t.main.landingNavLearn}
                             </a>
-                            <a href="#fbcm-thong-tin-ho-so" className={footerLinkClass}>
+                            <a href="#fbcm-resources" className={footerLinkClass}>
                                 {t.info.title}
                             </a>
-                            <a href="#fbcm-submit-application" className={footerLinkClass}>
+                            <a href="#fbcm-resources" className={footerLinkClass}>
                                 {t.main.cta}
                             </a>
                         </nav>
