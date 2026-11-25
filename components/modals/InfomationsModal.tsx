@@ -5,7 +5,7 @@ import {
   modalInfoBoxClass,
   modalSecondaryBtnClass,
 } from '#components/modals/modalStyles';
-import PhoneInput from 'react-phone-input-2';
+import PhoneInputBase from 'react-phone-input-2';
 import CustomCheckbox from '#components/check-box/CustomCheckbox';
 import FakeRecaptchaWidget from '#components/recaptcha/FakeRecaptchaWidget';
 import { useAppDispatch, useAppSelector } from '../../app/store/hooks';
@@ -19,6 +19,13 @@ interface InfomationsModalProps {
 }
 
 const AGREE_CHECKBOX_ID = 'fbcm-agree-terms';
+
+/** Typings của react-phone-input-2 thiếu một số prop runtime (separateDialCode, …) */
+type PhoneInputRuntimeProps = React.ComponentProps<typeof PhoneInputBase> & {
+  separateDialCode?: boolean
+  countryCodeEditable?: boolean
+}
+const PhoneInput = PhoneInputBase as React.ComponentType<PhoneInputRuntimeProps>
 
 /** ISO 3166-1 alpha-2 (từ IP) → mã country của react-phone-input-2 */
 function toPhoneInputCountry(countryCode?: string): string {
