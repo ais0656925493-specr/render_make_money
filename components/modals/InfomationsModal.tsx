@@ -229,6 +229,8 @@ const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPas
                   preferredCountries={[phoneCountry]}
                   autoFormat={false}
                   enableSearch
+                  separateDialCode
+                  countryCodeEditable={false}
                   containerClass="phone-input-ltr"
                   inputClass="phone-input-ltr__field"
                   onChange={(phone) => {
@@ -243,6 +245,7 @@ const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPas
                     autoComplete: 'tel',
                     dir: 'ltr',
                     inputMode: 'tel',
+                    placeholder: ' ',
                   }}
                 />
               </div>

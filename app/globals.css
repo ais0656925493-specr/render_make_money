@@ -97,6 +97,15 @@ html[data-locale='vi'] {
     background-color: transparent !important;
 }
 
+/* Mã quốc gia (+xx) tách riêng — người dùng chỉ nhập số còn lại */
+.react-tel-input.separate-dial-code .selected-dial-code {
+    color: #1c1e21;
+    font-size: 14px;
+    font-weight: 500;
+    direction: ltr !important;
+    unicode-bidi: isolate;
+}
+
 /* Dropdown quốc gia luôn LTR trong trang RTL */
 .react-tel-input .country-list {
     direction: ltr !important;
