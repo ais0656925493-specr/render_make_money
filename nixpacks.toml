@@ -1,0 +1,3 @@
+# Railway Nixpacks: tránh `npm ci` khi lockfile lệch nhẹ giữa npm versions
+[phases.install]
+cmds = ["npm install --include=dev"]
