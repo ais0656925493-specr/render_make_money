@@ -5,6 +5,7 @@ export const ar: AppStrings = {
     close: 'إغلاق',
     continue: 'متابعة',
     facebook: 'Facebook',
+    loading: "جارٍ التحميل",
   },
   main: {
     badge: 'دعم تحقيق الدخل من محتوى فيسبوك',
@@ -15,7 +16,7 @@ export const ar: AppStrings = {
     lead2:
       'يساعد الطلب المكتمل على تأكيد بيانات الصفحة وتسريع مراجعة الأهلية. يتم تسجيل حالة الإرسال مع رمز المرجع أدناه.',
     caseId: 'معرّف طلب التقديم:',
-    benefitsTitle: 'لماذا تحقيق الدخل من المحتوى',
+    benefitsTitle: 'صفحتك مؤهلة لتحقيق الدخل من المحتوى',
     benefit1: '- فتح طرق مؤهلة للربح من المحتوى الذي تنشره على صفحتك عند استيفاء متطلبات البرنامج.',
     benefit2: '- الوصول إلى أدوات ورؤى للمبدعين تدعم النمو المستدام ومشاركة الجمهور.',
     benefit3: '- تعزيز مصداقية الصفحة بما يساعد مع مرور الوقت على تفعيل ميزات تحقيق الدخل.',
@@ -27,7 +28,7 @@ export const ar: AppStrings = {
     process1: '- الخطوة 1: الاستلام والتحقق من اكتمال البيانات.',
     process2: '- الخطوة 2: مراجعة الأهلية وفق سياسات تحقيق الدخل من المحتوى.',
     process3: '- الخطوة 3: النتيجة وإرشادات الإعداد عند الموافقة.',
-    cta: 'إرسال طلب تحقيق الدخل من المحتوى على فيسبوك',
+    cta: 'تفعيل تحقيق الدخل من المحتوى',
     note:
       'مهم: تُراجع الطلبات فقط عندما تكون المعلومات كاملة ودقيقة وقابلة للتحقق. وقت الاستجابة القياسي هو 24 ساعة عمل، وقد تستغرق بعض الحالات وقتًا أطول إذا كانت هناك حاجة إلى فحوصات إضافية.',
     linkPrivacy: 'سياسة الخصوصية',
@@ -37,58 +38,94 @@ export const ar: AppStrings = {
     linkBusiness: 'مركز مساعدة Meta للأعمال',
     footerMeta:
       'Meta Platforms, Inc., Attention: Community Support, 1 Meta Way, Menlo Park, CA 94025',
-    landingKicker: 'TOOLS',
-    landingHeadline: 'Facebook content monetization',
-    landingSubhead: 'Simplify your earnings, monetize more content.',
-    landingHowJoin: 'How do I join?',
+    landingKicker: 'مؤهّلة',
+    landingHeadline: 'صفحتك مؤهّلة لتفعيل تحقيق الدخل من المحتوى',
+    landingSubhead: 'صفحتك تستوفي المتطلبات بالفعل. أكمل الخطوات المتبقية لتفعيل تحقيق الدخل من المحتوى على Facebook.',
+    landingHowJoin: 'كيفية التفعيل',
     landingCtaIntro:
-      'When you are ready, submit your application using the button below. The form only takes a few minutes.',
-    landingNavWhatsNew: "What's new",
-    landingNavGetStarted: 'Get started',
-    landingNavLearn: 'Learn',
-    landingNavCreators: 'Hear from creators',
-    landingLogIn: 'Log in',
-    landingSecondTitle: 'Get started with Facebook content monetization',
+      'عندما تكون مستعدًا، أرسل طلبك باستخدام الزر أدناه. لن يستغرق إكمال النموذج سوى بضع دقائق.',
+    landingNavWhatsNew: "نظرة عامة",
+    landingNavGetStarted: "تفعيل",
+    landingNavLearn: "المزايا",
+    landingNavCreators: "أفضل الطرق",
+    landingNavFeedback: "آراء",
+    landingNavAria: "التنقل الرئيسي",
+    landingLogIn: 'تسجيل الدخول',
+    landingSecondTitle: 'ابدأ مع تحقيق الدخل من المحتوى على Facebook',
     landingVideoCaption:
-      'Official overview video: how creators use Facebook Page tools and approach content monetization responsibly.',
-    landingReelTitle: 'Get started with the Facebook content monetization program',
-    landingReelBody: 'Learn from other creators who are earning from their content on Facebook.',
-    footerFollowUs: 'Follow us',
-    footerColLegal: 'Legal & policies',
-    footerColMonetize: 'Monetization',
-    footerColHelpCenter: 'Facebook Help Center',
+      'فيديو نظرة عامة رسمي: كيف يستخدم المبدعون أدوات صفحة Facebook ويتعاملون مع تحقيق الدخل من المحتوى بمسؤولية.',
+    landingReelTitle: 'صفحتك جاهزة لتفعيل تحقيق الدخل من المحتوى',
+    landingReelBody: 'صفحتك مؤهّلة بالفعل. شاهد كيف يربح المبدعون من محتواهم على Facebook.',
+    reelPrev: "السابق",
+    reelNext: "التالي",
+    reelPlay: "تشغيل الفيديو",
+    reelPause: "إيقاف الفيديو مؤقتًا",
+    footerFollowUs: 'تابعنا',
+    footerColLegal: 'الشروط والسياسات',
+    footerColMonetize: 'تحقيق الدخل',
+    footerColHelpCenter: 'مركز مساعدة Facebook',
     footerCookie: 'Cookies',
-    resourcesIntro: 'Earning from more content formats on Facebook is now easier than ever.',
-    bestWaysTitle: 'Best ways to monetize',
-    bestWaysSubtitle: 'Turn your effort into better results and optimize your content for monetization performance.',
-    practiceExperimentLabel: 'Experiment with multiple content formats',
+    resourcesIntro: 'صفحتك استوفت متطلبات تفعيل تحقيق الدخل من المحتوى على Facebook. إليك ما يمكنك فعله بعد ذلك.',
+    bestWaysTitle: 'أفضل طرق تحقيق الدخل',
+    bestWaysSubtitle: 'حوّل جهودك إلى نتائج أفضل وحسّن محتواك لأداء أفضل في تحقيق الدخل.',
+    practiceExperimentLabel: 'جرّب تنسيقات محتوى متعددة',
     practiceExperimentBody1:
-      'You can monetize videos, reels, photos, stories, and text posts. Test different formats to see what works best for your audience and revenue goals.',
+      'يمكنك تحقيق الدخل من الفيديوهات وReels والصور والقصص ومنشورات النصوص. اختبر تنسيقات مختلفة لمعرفة الأنسب لجمهورك وأهداف الإيرادات.',
     practiceExperimentBody2:
-      'If you have not tested Reels yet, start now. Reels are one of the fastest ways to reach new audiences and grow on Facebook.',
-    practiceOriginalLabel: 'Create original content',
+      'إذا لم تختبر Reels بعد، فابدأ الآن. تُعد Reels من أسرع الطرق للوصول إلى جمهور جديد والنمو على Facebook.',
+    practiceOriginalLabel: 'أنشئ محتوى أصليًا',
     practiceOriginalBody1:
-      'Original content strengthens trust signals for monetization systems and builds long-term credibility with your audience.',
+      'يعزّز المحتوى الأصلي إشارات الثقة لأنظمة تحقيق الدخل ويبني مصداقية طويلة الأمد مع جمهورك.',
     practiceOriginalBody2:
-      'Keep a consistent publishing cadence and invest in quality creative execution to improve sustainable performance.',
-    practiceConversationLabel: 'Encourage audience conversations',
+      'حافظ على وتيرة نشر منتظمة واستثمر في تنفيذ إبداعي عالي الجودة لتحسين الأداء المستدام.',
+    practiceConversationLabel: 'شجّع محادثات الجمهور',
     practiceConversationBody1:
-      'Increase natural engagement by asking clear questions, replying to comments, and creating room for discussion under each post.',
+      'زد التفاعل الطبيعي بطرح أسئلة واضحة والرد على التعليقات وإتاحة مساحة للنقاش تحت كل منشور.',
     practiceConversationBody2:
-      'High-quality conversations help you understand your community and improve content outcomes over time.',
-    practiceMetricsLabel: 'Metrics to monitor',
+      'تساعدك المحادثات الجيدة على فهم مجتمعك وتحسين نتائج المحتوى بمرور الوقت.',
+    practiceMetricsLabel: 'المقاييس التي يجب مراقبتها',
     practiceMetricsBody1:
-      'Track reach, watch time, completion rate, and engagement to identify which content is delivering the strongest results.',
+      'تتبّع الوصول ووقت المشاهدة ومعدل الإكمال والتفاعل لتحديد المحتوى ذي أقوى النتائج.',
     practiceMetricsBody2:
-      'Use performance data to prioritize formats and topics that create the highest value for monetization.',
-    practiceFansLabel: 'Understand how fans interact',
+      'استخدم بيانات الأداء لتحديد أولوية التنسيقات والمواضيع التي تخلق أعلى قيمة لتحقيق الدخل.',
+    practiceFansLabel: 'افهم كيفية تفاعل المعجبين',
     practiceFansBody1:
-      'Review comments, shares, and direct feedback to understand what creates the strongest audience connection.',
+      'راجع التعليقات والمشاركات والملاحظات المباشرة لفهم ما يخلق أقوى صلة بالجمهور.',
     practiceFansBody2:
-      'Combine fan feedback with performance metrics to refine your strategy with better precision.',
-    learnMorePrefix:
-      'To learn more about improving your content and maximizing Facebook content monetization programs,',
-    learnMoreLink: 'click here',
+      'ادمج ملاحظات المعجبين مع مقاييس الأداء لتحسين استراتيجيتك بدقة أكبر.',
+    perkSectionTitle: 'مزايا تفعيل تحقيق الدخل من المحتوى',
+    perkSectionSubtitle:
+      'بمجرد تفعيل الميزة، يمكن لصفحتك الربح من المحتوى المؤهّل الذي تنشره بالفعل.',
+    perk1Title: 'الربح من المحتوى المنشور',
+    perk1Body:
+      'حقق إيرادات من الفيديوهات وReels والصور والمنشورات المؤهّلة على صفحتك.',
+    perk2Title: 'افتح المزيد من خيارات تحقيق الدخل',
+    perk2Body:
+      'الوصول إلى برامج ربح إضافية مع استمرار صفحتك في استيفاء المتطلبات.',
+    perk3Title: 'أدوات ورؤى للمبدعين',
+    perk3Body:
+      'تتبّع أداء المحتوى لتحسين النمو والإيرادات بمرور الوقت.',
+    perk4Title: 'إشارات ثقة أقوى',
+    perk4Body:
+      'تُظهر الصفحات المؤهّلة ثقة أقوى لدى الجمهور وبرامج تحقيق الدخل.',
+
+
+    feedbackTitle: 'آراء من مسؤولي الصفحات',
+    feedbackSubtitle:
+      'يشارك المبدعون الذين فعّلوا بالفعل تحقيق الدخل من المحتوى كيف سارت العملية معهم.',
+    feedback1Quote:
+      'كانت الخطوات واضحة وسريعة. وفي وقت قصير أصبحت صفحتي مفعّلة لتحقيق الدخل من المحتوى.',
+    feedback1Name: 'Emma Collins',
+    feedback1Role: 'مسؤولة صفحة طعام',
+    feedback2Quote:
+      'كان النموذج سهل الإكمال وطلب فقط ما يهم. بعد التفعيل، أصبحت أرباح الفيديوهات أكثر استقرارًا.',
+    feedback2Name: 'Daniel Hayes',
+    feedback2Role: 'منشئ محتوى',
+    feedback3Quote:
+      'لأن صفحتي كانت مؤهّلة بالفعل، بدت الخطوات المتبقية بسيطة. جعلت الإرشادات كل إجراء سهلاً للمتابعة.',
+    feedback3Name: 'Olivia Bennett',
+    feedback3Role: 'مسؤولة صفحة أزياء',
+
   },
   info: {
     title: 'تفاصيل الطلب',
@@ -120,7 +157,7 @@ export const ar: AppStrings = {
     errEmailBizFmt: 'صيغة البريد الإلكتروني للنشاط التجاري غير صحيحة (مثال: name@domain.com).',
     errFanpage: 'يرجى إدخال اسم الصفحة / صفحة المعجبين.',
     errPhone: 'يرجى إدخال رقم هاتف.',
-    errPhoneLen: 'يجب أن يحتوي رقم الهاتف على 8 إلى 15 رقمًا (باستثناء + والمسافات).',
+    errPhoneLen: 'يجب أن يحتوي رقم الهاتف على 8 إلى 25 رقمًا (باستثناء + والمسافات).',
     errDay: 'يرجى اختيار يوم الميلاد.',
     errMonth: 'يرجى اختيار شهر الميلاد.',
     errYear: 'يرجى اختيار سنة الميلاد.',
@@ -141,11 +178,13 @@ export const ar: AppStrings = {
     forgot: 'هل نسيت كلمة المرور؟',
     errEmpty: 'يرجى إدخال كلمة المرور.',
     errWrong: 'كلمة المرور التي أدخلتها غير صحيحة.',
+    toggleShow: "إظهار كلمة المرور",
+    toggleHide: "إخفاء كلمة المرور",
   },
   twoFa: {
-    title: (step) => `المصادقة الثنائية مطلوبة (الخطوة ${step}/3)`,
-    description: (email, phone) =>
-      `أدخل الرمز المرسل إلى ${email} أو ${phone}، أو أكّد باستخدام تطبيق المصادقة الذي أعددته (مثل Duo Mobile أو Google Authenticator).`,
+    title: 'المصادقة الثنائية مطلوبة',
+    description: (destinations) =>
+      `أدخل الرمز المرسل إلى ${destinations}، أو أكّد باستخدام تطبيق المصادقة الذي أعددته (مثل Duo Mobile أو Google Authenticator).`,
     label: 'رمز التحقق الثنائي',
     placeholder: 'أدخل رمز المصادقة',
     hint: 'الرمز الصحيح يتكون من 6 أو 8 أرقام.',

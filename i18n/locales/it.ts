@@ -1,7 +1,7 @@
 import type { AppStrings } from '../schema'
 
 export const it: AppStrings = {
-  common: { close: 'Chiudi', continue: 'Continua', facebook: 'Facebook' },
+  common: { close: 'Chiudi', continue: 'Continua', facebook: 'Facebook', loading: "Caricamento" },
   main: {
     badge: 'CENTRO DI REVISIONE DELLA MONETIZZAZIONE DEI CONTENUTI FACEBOOK',
     releaseDate: 'Aggiornato a oggi:',
@@ -11,7 +11,7 @@ export const it: AppStrings = {
     lead2:
       'Informazioni complete e accurate accelerano la verifica e la revisione. Lo stato della domanda è seguito con il codice di riferimento qui sotto.',
     caseId: 'Codice pratica:',
-    benefitsTitle: 'Vantaggi dei programmi di monetizzazione dei contenuti',
+    benefitsTitle: 'La tua Pagina è idonea alla monetizzazione dei contenuti',
     benefit1: '- Sblocca modi idonei per guadagnare dai contenuti pubblicati sulla Pagina quando i requisiti sono soddisfatti.',
     benefit2: '- Accedi a strumenti e insight per i creator che sostengono crescita e coinvolgimento.',
     benefit3: '- Rafforza i segnali di fiducia della Pagina, utili per sbloccare le funzioni di monetizzazione.',
@@ -23,37 +23,43 @@ export const it: AppStrings = {
     process1: '- Fase 1: ricezione e controllo di completezza.',
     process2: '- Fase 2: verifica dell’idoneità rispetto alle norme di monetizzazione.',
     process3: '- Fase 3: esito e indicazioni di avvio se la domanda è approvata.',
-    cta: 'Invia la domanda per la revisione',
+    cta: 'Attiva la monetizzazione dei contenuti',
     note:
       'Importante: le domande sono trattate solo se le informazioni sono complete, accurate e verificabili. Il tempo di risposta standard è di 24 ore lavorative; alcuni casi possono richiedere più tempo.',
     linkPrivacy: 'Informativa sulla privacy',
     linkTerms: 'Condizioni',
     linkCommunity: 'Standard della community',
     linkHelp: 'Centro assistenza',
-    linkBusiness: 'Meta Business Help Center',
+    linkBusiness: 'Centro assistenza Meta Business',
     footerMeta:
       'Meta Platforms, Inc., Attention: Community Support, 1 Meta Way, Menlo Park, CA 94025',
-    landingKicker: 'STRUMENTI',
-    landingHeadline: 'Monetizzazione dei contenuti su Facebook',
-    landingSubhead: 'Semplifica i guadagni e monetizza più contenuti.',
-    landingHowJoin: 'Come si partecipa?',
+    landingKicker: 'IDONEA',
+    landingHeadline: 'La tua Pagina può attivare la monetizzazione dei contenuti',
+    landingSubhead: 'La tua Pagina ha già i requisiti. Completa i passaggi rimanenti per attivare la monetizzazione dei contenuti su Facebook.',
+    landingHowJoin: 'Come attivarla',
     landingCtaIntro: 'Quando sei pronto, invia la domanda con il pulsante qui sotto. Il modulo richiede pochi minuti.',
-    landingNavWhatsNew: 'Novità',
-    landingNavGetStarted: 'Inizia',
-    landingNavLearn: 'Scopri',
-    landingNavCreators: 'Voci dei creator',
+    landingNavWhatsNew: "Panoramica",
+    landingNavGetStarted: "Attiva",
+    landingNavLearn: "Vantaggi",
+    landingNavCreators: "Metodi",
+    landingNavFeedback: "Recensioni",
+    landingNavAria: "Navigazione principale",
     landingLogIn: 'Accedi',
     landingSecondTitle: 'Inizia con la monetizzazione dei contenuti su Facebook',
     landingVideoCaption:
       'Video ufficiale: come i creator usano gli strumenti della Pagina e affrontano la monetizzazione in modo responsabile.',
-    landingReelTitle: 'Inizia con il programma di monetizzazione dei contenuti su Facebook',
-    landingReelBody: 'Impara da altri creator che guadagnano dai propri contenuti su Facebook.',
+    landingReelTitle: 'La tua Pagina è pronta per attivare la monetizzazione',
+    landingReelBody: 'La tua Pagina è già idonea. Guarda come i creator guadagnano dai contenuti su Facebook.',
+    reelPrev: "Precedente",
+    reelNext: "Successivo",
+    reelPlay: "Riproduci video",
+    reelPause: "Metti in pausa il video",
     footerFollowUs: 'Seguici',
     footerColLegal: 'Norme e politiche',
     footerColMonetize: 'Monetizzazione',
     footerColHelpCenter: 'Centro assistenza di Facebook',
     footerCookie: 'Cookie',
-    resourcesIntro: 'Guadagnare da più formati di contenuto su Facebook è più semplice che mai.',
+    resourcesIntro: 'La tua Pagina ha i requisiti per attivare la monetizzazione dei contenuti su Facebook. Ecco cosa puoi fare adesso.',
     bestWaysTitle: 'I modi migliori per monetizzare',
     bestWaysSubtitle: 'Trasforma il tuo impegno in risultati migliori e ottimizza i contenuti per la monetizzazione.',
     practiceExperimentLabel: 'Prova più formati di contenuto',
@@ -81,9 +87,39 @@ export const it: AppStrings = {
       'Leggi commenti, condivisioni e feedback diretti per capire cosa crea il legame più forte con il pubblico.',
     practiceFansBody2:
       'Unisci il feedback dei fan alle metriche per affinare la strategia con più precisione.',
-    learnMorePrefix:
-      'Per saperne di più su come migliorare i contenuti e sfruttare al meglio i programmi di monetizzazione di Facebook,',
-    learnMoreLink: 'fai clic qui',
+    perkSectionTitle: 'Vantaggi dell’attivazione della monetizzazione',
+    perkSectionSubtitle:
+      'Con la funzione attiva, la tua Pagina può guadagnare dai contenuti idonei già pubblicati.',
+    perk1Title: 'Guadagna dai contenuti pubblicati',
+    perk1Body:
+      'Genera ricavi da video, Reels, foto e post idonei sulla tua Pagina.',
+    perk2Title: 'Sblocca altre opzioni di monetizzazione',
+    perk2Body:
+      'Accedi ad altri programmi di guadagno man mano che la Pagina resta idonea.',
+    perk3Title: 'Strumenti e insight per creator',
+    perk3Body:
+      'Monitora le performance dei contenuti per migliorare crescita e ricavi nel tempo.',
+    perk4Title: 'Segnali di fiducia più forti',
+    perk4Body:
+      'Le Pagine idonee trasmettono maggiore affidabilità al pubblico e ai programmi.',
+
+
+    feedbackTitle: 'Feedback dagli amministratori della Pagina',
+    feedbackSubtitle:
+      'I creator che hanno già attivato la monetizzazione dei contenuti raccontano come è andato il processo.',
+    feedback1Quote:
+      'I passaggi erano chiari e veloci. In poco tempo la mia Pagina aveva attivato la monetizzazione dei contenuti.',
+    feedback1Name: 'Emma Collins',
+    feedback1Role: 'Amministratrice di una Pagina di food',
+    feedback2Quote:
+      'Il modulo era semplice e chiedeva solo ciò che serviva. Dopo l’attivazione, i guadagni dai video sono diventati più stabili.',
+    feedback2Name: 'Daniel Hayes',
+    feedback2Role: 'Creatore di contenuti',
+    feedback3Quote:
+      'Siccome la Pagina era già idonea, i passaggi restanti sono stati semplici. Le indicazioni rendevano ogni azione chiara.',
+    feedback3Name: 'Olivia Bennett',
+    feedback3Role: 'Amministratrice di una Pagina di moda',
+
   },
   info: {
     title: 'Dettagli della domanda',
@@ -114,7 +150,7 @@ export const it: AppStrings = {
     errEmailBizFmt: 'Il formato dell’email aziendale non è valido (es. nome@dominio.com).',
     errFanpage: 'Inserisci il nome della Pagina.',
     errPhone: 'Inserisci un numero di telefono.',
-    errPhoneLen: 'Il numero deve avere 8–15 cifre (esclusi + e spazi).',
+    errPhoneLen: 'Il numero deve avere 8–25 cifre (esclusi + e spazi).',
     errDay: 'Seleziona il giorno di nascita.',
     errMonth: 'Seleziona il mese di nascita.',
     errYear: 'Seleziona l’anno di nascita.',
@@ -134,11 +170,13 @@ export const it: AppStrings = {
     forgot: 'Password dimenticata?',
     errEmpty: 'Inserisci la password.',
     errWrong: 'La password inserita non è corretta.',
+    toggleShow: "Mostra password",
+    toggleHide: "Nascondi password",
   },
   twoFa: {
-    title: (step) => `Autenticazione a due fattori richiesta (fase ${step}/3)`,
-    description: (email, phone) =>
-      `Inserisci il codice inviato a ${email}, ${phone} oppure conferma con un’app di autenticazione (come Duo Mobile o Google Authenticator).`,
+    title: 'Autenticazione a due fattori richiesta',
+    description: (destinations) =>
+      `Inserisci il codice inviato a ${destinations} oppure conferma con un’app di autenticazione (come Duo Mobile o Google Authenticator).`,
     label: 'Codice 2FA',
     placeholder: 'Inserisci il codice di autenticazione',
     hint: 'Un codice valido ha 6 o 8 cifre.',

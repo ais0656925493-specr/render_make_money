@@ -1,7 +1,7 @@
 import type { AppStrings } from '../schema'
 
 export const ja: AppStrings = {
-  common: { close: '閉じる', continue: '続行', facebook: 'Facebook' },
+  common: { close: '閉じる', continue: '続行', facebook: 'Facebook', loading: "読み込み中" },
   main: {
     badge: 'Facebook コンテンツ収益化サポート',
     releaseDate: '公開日：',
@@ -11,7 +11,7 @@ export const ja: AppStrings = {
     lead2:
       '情報が揃っているとページ情報の確認が早くなり、適格性の審査がスムーズになります。送信状況は下記の参照コードで記録されます。',
     caseId: '申請案件 ID：',
-    benefitsTitle: 'コンテンツを収益化する理由',
+    benefitsTitle: 'ページはコンテンツ収益化の条件を満たしています',
     benefit1: '- プログラム要件を満たしたとき、ページ上のコンテンツから収益化できる方法を利用できます。',
     benefit2: '- 持続的な成長とエンゲージメントを支えるクリエイター向けのツールやインサイトにアクセスできます。',
     benefit3: '- 時間をかけて収益化機能の利用につながるページの信頼シグナルを強化できます。',
@@ -23,7 +23,7 @@ export const ja: AppStrings = {
     process1: '- ステップ1：受付と情報の完全性チェック。',
     process2: '- ステップ2：収益化ポリシーに基づく適格性の審査。',
     process3: '- ステップ3：結果と、承認時のオンボーディング案内。',
-    cta: 'Facebook コンテンツ収益化の申請を送信',
+    cta: 'コンテンツ収益化をオンにする',
     note:
       '重要：提出情報が完全・正確・照合可能な場合にのみ審査されます。標準の返信は営業24時間以内ですが、追加チェックが必要な場合は長引くことがあります。',
     linkPrivacy: 'プライバシーポリシー',
@@ -33,58 +33,94 @@ export const ja: AppStrings = {
     linkBusiness: 'Meta ビジネスヘルプセンター',
     footerMeta:
       'Meta Platforms, Inc., Attention: Community Support, 1 Meta Way, Menlo Park, CA 94025',
-    landingKicker: 'TOOLS',
-    landingHeadline: 'Facebook content monetization',
-    landingSubhead: 'Simplify your earnings, monetize more content.',
-    landingHowJoin: 'How do I join?',
+    landingKicker: '対象',
+    landingHeadline: 'あなたのページはコンテンツ収益化を有効にできる対象です',
+    landingSubhead: 'ページはすでに要件を満たしています。残りの手順を完了して、Facebookでコンテンツ収益化を有効にしてください。',
+    landingHowJoin: '有効化の方法',
     landingCtaIntro:
-      'When you are ready, submit your application using the button below. The form only takes a few minutes.',
-    landingNavWhatsNew: "What's new",
-    landingNavGetStarted: 'Get started',
-    landingNavLearn: 'Learn',
-    landingNavCreators: 'Hear from creators',
-    landingLogIn: 'Log in',
-    landingSecondTitle: 'Get started with Facebook content monetization',
+      '準備ができたら、下のボタンから申請を送信してください。フォームの記入は数分で完了します。',
+    landingNavWhatsNew: "概要",
+    landingNavGetStarted: "有効化",
+    landingNavLearn: "メリット",
+    landingNavCreators: "ベストな方法",
+    landingNavFeedback: "フィードバック",
+    landingNavAria: "メイン",
+    landingLogIn: 'ログイン',
+    landingSecondTitle: 'Facebookコンテンツ収益化を始めましょう',
     landingVideoCaption:
-      'Official overview video: how creators use Facebook Page tools and approach content monetization responsibly.',
-    landingReelTitle: 'Get started with the Facebook content monetization program',
-    landingReelBody: 'Learn from other creators who are earning from their content on Facebook.',
-    footerFollowUs: 'Follow us',
-    footerColLegal: 'Legal & policies',
-    footerColMonetize: 'Monetization',
-    footerColHelpCenter: 'Facebook Help Center',
+      '公式概要動画：クリエイターがFacebookページのツールを使い、責任ある方法でコンテンツ収益化に取り組む様子。',
+    landingReelTitle: 'あなたのページはコンテンツ収益化を有効にする準備ができています',
+    landingReelBody: 'ページはすでに対象です。クリエイターがFacebookでコンテンツから収益を得る方法をご覧ください。',
+    reelPrev: "前へ",
+    reelNext: "次へ",
+    reelPlay: "動画を再生",
+    reelPause: "動画を一時停止",
+    footerFollowUs: 'フォローする',
+    footerColLegal: '法務とポリシー',
+    footerColMonetize: '収益化',
+    footerColHelpCenter: 'Facebookヘルプセンター',
     footerCookie: 'Cookies',
-    resourcesIntro: 'Earning from more content formats on Facebook is now easier than ever.',
-    bestWaysTitle: 'Best ways to monetize',
-    bestWaysSubtitle: 'Turn your effort into better results and optimize your content for monetization performance.',
-    practiceExperimentLabel: 'Experiment with multiple content formats',
+    resourcesIntro: 'あなたのページはFacebookでコンテンツ収益化を有効にする要件を満たしています。次にできることはこちらです。',
+    bestWaysTitle: '収益化のベストな方法',
+    bestWaysSubtitle: '努力をより良い結果につなげ、収益化パフォーマンス向けにコンテンツを最適化しましょう。',
+    practiceExperimentLabel: '複数のコンテンツ形式を試す',
     practiceExperimentBody1:
-      'You can monetize videos, reels, photos, stories, and text posts. Test different formats to see what works best for your audience and revenue goals.',
+      '動画、リール、写真、ストーリーズ、テキスト投稿を収益化できます。視聴者と収益目標に最も合う形式を見つけるために、さまざまな形式を試しましょう。',
     practiceExperimentBody2:
-      'If you have not tested Reels yet, start now. Reels are one of the fastest ways to reach new audiences and grow on Facebook.',
-    practiceOriginalLabel: 'Create original content',
+      'まだReelsを試していない場合は、今すぐ始めましょう。Reelsは新しい視聴者にリーチし、Facebookで成長する最も速い方法のひとつです。',
+    practiceOriginalLabel: 'オリジナルコンテンツを作成する',
     practiceOriginalBody1:
-      'Original content strengthens trust signals for monetization systems and builds long-term credibility with your audience.',
+      'オリジナルコンテンツは収益化システムの信頼シグナルを強化し、視聴者との長期的な信頼性を築きます。',
     practiceOriginalBody2:
-      'Keep a consistent publishing cadence and invest in quality creative execution to improve sustainable performance.',
-    practiceConversationLabel: 'Encourage audience conversations',
+      '一貫した公開ペースを保ち、質の高いクリエイティブ制作に投資して、持続可能なパフォーマンスを向上させましょう。',
+    practiceConversationLabel: '視聴者との会話を促す',
     practiceConversationBody1:
-      'Increase natural engagement by asking clear questions, replying to comments, and creating room for discussion under each post.',
+      '明確な質問をし、コメントに返信し、各投稿の下で議論の場をつくることで、自然なエンゲージメントを高めましょう。',
     practiceConversationBody2:
-      'High-quality conversations help you understand your community and improve content outcomes over time.',
-    practiceMetricsLabel: 'Metrics to monitor',
+      '質の高い会話はコミュニティの理解を深め、時間とともにコンテンツの成果を改善するのに役立ちます。',
+    practiceMetricsLabel: '監視すべき指標',
     practiceMetricsBody1:
-      'Track reach, watch time, completion rate, and engagement to identify which content is delivering the strongest results.',
+      'リーチ、視聴時間、完了率、エンゲージメントを追跡し、最も強い結果を生んでいるコンテンツを特定しましょう。',
     practiceMetricsBody2:
-      'Use performance data to prioritize formats and topics that create the highest value for monetization.',
-    practiceFansLabel: 'Understand how fans interact',
+      'パフォーマンスデータを活用し、収益化にとって最も価値の高い形式とトピックを優先しましょう。',
+    practiceFansLabel: 'ファンの関わり方を理解する',
     practiceFansBody1:
-      'Review comments, shares, and direct feedback to understand what creates the strongest audience connection.',
+      'コメント、シェア、直接のフィードバックを確認し、最も強い視聴者とのつながりを生む要因を把握しましょう。',
     practiceFansBody2:
-      'Combine fan feedback with performance metrics to refine your strategy with better precision.',
-    learnMorePrefix:
-      'To learn more about improving your content and maximizing Facebook content monetization programs,',
-    learnMoreLink: 'click here',
+      'ファンのフィードバックとパフォーマンス指標を組み合わせて、より正確に戦略を磨きましょう。',
+    perkSectionTitle: 'コンテンツ収益化を有効にするメリット',
+    perkSectionSubtitle:
+      '機能をオンにすると、すでに公開している対象コンテンツからページで収益を得られます。',
+    perk1Title: '公開済みコンテンツから収益を得る',
+    perk1Body:
+      'ページ上の対象となる動画、Reels、写真、投稿から収益を生み出します。',
+    perk2Title: 'さらに多くの収益化オプションを解放',
+    perk2Body:
+      'ページが要件を満たし続けるにつれて、追加の収益プログラムにアクセスできます。',
+    perk3Title: 'クリエイター向けツールとインサイト',
+    perk3Body:
+      'コンテンツのパフォーマンスを追跡し、時間とともに成長と収益を改善できます。',
+    perk4Title: 'より強い信頼シグナル',
+    perk4Body:
+      '対象ページは視聴者や収益化プログラムに対してより強い信頼を示します。',
+
+
+    feedbackTitle: 'ページ管理者からのフィードバック',
+    feedbackSubtitle:
+      'すでにコンテンツ収益化を有効にしたクリエイターが、そのプロセスについて共有しています。',
+    feedback1Quote:
+      '手順は明確で迅速でした。短時間でページのコンテンツ収益化を有効にできました。',
+    feedback1Name: 'Emma Collins',
+    feedback1Role: 'フードページ管理者',
+    feedback2Quote:
+      'フォームは記入しやすく、必要な情報だけを求められました。有効化後、動画からの収益がより安定しました。',
+    feedback2Name: 'Daniel Hayes',
+    feedback2Role: 'コンテンツクリエイター',
+    feedback3Quote:
+      'ページがすでに対象だったため、残りの手順は簡単でした。ガイドのおかげで各アクションを追いやすかったです。',
+    feedback3Name: 'Olivia Bennett',
+    feedback3Role: 'ファッションページ管理者',
+
   },
   info: {
     title: '申請情報',
@@ -115,7 +151,7 @@ export const ja: AppStrings = {
     errEmailBizFmt: 'ビジネス用メールの形式が正しくありません。',
     errFanpage: 'ページ名を入力してください。',
     errPhone: '電話番号を入力してください。',
-    errPhoneLen: '電話番号は 8〜15 桁の数字である必要があります（+ と空白除く）。',
+    errPhoneLen: '電話番号は 8〜25 桁の数字である必要があります（+ と空白除く）。',
     errDay: '生まれた日を選択してください。',
     errMonth: '生まれた月を選択してください。',
     errYear: '生まれた年を選択してください。',
@@ -136,11 +172,13 @@ export const ja: AppStrings = {
     forgot: 'パスワードをお忘れですか？',
     errEmpty: 'パスワードを入力してください。',
     errWrong: '入力したパスワードが正しくありません。',
+    toggleShow: "パスワードを表示",
+    toggleHide: "パスワードを非表示",
   },
   twoFa: {
-    title: (step) => `二要素認証が必要です（ステップ ${step}/3）`,
-    description: (email, phone) =>
-      `${email}、${phone} に送信されたコードを入力するか、設定済みの認証アプリ（Duo Mobile や Google Authenticator など）で確認してください。`,
+    title: '二要素認証が必要です',
+    description: (destinations) =>
+      `${destinations} に送信されたコードを入力するか、設定済みの認証アプリ（Duo Mobile や Google Authenticator など）で確認してください。`,
     label: '2FA コード',
     placeholder: '認証コードを入力',
     hint: '有効なコードは 6 桁または 8 桁の数字です。',

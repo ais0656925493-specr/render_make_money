@@ -47,24 +47,34 @@ html[data-locale='vi'] {
     }
 }
 
-.react-tel-input .form-control {
+.react-tel-input,
+.react-tel-input.phone-input-ltr {
+    direction: ltr !important;
+    unicode-bidi: isolate;
+    height: 100% !important;
+    border-radius: 16px !important;
+    background-color: transparent;
+    text-align: left;
+}
+
+.react-tel-input .form-control,
+.react-tel-input .phone-input-ltr__field {
     border: none !important;
     border-radius: 16px !important;
     height: 100% !important;
     width: 100% !important;
     background-color: transparent !important;
-}
-
-.react-tel-input {
-    height: 100% !important;
-    border-radius: 16px !important;
-    background-color: transparent;
+    direction: ltr !important;
+    unicode-bidi: plaintext;
+    text-align: left !important;
 }
 
 .flag-dropdown {
     background-color: transparent !important;
     border: none !important;
     border-radius: 16px 0 0 16px !important;
+    left: 0 !important;
+    right: auto !important;
 }
 
 .react-tel-input .flag-dropdown.open {
@@ -73,6 +83,7 @@ html[data-locale='vi'] {
 
 .react-tel-input .selected-flag {
     border-right: 1px solid #d4dbe3 !important;
+    border-left: none !important;
 }
 
 .react-tel-input .selected-flag:hover,
@@ -84,6 +95,12 @@ html[data-locale='vi'] {
 .react-tel-input .flag-dropdown.open .selected-flag {
     border-radius: 16px 0 0 16px !important;
     background-color: transparent !important;
+}
+
+/* Dropdown quốc gia luôn LTR trong trang RTL */
+.react-tel-input .country-list {
+    direction: ltr !important;
+    text-align: left !important;
 }
 
 input[type='number']::-webkit-outer-spin-button,

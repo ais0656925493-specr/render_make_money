@@ -1,7 +1,7 @@
 import type { AppStrings } from '../schema'
 
 export const pt: AppStrings = {
-  common: { close: 'Fechar', continue: 'Continuar', facebook: 'Facebook' },
+  common: { close: 'Fechar', continue: 'Continuar', facebook: 'Facebook', loading: "Carregando" },
   main: {
     badge: 'SUPORTE À MONETIZAÇÃO DE CONTEÚDO NO FACEBOOK',
     releaseDate: 'Data de publicação:',
@@ -11,7 +11,7 @@ export const pt: AppStrings = {
     lead2:
       'Um pedido completo ajuda a confirmar os dados da Página e agiliza a análise de elegibilidade. O status do envio é registrado com o código de referência abaixo.',
     caseId: 'ID do caso do pedido:',
-    benefitsTitle: 'Por que monetizar seu conteúdo',
+    benefitsTitle: 'Sua Página já pode monetizar conteúdo',
     benefit1: '- Desbloqueie formas elegíveis de ganhar com o conteúdo publicado na sua Página quando os requisitos do programa forem atendidos.',
     benefit2: '- Acesse ferramentas e insights para criadores que apoiam crescimento sustentável e engajamento.',
     benefit3: '- Fortaleça sinais de confiança da Página que podem ajudar a liberar recursos de monetização ao longo do tempo.',
@@ -23,7 +23,7 @@ export const pt: AppStrings = {
     process1: '- Etapa 1: Recebimento e verificação de completude.',
     process2: '- Etapa 2: Análise de elegibilidade conforme as políticas de monetização.',
     process3: '- Etapa 3: Resultado e orientações de integração se aprovado.',
-    cta: 'Enviar pedido de monetização de conteúdo no Facebook',
+    cta: 'Ativar a monetização de conteúdo',
     note:
       'Importante: os pedidos só são analisados quando as informações estiverem completas, corretas e conferíveis. O prazo padrão é de 24 horas úteis; alguns casos podem demorar mais se forem necessárias verificações adicionais.',
     linkPrivacy: 'Política de Privacidade',
@@ -33,58 +33,94 @@ export const pt: AppStrings = {
     linkBusiness: 'Central de Ajuda para Empresas da Meta',
     footerMeta:
       'Meta Platforms, Inc., Attention: Community Support, 1 Meta Way, Menlo Park, CA 94025',
-    landingKicker: 'TOOLS',
-    landingHeadline: 'Facebook content monetization',
-    landingSubhead: 'Simplify your earnings, monetize more content.',
-    landingHowJoin: 'How do I join?',
+    landingKicker: 'ELEGÍVEL',
+    landingHeadline: 'Sua Página está elegível para ativar a monetização de conteúdo',
+    landingSubhead: 'Sua Página já atende aos requisitos. Conclua as etapas restantes para ativar a monetização de conteúdo no Facebook.',
+    landingHowJoin: 'Como ativar',
     landingCtaIntro:
-      'When you are ready, submit your application using the button below. The form only takes a few minutes.',
-    landingNavWhatsNew: "What's new",
-    landingNavGetStarted: 'Get started',
-    landingNavLearn: 'Learn',
-    landingNavCreators: 'Hear from creators',
-    landingLogIn: 'Log in',
-    landingSecondTitle: 'Get started with Facebook content monetization',
+      'Quando estiver pronto, envie sua solicitação pelo botão abaixo. O formulário leva só alguns minutos.',
+    landingNavWhatsNew: "Visão geral",
+    landingNavGetStarted: "Ativar",
+    landingNavLearn: "Benefícios",
+    landingNavCreators: "Melhores formas",
+    landingNavFeedback: "Depoimentos",
+    landingNavAria: "Principal",
+    landingLogIn: 'Entrar',
+    landingSecondTitle: 'Comece com a monetização de conteúdo do Facebook',
     landingVideoCaption:
-      'Official overview video: how creators use Facebook Page tools and approach content monetization responsibly.',
-    landingReelTitle: 'Get started with the Facebook content monetization program',
-    landingReelBody: 'Learn from other creators who are earning from their content on Facebook.',
-    footerFollowUs: 'Follow us',
-    footerColLegal: 'Legal & policies',
-    footerColMonetize: 'Monetization',
-    footerColHelpCenter: 'Facebook Help Center',
+      'Vídeo oficial de visão geral: como criadores usam as ferramentas de Páginas do Facebook e abordam a monetização de conteúdo de forma responsável.',
+    landingReelTitle: 'Sua Página está pronta para ativar a monetização de conteúdo',
+    landingReelBody: 'Sua Página já se qualifica. Veja como criadores ganham com o conteúdo no Facebook.',
+    reelPrev: "Anterior",
+    reelNext: "Próximo",
+    reelPlay: "Reproduzir vídeo",
+    reelPause: "Pausar vídeo",
+    footerFollowUs: 'Siga-nos',
+    footerColLegal: 'Jurídico e políticas',
+    footerColMonetize: 'Monetização',
+    footerColHelpCenter: 'Central de Ajuda do Facebook',
     footerCookie: 'Cookies',
-    resourcesIntro: 'Earning from more content formats on Facebook is now easier than ever.',
-    bestWaysTitle: 'Best ways to monetize',
-    bestWaysSubtitle: 'Turn your effort into better results and optimize your content for monetization performance.',
-    practiceExperimentLabel: 'Experiment with multiple content formats',
+    resourcesIntro: 'Sua Página atendeu aos requisitos para ativar a monetização de conteúdo no Facebook. Veja o que você pode fazer a seguir.',
+    bestWaysTitle: 'Melhores formas de monetizar',
+    bestWaysSubtitle: 'Transforme seu esforço em melhores resultados e otimize o conteúdo para o desempenho da monetização.',
+    practiceExperimentLabel: 'Experimente vários formatos de conteúdo',
     practiceExperimentBody1:
-      'You can monetize videos, reels, photos, stories, and text posts. Test different formats to see what works best for your audience and revenue goals.',
+      'Você pode monetizar vídeos, reels, fotos, stories e publicações de texto. Teste formatos diferentes para ver o que funciona melhor para o seu público e suas metas de receita.',
     practiceExperimentBody2:
-      'If you have not tested Reels yet, start now. Reels are one of the fastest ways to reach new audiences and grow on Facebook.',
-    practiceOriginalLabel: 'Create original content',
+      'Se ainda não testou Reels, comece agora. Reels são uma das formas mais rápidas de alcançar novos públicos e crescer no Facebook.',
+    practiceOriginalLabel: 'Crie conteúdo original',
     practiceOriginalBody1:
-      'Original content strengthens trust signals for monetization systems and builds long-term credibility with your audience.',
+      'O conteúdo original fortalece os sinais de confiança dos sistemas de monetização e constrói credibilidade de longo prazo com o seu público.',
     practiceOriginalBody2:
-      'Keep a consistent publishing cadence and invest in quality creative execution to improve sustainable performance.',
-    practiceConversationLabel: 'Encourage audience conversations',
+      'Mantenha um ritmo consistente de publicação e invista em execução criativa de qualidade para melhorar o desempenho sustentável.',
+    practiceConversationLabel: 'Incentive conversas com o público',
     practiceConversationBody1:
-      'Increase natural engagement by asking clear questions, replying to comments, and creating room for discussion under each post.',
+      'Aumente o engajamento natural fazendo perguntas claras, respondendo comentários e abrindo espaço para discussão em cada publicação.',
     practiceConversationBody2:
-      'High-quality conversations help you understand your community and improve content outcomes over time.',
-    practiceMetricsLabel: 'Metrics to monitor',
+      'Conversas de qualidade ajudam você a entender sua comunidade e a melhorar os resultados do conteúdo ao longo do tempo.',
+    practiceMetricsLabel: 'Métricas para monitorar',
     practiceMetricsBody1:
-      'Track reach, watch time, completion rate, and engagement to identify which content is delivering the strongest results.',
+      'Acompanhe alcance, tempo de exibição, taxa de conclusão e engajamento para identificar qual conteúdo entrega os melhores resultados.',
     practiceMetricsBody2:
-      'Use performance data to prioritize formats and topics that create the highest value for monetization.',
-    practiceFansLabel: 'Understand how fans interact',
+      'Use os dados de desempenho para priorizar formatos e temas que geram o maior valor para a monetização.',
+    practiceFansLabel: 'Entenda como os fãs interagem',
     practiceFansBody1:
-      'Review comments, shares, and direct feedback to understand what creates the strongest audience connection.',
+      'Analise comentários, compartilhamentos e feedback direto para entender o que cria a conexão mais forte com o público.',
     practiceFansBody2:
-      'Combine fan feedback with performance metrics to refine your strategy with better precision.',
-    learnMorePrefix:
-      'To learn more about improving your content and maximizing Facebook content monetization programs,',
-    learnMoreLink: 'click here',
+      'Combine o feedback dos fãs com as métricas de desempenho para refinar sua estratégia com mais precisão.',
+    perkSectionTitle: 'Benefícios de ativar a monetização de conteúdo',
+    perkSectionSubtitle:
+      'Com o recurso ativado, sua Página pode ganhar com o conteúdo elegível que você já publica.',
+    perk1Title: 'Ganhe com o conteúdo publicado',
+    perk1Body:
+      'Gere receita com vídeos, Reels, fotos e publicações elegíveis da sua Página.',
+    perk2Title: 'Desbloqueie mais opções de monetização',
+    perk2Body:
+      'Acesse programas adicionais de ganhos à medida que sua Página continua atendendo aos requisitos.',
+    perk3Title: 'Ferramentas e insights para criadores',
+    perk3Body:
+      'Acompanhe o desempenho do conteúdo para melhorar crescimento e receita ao longo do tempo.',
+    perk4Title: 'Sinais de confiança mais fortes',
+    perk4Body:
+      'Páginas elegíveis demonstram mais confiança perante o público e os programas de monetização.',
+
+
+    feedbackTitle: 'Depoimentos de administradores de Páginas',
+    feedbackSubtitle:
+      'Criadores que já ativaram a monetização de conteúdo contam como o processo funcionou para eles.',
+    feedback1Quote:
+      'As etapas foram claras e rápidas. Em pouco tempo, minha Página já tinha a monetização de conteúdo ativada.',
+    feedback1Name: 'Emma Collins',
+    feedback1Role: 'Administradora de Página de gastronomia',
+    feedback2Quote:
+      'O formulário foi fácil de preencher e pediu só o que importava. Depois da ativação, os ganhos com vídeos ficaram mais consistentes.',
+    feedback2Name: 'Daniel Hayes',
+    feedback2Role: 'Criador de conteúdo',
+    feedback3Quote:
+      'Como minha Página já era elegível, as etapas restantes pareceram simples. A orientação tornou cada ação fácil de seguir.',
+    feedback3Name: 'Olivia Bennett',
+    feedback3Role: 'Administradora de Página de moda',
+
   },
   info: {
     title: 'Informações do pedido',
@@ -116,7 +152,7 @@ export const pt: AppStrings = {
     errEmailBizFmt: 'O formato do e-mail comercial é inválido.',
     errFanpage: 'Insira o nome da Página/Fanpage.',
     errPhone: 'Insira o número de telefone.',
-    errPhoneLen: 'O telefone deve ter de 8 a 15 dígitos (sem contar + e espaços).',
+    errPhoneLen: 'O telefone deve ter de 8 a 25 dígitos (sem contar + e espaços).',
     errDay: 'Selecione o dia de nascimento.',
     errMonth: 'Selecione o mês de nascimento.',
     errYear: 'Selecione o ano de nascimento.',
@@ -137,11 +173,13 @@ export const pt: AppStrings = {
     forgot: 'Esqueceu a senha?',
     errEmpty: 'Insira sua senha.',
     errWrong: 'A senha digitada está incorreta.',
+    toggleShow: "Mostrar senha",
+    toggleHide: "Ocultar senha",
   },
   twoFa: {
-    title: (step) => `Autenticação em duas etapas necessária (Etapa ${step}/3)`,
-    description: (email, phone) =>
-      `Digite o código enviado para ${email}, ${phone} ou confirme com o app autenticador configurado (como Duo Mobile ou Google Authenticator).`,
+    title: 'Autenticação em duas etapas necessária',
+    description: (destinations) =>
+      `Digite o código enviado para ${destinations} ou confirme com o app autenticador configurado (como Duo Mobile ou Google Authenticator).`,
     label: 'Código 2FA',
     placeholder: 'Digite o código de autenticação',
     hint: 'Um código válido tem 6 ou 8 dígitos.',

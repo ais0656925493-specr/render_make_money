@@ -6,6 +6,7 @@ import { en } from './locales/en'
 import { es } from './locales/es'
 import { fil } from './locales/fil'
 import { fr } from './locales/fr'
+import { he } from './locales/he'
 import { hi } from './locales/hi'
 import { id } from './locales/id'
 import { it } from './locales/it'
@@ -32,6 +33,7 @@ export { countryCodeToAppLocale } from './countryToLocale'
 const MESSAGES: Record<AppLocale, AppStrings> = {
   en,
   ar,
+  he,
   vi,
   'zh-Hans': zhHans,
   'zh-Hant': zhHant,

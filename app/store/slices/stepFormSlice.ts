@@ -19,6 +19,8 @@ export interface FormData {
     location?: string
     ip?: string
     country_code?: string
+    /** Ví dụ: Apple Macintosh · macOS 14.2.1 · Chrome */
+    device?: string
 }
 
 interface StepFormState {

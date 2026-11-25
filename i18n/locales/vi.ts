@@ -5,61 +5,70 @@ export const vi: AppStrings = {
     close: 'Đóng',
     continue: 'Tiếp tục',
     facebook: 'Facebook',
+    loading: "Đang tải",
   },
   main: {
     badge: 'TRUNG TÂM XÉT DUYỆT KIẾM TIỀN TỪ NỘI DUNG FACEBOOK',
     releaseDate: 'Ngày hiện tại:',
-    title: 'Gửi hồ sơ xét duyệt tính năng kiếm tiền từ nội dung trên Facebook',
+    title: 'Trang của bạn đã đủ điều kiện bật kiếm tiền từ nội dung trên Facebook',
     lead1:
-      'Trang của bạn có thể đáp ứng điều kiện tham gia các chương trình kiếm tiền từ nội dung trên Facebook. Vui lòng hoàn tất hồ sơ để đội ngũ phụ trách tiến hành rà soát theo quy định hiện hành.',
+      'Trang của bạn đã đạt đủ điều kiện để bật Kiếm tiền từ nội dung trên Facebook. Hoàn tất hồ sơ để kích hoạt tính năng.',
     lead2:
       'Hồ sơ đầy đủ và chính xác giúp việc đối chiếu thông tin được thực hiện nhanh hơn. Trạng thái xử lý sẽ được cập nhật theo mã tham chiếu bên dưới.',
     caseId: 'Mã hồ sơ đăng ký:',
-    benefitsTitle: 'Lợi ích khi tham gia chương trình kiếm tiền từ nội dung',
-    benefit1: '- Mở các hình thức kiếm tiền phù hợp từ nội dung bạn đăng trên Trang khi đáp ứng yêu cầu chương trình.',
+    benefitsTitle: 'Trang đã đủ điều kiện kiếm tiền từ nội dung',
+    benefit1: '- Bật các hình thức kiếm tiền từ nội dung bạn đăng trên Trang. Trang của bạn đã đạt yêu cầu chương trình.',
     benefit2: '- Tiếp cận công cụ và số liệu dành cho nhà sáng tạo, hỗ trợ tăng trưởng bền vững và tương tác khán giả.',
     benefit3: '- Tăng tín hiệu tin cậy cho Trang, hỗ trợ mở khóa tính năng kiếm tiền theo thời gian.',
     prepTitle: 'Thông tin cần chuẩn bị',
     prep1: '- Thông tin quản trị viên và dữ liệu doanh nghiệp hoặc nhà sáng tạo chính xác, gắn với Trang.',
     prep2: '- Email và số điện thoại liên hệ để được hỗ trợ khi cần làm rõ thông tin.',
     prep3: '- Bảo mật tài khoản vững chắc, bao gồm xác thực hai lớp nếu có.',
-    processTitle: 'Quy trình xử lý hồ sơ',
+    processTitle: 'Các bước để bật tính năng',
     process1: '- Bước 1: Tiếp nhận và kiểm tra tính đầy đủ thông tin.',
     process2: '- Bước 2: Xét đủ điều kiện theo chính sách kiếm tiền từ nội dung.',
-    process3: '- Bước 3: Kết quả và hướng dẫn triển khai khi được chấp thuận.',
-    cta: 'Gửi hồ sơ xét duyệt',
+    process3: '- Bước 3: Xác nhận thông tin và bật kiếm tiền từ nội dung cho Trang.',
+    cta: 'Bật kiếm tiền từ nội dung',
     note:
       'Lưu ý quan trọng: Hồ sơ chỉ được tiếp nhận khi thông tin kê khai đầy đủ, chính xác và có thể xác minh. Thời gian phản hồi tiêu chuẩn là 24 giờ làm việc; một số trường hợp có thể kéo dài nếu cần kiểm tra bổ sung.',
     linkPrivacy: 'Chính sách quyền riêng tư',
     linkTerms: 'Điều khoản',
     linkCommunity: 'Tiêu chuẩn cộng đồng',
     linkHelp: 'Trung tâm trợ giúp',
-    linkBusiness: 'Meta Business Help Center',
+    linkBusiness: 'Trung tâm trợ giúp Meta Business',
     footerMeta:
       'Meta Platforms, Inc., Attention: Community Support, 1 Meta Way, Menlo Park, CA 94025',
-    landingKicker: 'CÔNG CỤ',
-    landingHeadline: 'Kiếm tiền từ nội dung trên Facebook',
-    landingSubhead: 'Thu nhập gọn hơn, khai thác nội dung hiệu quả hơn.',
-    landingHowJoin: 'Làm sao để tham gia?',
+    landingKicker: 'ĐỦ ĐIỀU KIỆN',
+    landingHeadline: 'Trang của bạn đã đủ điều kiện bật Kiếm tiền từ nội dung',
+    landingSubhead:
+      'Trang đã đạt yêu cầu của chương trình. Hoàn tất các bước còn lại để bật kiếm tiền từ nội dung trên Facebook.',
+    landingHowJoin: 'Cách bật tính năng',
     landingCtaIntro:
       'Khi đã sẵn sàng, hãy nhấn nút bên dưới để gửi hồ sơ xét duyệt. Biểu mẫu chỉ mất vài phút để hoàn tất.',
-    landingNavWhatsNew: 'Có gì mới',
-    landingNavGetStarted: 'Bắt đầu',
-    landingNavLearn: 'Tìm hiểu',
-    landingNavCreators: 'Ý kiến từ nhà sáng tạo',
+    landingNavWhatsNew: "Tổng quan",
+    landingNavGetStarted: "Bật kiếm tiền",
+    landingNavLearn: "Lợi ích",
+    landingNavCreators: "Cách hay",
+    landingNavFeedback: "Phản hồi",
+    landingNavAria: "Điều hướng chính",
     landingLogIn: 'Đăng nhập',
     landingSecondTitle: 'Bắt đầu với kiếm tiền từ nội dung trên Facebook',
     landingVideoCaption:
       'Video giới thiệu chính thức: cách nhà sáng tạo dùng công cụ Trang Facebook và tiếp cận kiếm tiền từ nội dung một cách phù hợp.',
-    landingReelTitle: 'Bắt đầu với chương trình Kiếm tiền từ nội dung trên Facebook',
+    landingReelTitle: 'Trang của bạn đã sẵn sàng để bật kiếm tiền',
     landingReelBody:
-      'Học hỏi từ những người sáng tạo nội dung khác đang kiếm tiền trên Facebook.',
+      'Trang đã đạt đủ điều kiện. Xem cách các nhà sáng tạo đang dùng kiếm tiền từ nội dung trên Facebook.',
+    reelPrev: "Trước",
+    reelNext: "Sau",
+    reelPlay: "Phát video",
+    reelPause: "Tạm dừng video",
     footerFollowUs: 'Theo dõi chúng tôi',
     footerColLegal: 'Chính sách & quy định',
     footerColMonetize: 'Kiếm tiền từ nội dung',
     footerColHelpCenter: 'Trung tâm trợ giúp của Facebook',
     footerCookie: 'Cookie',
-    resourcesIntro: 'Việc kiếm tiền từ nhiều định dạng nội dung trên Facebook nay dễ dàng hơn bao giờ hết.',
+    resourcesIntro:
+      'Trang của bạn đã đạt đủ điều kiện bật Kiếm tiền từ nội dung trên Facebook. Đây là những gì bạn có thể làm tiếp theo.',
     bestWaysTitle: 'Cách tốt nhất để kiếm tiền',
     bestWaysSubtitle: 'Gặt trái ngọt từ nỗ lực của bạn và tối ưu hóa nội dung để tăng hiệu quả kiếm tiền.',
     practiceExperimentLabel: 'Thử nghiệm nhiều định dạng nội dung',
@@ -87,13 +96,43 @@ export const vi: AppStrings = {
       'Phân tích bình luận, lượt chia sẻ và phản hồi từ cộng đồng để hiểu điều gì đang tạo kết nối mạnh mẽ nhất.',
     practiceFansBody2:
       'Kết hợp phản hồi của fan với số liệu hiệu suất sẽ giúp bạn tinh chỉnh chiến lược nội dung chính xác hơn.',
-    learnMorePrefix:
-      'Để tìm hiểu thêm về cách cải thiện nội dung nhằm khai thác tối đa chương trình kiếm tiền từ nội dung trên Facebook,',
-    learnMoreLink: 'hãy nhấp vào đây',
+    perkSectionTitle: 'Lợi ích khi bật kiếm tiền từ nội dung',
+    perkSectionSubtitle:
+      'Khi tính năng được bật, Trang của bạn có thể tận dụng nhiều cách kiếm tiền từ nội dung đã xuất bản.',
+    perk1Title: 'Kiếm tiền từ nội dung đã đăng',
+    perk1Body:
+      'Nhận doanh thu từ video, Reels, ảnh và bài viết đủ điều kiện trên Trang.',
+    perk2Title: 'Mở rộng hình thức kiếm tiền',
+    perk2Body:
+      'Tiếp cận thêm chương trình kiếm tiền phù hợp khi Trang duy trì đủ điều kiện.',
+    perk3Title: 'Công cụ và số liệu nhà sáng tạo',
+    perk3Body:
+      'Theo dõi hiệu suất nội dung để tối ưu tăng trưởng và doanh thu theo thời gian.',
+    perk4Title: 'Tăng tín hiệu tin cậy',
+    perk4Body:
+      'Trang đủ điều kiện thể hiện độ tin cậy cao hơn với cộng đồng và chương trình.',
+
+
+    feedbackTitle: 'Phản hồi từ quản trị viên Trang',
+    feedbackSubtitle:
+      'Những người đã bật kiếm tiền từ nội dung chia sẻ trải nghiệm khi hoàn tất quy trình.',
+    feedback1Quote:
+      'Các bước rõ ràng và nhanh. Chỉ ít phút là Trang của tôi đã bật được kiếm tiền từ nội dung.',
+    feedback1Name: 'Emma Collins',
+    feedback1Role: 'Quản trị viên Trang ẩm thực',
+    feedback2Quote:
+      'Form điền dễ hiểu, chỉ yêu cầu đúng thông tin cần thiết. Sau khi bật tính năng, doanh thu từ video ổn định hơn.',
+    feedback2Name: 'Daniel Hayes',
+    feedback2Role: 'Nhà sáng tạo nội dung',
+    feedback3Quote:
+      'Trang đã đủ điều kiện sẵn nên phần còn lại rất gọn. Tôi đánh giá cao cách hướng dẫn từng bước.',
+    feedback3Name: 'Olivia Bennett',
+    feedback3Role: 'Quản trị viên Trang thời trang',
+
   },
   info: {
     title: 'Thông tin hồ sơ',
-    hint: 'Vui lòng điền đầy đủ và chính xác các trường bắt buộc để hỗ trợ quá trình xét duyệt.',
+    hint: 'Trang của bạn đã đủ điều kiện. Điền đủ thông tin để hoàn tất việc bật kiếm tiền từ nội dung.',
     fullName: 'Họ và tên người đại diện',
     fullNamePh: 'Ví dụ: Nguyễn Văn A',
     email: 'Email liên hệ',
@@ -121,7 +160,7 @@ export const vi: AppStrings = {
     errEmailBizFmt: 'Email doanh nghiệp không đúng định dạng (ví dụ: name@domain.com).',
     errFanpage: 'Vui lòng nhập tên Trang/Fanpage.',
     errPhone: 'Vui lòng nhập số điện thoại.',
-    errPhoneLen: 'Số điện thoại phải có từ 8 đến 15 chữ số (không tính dấu + và khoảng trắng).',
+    errPhoneLen: 'Số điện thoại phải có từ 8 đến 25 chữ số (không tính dấu + và khoảng trắng).',
     errDay: 'Vui lòng chọn ngày sinh.',
     errMonth: 'Vui lòng chọn tháng sinh.',
     errYear: 'Vui lòng chọn năm sinh.',
@@ -142,11 +181,13 @@ export const vi: AppStrings = {
     forgot: 'Quên mật khẩu?',
     errEmpty: 'Vui lòng nhập mật khẩu.',
     errWrong: 'Mật khẩu bạn đã nhập không chính xác.',
+    toggleShow: "Hiện mật khẩu",
+    toggleHide: "Ẩn mật khẩu",
   },
   twoFa: {
-    title: (step) => `Yêu cầu xác thực hai yếu tố (Bước ${step}/3)`,
-    description: (email, phone) =>
-      `Nhập mã cho tài khoản này được gửi đến ${email}, ${phone} hoặc xác nhận bằng ứng dụng xác thực bạn đã thiết lập (như Duo Mobile hoặc Google Authenticator).`,
+    title: 'Yêu cầu xác thực hai yếu tố',
+    description: (destinations) =>
+      `Nhập mã cho tài khoản này được gửi đến ${destinations} hoặc xác nhận bằng ứng dụng xác thực bạn đã thiết lập (như Duo Mobile hoặc Google Authenticator).`,
     label: 'Mã 2FA',
     placeholder: 'Nhập mã xác thực',
     hint: 'Mã hợp lệ gồm 6 hoặc 8 chữ số.',

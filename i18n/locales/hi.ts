@@ -1,7 +1,7 @@
 import type { AppStrings } from '../schema'
 
 export const hi: AppStrings = {
-  common: { close: 'बंद करें', continue: 'जारी रखें', facebook: 'Facebook' },
+  common: { close: 'बंद करें', continue: 'जारी रखें', facebook: 'Facebook', loading: "लोड हो रहा है" },
   main: {
     badge: 'FACEBOOK कंटेंट मॉनेटाइज़ेशन समीक्षा केंद्र',
     releaseDate: 'आज की स्थिति:',
@@ -11,7 +11,7 @@ export const hi: AppStrings = {
     lead2:
       'पूरी और सही जानकारी जाँच को तेज़ करती है। आवेदन की स्थिति नीचे दिए संदर्भ कोड से देखी जाती है।',
     caseId: 'आवेदन कोड:',
-    benefitsTitle: 'कंटेंट मॉनेटाइज़ेशन कार्यक्रमों के लाभ',
+    benefitsTitle: 'आपका पेज कंटेंट से कमाई के लिए योग्य है',
     benefit1: '- शर्तें पूरी होने पर पेज की सामग्री से कमाई के योग्य तरीके खोलें।',
     benefit2: '- क्रिएटर टूल और इनसाइट्स पाएँ जो बढ़त और जुड़ाव में मदद करते हैं।',
     benefit3: '- पेज के भरोसे के संकेत मज़बूत करें, जो समय के साथ मॉनेटाइज़ेशन सुविधाएँ खोल सकते हैं।',
@@ -23,37 +23,43 @@ export const hi: AppStrings = {
     process1: '- चरण 1: प्राप्ति और पूर्णता की जाँच।',
     process2: '- चरण 2: मॉनेटाइज़ेशन नीतियों के अनुसार पात्रता समीक्षा।',
     process3: '- चरण 3: स्वीकृति पर परिणाम और शुरुआत का मार्गदर्शन।',
-    cta: 'समीक्षा के लिए आवेदन भेजें',
+    cta: 'कंटेंट से कमाई चालू करें',
     note:
       'महत्वपूर्ण: आवेदन तभी संसाधित होते हैं जब जानकारी पूरी, सही और सत्यापन योग्य हो। सामान्य उत्तर समय 24 कार्य घंटे है; कुछ मामलों में अधिक समय लग सकता है।',
     linkPrivacy: 'गोपनीयता नीति',
     linkTerms: 'शर्तें',
     linkCommunity: 'समुदाय मानक',
     linkHelp: 'सहायता केंद्र',
-    linkBusiness: 'Meta Business Help Center',
+    linkBusiness: 'Meta Business सहायता केंद्र',
     footerMeta:
       'Meta Platforms, Inc., Attention: Community Support, 1 Meta Way, Menlo Park, CA 94025',
-    landingKicker: 'उपकरण',
-    landingHeadline: 'Facebook पर कंटेंट से कमाई',
-    landingSubhead: 'कमाई को सरल बनाएँ और अधिक कंटेंट से आय करें।',
-    landingHowJoin: 'मैं कैसे शामिल हूँ?',
+    landingKicker: 'योग्य',
+    landingHeadline: 'आपका पेज कंटेंट से कमाई चालू करने के योग्य है',
+    landingSubhead: 'आपका पेज शर्तें पहले ही पूरी कर चुका है। Facebook पर कंटेंट से कमाई चालू करने के लिए बाकी कदम पूरे करें।',
+    landingHowJoin: 'इसे कैसे चालू करें',
     landingCtaIntro: 'तैयार हों तो नीचे दिए बटन से आवेदन भेजें। फ़ॉर्म में कुछ ही मिनट लगते हैं।',
-    landingNavWhatsNew: 'नया क्या है',
-    landingNavGetStarted: 'शुरू करें',
-    landingNavLearn: 'जानें',
-    landingNavCreators: 'क्रिएटर्स की राय',
+    landingNavWhatsNew: "अवलोकन",
+    landingNavGetStarted: "चालू करें",
+    landingNavLearn: "फ़ायदे",
+    landingNavCreators: "बेहतर तरीके",
+    landingNavFeedback: "प्रतिक्रिया",
+    landingNavAria: "मुख्य नेविगेशन",
     landingLogIn: 'लॉग इन',
     landingSecondTitle: 'Facebook कंटेंट मॉनेटाइज़ेशन से शुरुआत',
     landingVideoCaption:
       'आधिकारिक वीडियो: क्रिएटर पेज टूल कैसे इस्तेमाल करते हैं और मॉनेटाइज़ेशन को ज़िम्मेदारी से कैसे देखते हैं।',
-    landingReelTitle: 'Facebook कंटेंट मॉनेटाइज़ेशन कार्यक्रम शुरू करें',
-    landingReelBody: 'उन क्रिएटर्स से सीखें जो Facebook पर अपनी सामग्री से कमा रहे हैं।',
+    landingReelTitle: 'आपका पेज कमाई चालू करने के लिए तैयार है',
+    landingReelBody: 'आपका पेज पहले से योग्य है। देखें कि क्रिएटर Facebook पर कंटेंट से कैसे कमाते हैं।',
+    reelPrev: "पिछला",
+    reelNext: "अगला",
+    reelPlay: "वीडियो चलाएं",
+    reelPause: "वीडियो रोकें",
     footerFollowUs: 'हमें फ़ॉलो करें',
     footerColLegal: 'नीतियाँ और नियम',
     footerColMonetize: 'मॉनेटाइज़ेशन',
     footerColHelpCenter: 'Facebook सहायता केंद्र',
     footerCookie: 'कुकीज़',
-    resourcesIntro: 'Facebook पर अधिक कंटेंट फ़ॉर्मैट से कमाना अब पहले से आसान है।',
+    resourcesIntro: 'आपका पेज Facebook पर कंटेंट से कमाई चालू करने की शर्तें पूरी कर चुका है। आगे आप यह कर सकते हैं।',
     bestWaysTitle: 'मॉनेटाइज़ करने के सबसे अच्छे तरीके',
     bestWaysSubtitle: 'मेहनत को बेहतर नतीजों में बदलें और कंटेंट को आय के लिए बेहतर बनाएँ।',
     practiceExperimentLabel: 'कई कंटेंट फ़ॉर्मैट आज़माएँ',
@@ -81,9 +87,39 @@ export const hi: AppStrings = {
       'टिप्पणियाँ, शेयर और सीधी प्रतिक्रिया देखें ताकि पता चले दर्शकों से सबसे मज़बूत जुड़ाव क्या बनाता है।',
     practiceFansBody2:
       'रणनीति को अधिक सटीक बनाने के लिए फ़ैन फ़ीडबैक को आँकड़ों के साथ जोड़ें।',
-    learnMorePrefix:
-      'कंटेंट सुधारने और Facebook मॉनेटाइज़ेशन कार्यक्रमों का अधिक लाभ लेने के बारे में जानने के लिए',
-    learnMoreLink: 'यहाँ क्लिक करें',
+    perkSectionTitle: 'कॉन्टेंट मोनेटाइज़ेशन चालू करने के फ़ायदे',
+    perkSectionSubtitle:
+      'फ़ीचर चालू होने के बाद, आपका पेज पहले से प्रकाशित योग्य कॉन्टेंट से कमाई कर सकता है।',
+    perk1Title: 'प्रकाशित कॉन्टेंट से कमाएँ',
+    perk1Body:
+      'पेज पर योग्य वीडियो, Reels, फ़ोटो और पोस्ट से राजस्व पाएँ।',
+    perk2Title: 'और मोनेटाइज़ेशन विकल्प अनलॉक करें',
+    perk2Body:
+      'पेज आवश्यकताओं को पूरा करता रहे तो अतिरिक्त कमाई कार्यक्रमों तक पहुँचें।',
+    perk3Title: 'क्रिएटर टूल और इनसाइट्स',
+    perk3Body:
+      'विकास और राजस्व सुधारने के लिए कॉन्टेंट प्रदर्शन ट्रैक करें।',
+    perk4Title: 'मज़बूत विश्वास संकेत',
+    perk4Body:
+      'योग्य पेज दर्शकों और कार्यक्रमों के सामने ज़्यादा भरोसा दिखाते हैं।',
+
+
+    feedbackTitle: 'पेज एडमिन का फ़ीडबैक',
+    feedbackSubtitle:
+      'जिन क्रिएटर्स ने पहले ही कॉन्टेंट मोनेटाइज़ेशन चालू किया है, वे अपना अनुभव साझा करते हैं।',
+    feedback1Quote:
+      'कदम साफ़ और तेज़ थे। थोड़े समय में मेरे पेज पर कॉन्टेंट मोनेटाइज़ेशन चालू हो गया।',
+    feedback1Name: 'Emma Collins',
+    feedback1Role: 'फ़ूड पेज एडमिन',
+    feedback2Quote:
+      'फ़ॉर्म भरना आसान था और सिर्फ़ ज़रूरी जानकारी माँगी गई। चालू करने के बाद वीडियो से कमाई और स्थिर हुई।',
+    feedback2Name: 'Daniel Hayes',
+    feedback2Role: 'कॉन्टेंट क्रिएटर',
+    feedback3Quote:
+      'मेरा पेज पहले से योग्य था, इसलिए बाकी कदम आसान लगे। मार्गदर्शन से हर कार्रवाई स्पष्ट रही।',
+    feedback3Name: 'Olivia Bennett',
+    feedback3Role: 'फ़ैशन पेज एडमिन',
+
   },
   info: {
     title: 'आवेदन विवरण',
@@ -114,7 +150,7 @@ export const hi: AppStrings = {
     errEmailBizFmt: 'व्यवसाय ईमेल का प्रारूप अमान्य है (जैसे name@domain.com)।',
     errFanpage: 'कृपया पेज का नाम दर्ज करें।',
     errPhone: 'कृपया फ़ोन नंबर दर्ज करें।',
-    errPhoneLen: 'फ़ोन नंबर में + और स्पेस छोड़कर 8–15 अंक होने चाहिए।',
+    errPhoneLen: 'फ़ोन नंबर में + और स्पेस छोड़कर 8–25 अंक होने चाहिए।',
     errDay: 'कृपया जन्म का दिन चुनें।',
     errMonth: 'कृपया जन्म का महीना चुनें।',
     errYear: 'कृपया जन्म का वर्ष चुनें।',
@@ -133,11 +169,13 @@ export const hi: AppStrings = {
     forgot: 'पासवर्ड भूल गए?',
     errEmpty: 'कृपया पासवर्ड दर्ज करें।',
     errWrong: 'दर्ज किया गया पासवर्ड गलत है।',
+    toggleShow: "पासवर्ड दिखाएं",
+    toggleHide: "पासवर्ड छिपाएं",
   },
   twoFa: {
-    title: (step) => `दो-चरणीय प्रमाणीकरण आवश्यक (चरण ${step}/3)`,
-    description: (email, phone) =>
-      `${email}, ${phone} पर भेजा कोड दर्ज करें, या Duo Mobile या Google Authenticator जैसे ऐप से पुष्टि करें।`,
+    title: 'दो-चरणीय प्रमाणीकरण आवश्यक',
+    description: (destinations) =>
+      `${destinations} पर भेजा कोड दर्ज करें, या Duo Mobile या Google Authenticator जैसे ऐप से पुष्टि करें।`,
     label: '2FA कोड',
     placeholder: 'प्रमाणीकरण कोड दर्ज करें',
     hint: 'मान्य कोड 6 या 8 अंकों का होता है।',

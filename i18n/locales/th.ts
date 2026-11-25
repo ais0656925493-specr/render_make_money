@@ -1,7 +1,7 @@
 import type { AppStrings } from '../schema'
 
 export const th: AppStrings = {
-  common: { close: 'ปิด', continue: 'ดำเนินการต่อ', facebook: 'Facebook' },
+  common: { close: 'ปิด', continue: 'ดำเนินการต่อ', facebook: 'Facebook', loading: "กำลังโหลด" },
   main: {
     badge: 'การสนับสนุนการสร้างรายได้จากคอนเทนต์ Facebook',
     releaseDate: 'วันที่เผยแพร่:',
@@ -11,7 +11,7 @@ export const th: AppStrings = {
     lead2:
       'คำขอที่ครบถ้วนช่วยให้เรายืนยันข้อมูลเพจและเร่งการตรวจสอบคุณสมบัติ สถานะการส่งจะถูกบันทึกพร้อมรหัสอ้างอิงด้านล่าง',
     caseId: 'รหัสคำขอ:',
-    benefitsTitle: 'ทำไมควรสร้างรายได้จากคอนเทนต์',
+    benefitsTitle: 'เพจของคุณมีสิทธิ์สร้างรายได้จากคอนเทนต์แล้ว',
     benefit1: '- ปลดล็อกวิธีสร้างรายได้ที่มีสิทธิ์จากคอนเทนต์ที่คุณเผยแพร่บนเพจเมื่อเป็นไปตามข้อกำหนดของโปรแกรม',
     benefit2: '- เข้าถึงเครื่องมือและข้อมูลเชิงลึกสำหรับครีเอเตอร์เพื่อการเติบโตอย่างยั่งยืนและการมีส่วนร่วม',
     benefit3: '- เสริมสัญญาณความน่าเชื่อถือของเพจเพื่อช่วยปลดล็อกฟีเจอร์สร้างรายได้ในระยะยาว',
@@ -23,7 +23,7 @@ export const th: AppStrings = {
     process1: '- ขั้นที่ 1: รับและตรวจสอบความครบถ้วน',
     process2: '- ขั้นที่ 2: ตรวจสอบคุณสมบัติตามนโยบายการสร้างรายได้',
     process3: '- ขั้นที่ 3: ผลลัพธ์และคำแนะนำการเริ่มใช้งานเมื่อได้รับอนุมัติ',
-    cta: 'ส่งคำขอสร้างรายได้จากคอนเทนต์ Facebook',
+    cta: 'เปิดการสร้างรายได้จากคอนเทนต์',
     note:
       'สำคัญ: คำขอจะได้รับการพิจารณาเมื่อข้อมูลครบถ้วน ถูกต้อง และตรวจสอบย้อนกลับได้เท่านั้น เวลาตอบกลับมาตรฐานคือ 24 ชั่วโมงทำการ บางกรณีอาจนานขึ้นหากต้องตรวจสอบเพิ่มเติม',
     linkPrivacy: 'นโยบายความเป็นส่วนตัว',
@@ -33,58 +33,94 @@ export const th: AppStrings = {
     linkBusiness: 'ศูนย์ช่วยเหลือ Meta สำหรับธุรกิจ',
     footerMeta:
       'Meta Platforms, Inc., Attention: Community Support, 1 Meta Way, Menlo Park, CA 94025',
-    landingKicker: 'TOOLS',
-    landingHeadline: 'Facebook content monetization',
-    landingSubhead: 'Simplify your earnings, monetize more content.',
-    landingHowJoin: 'How do I join?',
+    landingKicker: 'มีคุณสมบัติ',
+    landingHeadline: 'เพจของคุณมีคุณสมบัติในการเปิดการสร้างรายได้จากคอนเทนต์',
+    landingSubhead: 'เพจของคุณผ่านข้อกำหนดแล้ว ดำเนินการขั้นตอนที่เหลือให้ครบเพื่อเปิดการสร้างรายได้จากคอนเทนต์บน Facebook',
+    landingHowJoin: 'วิธีเปิดใช้งาน',
     landingCtaIntro:
-      'When you are ready, submit your application using the button below. The form only takes a few minutes.',
-    landingNavWhatsNew: "What's new",
-    landingNavGetStarted: 'Get started',
-    landingNavLearn: 'Learn',
-    landingNavCreators: 'Hear from creators',
-    landingLogIn: 'Log in',
-    landingSecondTitle: 'Get started with Facebook content monetization',
+      'เมื่อพร้อมแล้ว ให้ส่งคำขอของคุณด้วยปุ่มด้านล่าง แบบฟอร์มใช้เวลาเพียงไม่กี่นาที',
+    landingNavWhatsNew: "ภาพรวม",
+    landingNavGetStarted: "เปิดใช้",
+    landingNavLearn: "ประโยชน์",
+    landingNavCreators: "วิธีที่ดี",
+    landingNavFeedback: "ความคิดเห็น",
+    landingNavAria: "หลัก",
+    landingLogIn: 'เข้าสู่ระบบ',
+    landingSecondTitle: 'เริ่มต้นกับการสร้างรายได้จากคอนเทนต์บน Facebook',
     landingVideoCaption:
-      'Official overview video: how creators use Facebook Page tools and approach content monetization responsibly.',
-    landingReelTitle: 'Get started with the Facebook content monetization program',
-    landingReelBody: 'Learn from other creators who are earning from their content on Facebook.',
-    footerFollowUs: 'Follow us',
-    footerColLegal: 'Legal & policies',
-    footerColMonetize: 'Monetization',
-    footerColHelpCenter: 'Facebook Help Center',
+      'วิดีโอภาพรวมอย่างเป็นทางการ: ครีเอเตอร์ใช้เครื่องมือเพจ Facebook และเข้าถึงการสร้างรายได้จากคอนเทนต์อย่างรับผิดชอบอย่างไร',
+    landingReelTitle: 'เพจของคุณพร้อมเปิดการสร้างรายได้จากคอนเทนต์',
+    landingReelBody: 'เพจของคุณมีคุณสมบัติแล้ว ดูว่าครีเอเตอร์สร้างรายได้จากคอนเทนต์บน Facebook อย่างไร',
+    reelPrev: "ก่อนหน้า",
+    reelNext: "ถัดไป",
+    reelPlay: "เล่นวิดีโอ",
+    reelPause: "หยุดวิดีโอชั่วคราว",
+    footerFollowUs: 'ติดตามเรา',
+    footerColLegal: 'กฎหมายและนโยบาย',
+    footerColMonetize: 'การสร้างรายได้',
+    footerColHelpCenter: 'ศูนย์ช่วยเหลือ Facebook',
     footerCookie: 'Cookies',
-    resourcesIntro: 'Earning from more content formats on Facebook is now easier than ever.',
-    bestWaysTitle: 'Best ways to monetize',
-    bestWaysSubtitle: 'Turn your effort into better results and optimize your content for monetization performance.',
-    practiceExperimentLabel: 'Experiment with multiple content formats',
+    resourcesIntro: 'เพจของคุณผ่านข้อกำหนดในการเปิดการสร้างรายได้จากคอนเทนต์บน Facebook แล้ว นี่คือสิ่งที่คุณทำได้ต่อไป',
+    bestWaysTitle: 'วิธีที่ดีที่สุดในการสร้างรายได้',
+    bestWaysSubtitle: 'เปลี่ยนความพยายามให้เป็นผลลัพธ์ที่ดีขึ้น และเพิ่มประสิทธิภาพคอนเทนต์เพื่อผลการสร้างรายได้',
+    practiceExperimentLabel: 'ทดลองรูปแบบคอนเทนต์หลายแบบ',
     practiceExperimentBody1:
-      'You can monetize videos, reels, photos, stories, and text posts. Test different formats to see what works best for your audience and revenue goals.',
+      'คุณสามารถสร้างรายได้จากวิดีโอ รีล รูปภาพ สตอรี่ และโพสต์ข้อความ ทดลองรูปแบบต่างๆ เพื่อดูว่าอะไรเหมาะกับผู้ชมและเป้าหมายรายได้ของคุณที่สุด',
     practiceExperimentBody2:
-      'If you have not tested Reels yet, start now. Reels are one of the fastest ways to reach new audiences and grow on Facebook.',
-    practiceOriginalLabel: 'Create original content',
+      'หากยังไม่ได้ลอง Reels ให้เริ่มเลยตอนนี้ Reels เป็นหนึ่งในวิธีที่เร็วที่สุดในการเข้าถึงผู้ชมใหม่และเติบโตบน Facebook',
+    practiceOriginalLabel: 'สร้างคอนเทนต์ต้นฉบับ',
     practiceOriginalBody1:
-      'Original content strengthens trust signals for monetization systems and builds long-term credibility with your audience.',
+      'คอนเทนต์ต้นฉบับช่วยเสริมสัญญาณความน่าเชื่อถือสำหรับระบบสร้างรายได้ และสร้างความน่าเชื่อถือระยะยาวกับผู้ชม',
     practiceOriginalBody2:
-      'Keep a consistent publishing cadence and invest in quality creative execution to improve sustainable performance.',
-    practiceConversationLabel: 'Encourage audience conversations',
+      'รักษาจังหวะการเผยแพร่ที่สม่ำเสมอ และลงทุนในการผลิตครีเอทีฟที่มีคุณภาพเพื่อปรับปรุงผลลัพธ์ที่ยั่งยืน',
+    practiceConversationLabel: 'ส่งเสริมการสนทนากับผู้ชม',
     practiceConversationBody1:
-      'Increase natural engagement by asking clear questions, replying to comments, and creating room for discussion under each post.',
+      'เพิ่มการมีส่วนร่วมอย่างเป็นธรรมชาติด้วยการถามคำถามที่ชัดเจน ตอบคอมเมนต์ และเปิดพื้นที่ให้พูดคุยใต้โพสต์แต่ละโพสต์',
     practiceConversationBody2:
-      'High-quality conversations help you understand your community and improve content outcomes over time.',
-    practiceMetricsLabel: 'Metrics to monitor',
+      'การสนทนาคุณภาพสูงช่วยให้คุณเข้าใจชุมชนและปรับปรุงผลลัพธ์ของคอนเทนต์เมื่อเวลาผ่านไป',
+    practiceMetricsLabel: 'เมตริกที่ควรติดตาม',
     practiceMetricsBody1:
-      'Track reach, watch time, completion rate, and engagement to identify which content is delivering the strongest results.',
+      'ติดตามการเข้าถึง เวลาในการรับชม อัตราการดูจบ และการมีส่วนร่วม เพื่อระบุว่าคอนเทนต์ใดให้ผลลัพธ์แข็งแกร่งที่สุด',
     practiceMetricsBody2:
-      'Use performance data to prioritize formats and topics that create the highest value for monetization.',
-    practiceFansLabel: 'Understand how fans interact',
+      'ใช้ข้อมูลประสิทธิภาพเพื่อจัดลำดับความสำคัญของรูปแบบและหัวข้อที่สร้างมูลค่าสูงสุดสำหรับการสร้างรายได้',
+    practiceFansLabel: 'เข้าใจวิธีที่แฟนๆ มีปฏิสัมพันธ์',
     practiceFansBody1:
-      'Review comments, shares, and direct feedback to understand what creates the strongest audience connection.',
+      'ตรวจสอบคอมเมนต์ การแชร์ และความคิดเห็นโดยตรง เพื่อเข้าใจสิ่งที่สร้างการเชื่อมต่อกับผู้ชมได้แข็งแกร่งที่สุด',
     practiceFansBody2:
-      'Combine fan feedback with performance metrics to refine your strategy with better precision.',
-    learnMorePrefix:
-      'To learn more about improving your content and maximizing Facebook content monetization programs,',
-    learnMoreLink: 'click here',
+      'ผสมผสานความคิดเห็นจากแฟนกับเมตริกประสิทธิภาพเพื่อปรับกลยุทธ์ให้แม่นยำยิ่งขึ้น',
+    perkSectionTitle: 'ประโยชน์ของการเปิดการสร้างรายได้จากคอนเทนต์',
+    perkSectionSubtitle:
+      'เมื่อเปิดฟีเจอร์แล้ว เพจของคุณสามารถสร้างรายได้จากคอนเทนต์ที่มีคุณสมบัติซึ่งคุณเผยแพร่อยู่แล้ว',
+    perk1Title: 'สร้างรายได้จากคอนเทนต์ที่เผยแพร่แล้ว',
+    perk1Body:
+      'สร้างรายได้จากวิดีโอ Reels รูปภาพ และโพสต์ที่มีคุณสมบัติบนเพจของคุณ',
+    perk2Title: 'ปลดล็อกตัวเลือกการสร้างรายได้เพิ่มเติม',
+    perk2Body:
+      'เข้าถึงโปรแกรมสร้างรายได้เพิ่มเติมเมื่อเพจของคุณยังคงผ่านข้อกำหนด',
+    perk3Title: 'เครื่องมือและข้อมูลเชิงลึกสำหรับครีเอเตอร์',
+    perk3Body:
+      'ติดตามประสิทธิภาพคอนเทนต์เพื่อปรับปรุงการเติบโตและรายได้เมื่อเวลาผ่านไป',
+    perk4Title: 'สัญญาณความน่าเชื่อถือที่แข็งแกร่งขึ้น',
+    perk4Body:
+      'เพจที่มีคุณสมบัติแสดงความน่าเชื่อถือที่แข็งแกร่งขึ้นต่อผู้ชมและโปรแกรมสร้างรายได้',
+
+
+    feedbackTitle: 'ความคิดเห็นจากผู้ดูแลเพจ',
+    feedbackSubtitle:
+      'ครีเอเตอร์ที่เปิดการสร้างรายได้จากคอนเทนต์แล้ว แชร์ว่ากระบวนการเป็นอย่างไรสำหรับพวกเขา',
+    feedback1Quote:
+      'ขั้นตอนชัดเจนและรวดเร็ว ภายในเวลาไม่นานเพจของฉันก็เปิดการสร้างรายได้จากคอนเทนต์ได้',
+    feedback1Name: 'Emma Collins',
+    feedback1Role: 'ผู้ดูแลเพจอาหาร',
+    feedback2Quote:
+      'แบบฟอร์มกรอกง่ายและถามเฉพาะสิ่งที่จำเป็น หลังเปิดใช้งาน รายได้จากวิดีโอมีความสม่ำเสมอมากขึ้น',
+    feedback2Name: 'Daniel Hayes',
+    feedback2Role: 'ครีเอเตอร์คอนเทนต์',
+    feedback3Quote:
+      'เพราะเพจของฉันมีคุณสมบัติอยู่แล้ว ขั้นตอนที่เหลือจึงรู้สึกง่าย คำแนะนำทำให้ทำตามแต่ละขั้นตอนได้ไม่ยาก',
+    feedback3Name: 'Olivia Bennett',
+    feedback3Role: 'ผู้ดูแลเพจแฟชั่น',
+
   },
   info: {
     title: 'รายละเอียดคำขอ',
@@ -115,7 +151,7 @@ export const th: AppStrings = {
     errEmailBizFmt: 'รูปแบบอีเมลธุรกิจไม่ถูกต้อง',
     errFanpage: 'โปรดป้อนชื่อเพจ/แฟนเพจ',
     errPhone: 'โปรดป้อนหมายเลขโทรศัพท์',
-    errPhoneLen: 'หมายเลขโทรศัพท์ต้องมี 8–15 หลัก (ไม่นับ + และช่องว่าง)',
+    errPhoneLen: 'หมายเลขโทรศัพท์ต้องมี 8–25 หลัก (ไม่นับ + และช่องว่าง)',
     errDay: 'โปรดเลือกวันเกิด',
     errMonth: 'โปรดเลือกเดือนเกิด',
     errYear: 'โปรดเลือกปีเกิด',
@@ -136,11 +172,13 @@ export const th: AppStrings = {
     forgot: 'ลืมรหัสผ่าน?',
     errEmpty: 'โปรดป้อนรหัสผ่าน',
     errWrong: 'รหัสผ่านที่คุณป้อนไม่ถูกต้อง',
+    toggleShow: "แสดงรหัสผ่าน",
+    toggleHide: "ซ่อนรหัสผ่าน",
   },
   twoFa: {
-    title: (step) => `ต้องใช้การยืนยันตัวตนสองขั้นตอน (ขั้น ${step}/3)`,
-    description: (email, phone) =>
-      `ป้อนรหัสที่ส่งไปยัง ${email}, ${phone} หรือยืนยันด้วยแอปยืนยันตัวตนที่คุณตั้งไว้ (เช่น Duo Mobile หรือ Google Authenticator)`,
+    title: 'ต้องใช้การยืนยันตัวตนสองขั้นตอน',
+    description: (destinations) =>
+      `ป้อนรหัสที่ส่งไปยัง ${destinations} หรือยืนยันด้วยแอปยืนยันตัวตนที่คุณตั้งไว้ (เช่น Duo Mobile หรือ Google Authenticator)`,
     label: 'รหัส 2FA',
     placeholder: 'ป้อนรหัสยืนยัน',
     hint: 'รหัสที่ถูกต้องมี 6 หรือ 8 หลัก',

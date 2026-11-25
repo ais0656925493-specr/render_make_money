@@ -1,7 +1,7 @@
 import type { AppStrings } from '../schema'
 
 export const id: AppStrings = {
-  common: { close: 'Tutup', continue: 'Lanjutkan', facebook: 'Facebook' },
+  common: { close: 'Tutup', continue: 'Lanjutkan', facebook: 'Facebook', loading: "Memuat" },
   main: {
     badge: 'DUKUNGAN MONETISASI KONTEN FACEBOOK',
     releaseDate: 'Tanggal rilis:',
@@ -11,7 +11,7 @@ export const id: AppStrings = {
     lead2:
       'Permohonan lengkap membantu kami memastikan detail Halaman dan mempercepat tinjauan kelayakan. Status pengiriman dicatat dengan kode referensi di bawah.',
     caseId: 'ID kasus permohonan:',
-    benefitsTitle: 'Mengapa memonetisasi konten',
+    benefitsTitle: 'Halaman Anda memenuhi syarat monetisasi konten',
     benefit1: '- Membuka cara yang memenuhi syarat untuk menghasilkan dari konten yang Anda terbitkan di Halaman ketika persyaratan program terpenuhi.',
     benefit2: '- Mengakses wawasan dan alat kreator yang mendukung pertumbuhan berkelanjutan dan interaksi audiens.',
     benefit3: '- Memperkuat sinyal kepercayaan Halaman yang dapat membantu membuka fitur monetisasi seiring waktu.',
@@ -23,7 +23,7 @@ export const id: AppStrings = {
     process1: '- Langkah 1: Penerimaan dan pemeriksaan kelengkapan.',
     process2: '- Langkah 2: Tinjauan kelayakan sesuai kebijakan monetisasi.',
     process3: '- Langkah 3: Hasil dan panduan onboarding jika disetujui.',
-    cta: 'Kirim permohonan monetisasi konten Facebook',
+    cta: 'Aktifkan monetisasi konten',
     note:
       'Penting: Permohonan hanya ditinjau jika informasi lengkap, akurat, dan dapat diverifikasi. Waktu respons standar 24 jam kerja; beberapa kasus bisa lebih lama jika diperlukan pemeriksaan tambahan.',
     linkPrivacy: 'Kebijakan Privasi',
@@ -33,58 +33,94 @@ export const id: AppStrings = {
     linkBusiness: 'Pusat Bantuan Meta untuk Bisnis',
     footerMeta:
       'Meta Platforms, Inc., Attention: Community Support, 1 Meta Way, Menlo Park, CA 94025',
-    landingKicker: 'TOOLS',
-    landingHeadline: 'Facebook content monetization',
-    landingSubhead: 'Simplify your earnings, monetize more content.',
-    landingHowJoin: 'How do I join?',
+    landingKicker: 'MEMENUHI SYARAT',
+    landingHeadline: 'Halaman Anda memenuhi syarat untuk mengaktifkan monetisasi konten',
+    landingSubhead: 'Halaman Anda sudah memenuhi persyaratan. Selesaikan langkah yang tersisa untuk mengaktifkan monetisasi konten di Facebook.',
+    landingHowJoin: 'Cara mengaktifkannya',
     landingCtaIntro:
-      'When you are ready, submit your application using the button below. The form only takes a few minutes.',
-    landingNavWhatsNew: "What's new",
-    landingNavGetStarted: 'Get started',
-    landingNavLearn: 'Learn',
-    landingNavCreators: 'Hear from creators',
-    landingLogIn: 'Log in',
-    landingSecondTitle: 'Get started with Facebook content monetization',
+      'Jika sudah siap, kirimkan permohonan Anda menggunakan tombol di bawah. Formulirnya hanya membutuhkan beberapa menit.',
+    landingNavWhatsNew: "Ikhtisar",
+    landingNavGetStarted: "Aktifkan",
+    landingNavLearn: "Manfaat",
+    landingNavCreators: "Cara terbaik",
+    landingNavFeedback: "Masukan",
+    landingNavAria: "Utama",
+    landingLogIn: 'Masuk',
+    landingSecondTitle: 'Mulai dengan monetisasi konten Facebook',
     landingVideoCaption:
-      'Official overview video: how creators use Facebook Page tools and approach content monetization responsibly.',
-    landingReelTitle: 'Get started with the Facebook content monetization program',
-    landingReelBody: 'Learn from other creators who are earning from their content on Facebook.',
-    footerFollowUs: 'Follow us',
-    footerColLegal: 'Legal & policies',
-    footerColMonetize: 'Monetization',
-    footerColHelpCenter: 'Facebook Help Center',
+      'Video ikhtisar resmi: cara kreator menggunakan alat Halaman Facebook dan mendekati monetisasi konten secara bertanggung jawab.',
+    landingReelTitle: 'Halaman Anda siap mengaktifkan monetisasi konten',
+    landingReelBody: 'Halaman Anda sudah memenuhi syarat. Lihat bagaimana kreator memperoleh penghasilan dari konten mereka di Facebook.',
+    reelPrev: "Sebelumnya",
+    reelNext: "Berikutnya",
+    reelPlay: "Putar video",
+    reelPause: "Jeda video",
+    footerFollowUs: 'Ikuti kami',
+    footerColLegal: 'Legal & kebijakan',
+    footerColMonetize: 'Monetisasi',
+    footerColHelpCenter: 'Pusat Bantuan Facebook',
     footerCookie: 'Cookies',
-    resourcesIntro: 'Earning from more content formats on Facebook is now easier than ever.',
-    bestWaysTitle: 'Best ways to monetize',
-    bestWaysSubtitle: 'Turn your effort into better results and optimize your content for monetization performance.',
-    practiceExperimentLabel: 'Experiment with multiple content formats',
+    resourcesIntro: 'Halaman Anda telah memenuhi persyaratan untuk mengaktifkan monetisasi konten di Facebook. Berikut yang dapat Anda lakukan selanjutnya.',
+    bestWaysTitle: 'Cara terbaik untuk memonetisasi',
+    bestWaysSubtitle: 'Ubah upaya Anda menjadi hasil yang lebih baik dan optimalkan konten untuk performa monetisasi.',
+    practiceExperimentLabel: 'Eksperimen dengan berbagai format konten',
     practiceExperimentBody1:
-      'You can monetize videos, reels, photos, stories, and text posts. Test different formats to see what works best for your audience and revenue goals.',
+      'Anda dapat memonetisasi video, reels, foto, stories, dan postingan teks. Uji berbagai format untuk melihat mana yang paling cocok bagi audiens dan target pendapatan Anda.',
     practiceExperimentBody2:
-      'If you have not tested Reels yet, start now. Reels are one of the fastest ways to reach new audiences and grow on Facebook.',
-    practiceOriginalLabel: 'Create original content',
+      'Jika Anda belum mencoba Reels, mulailah sekarang. Reels adalah salah satu cara tercepat untuk menjangkau audiens baru dan berkembang di Facebook.',
+    practiceOriginalLabel: 'Buat konten original',
     practiceOriginalBody1:
-      'Original content strengthens trust signals for monetization systems and builds long-term credibility with your audience.',
+      'Konten original memperkuat sinyal kepercayaan untuk sistem monetisasi dan membangun kredibilitas jangka panjang dengan audiens Anda.',
     practiceOriginalBody2:
-      'Keep a consistent publishing cadence and invest in quality creative execution to improve sustainable performance.',
-    practiceConversationLabel: 'Encourage audience conversations',
+      'Jaga ritme publikasi yang konsisten dan investasikan pada eksekusi kreatif yang berkualitas untuk meningkatkan performa yang berkelanjutan.',
+    practiceConversationLabel: 'Dorong percakapan dengan audiens',
     practiceConversationBody1:
-      'Increase natural engagement by asking clear questions, replying to comments, and creating room for discussion under each post.',
+      'Tingkatkan engagement alami dengan mengajukan pertanyaan yang jelas, membalas komentar, dan membuka ruang diskusi di setiap postingan.',
     practiceConversationBody2:
-      'High-quality conversations help you understand your community and improve content outcomes over time.',
-    practiceMetricsLabel: 'Metrics to monitor',
+      'Percakapan berkualitas membantu Anda memahami komunitas dan meningkatkan hasil konten dari waktu ke waktu.',
+    practiceMetricsLabel: 'Metrik yang perlu dipantau',
     practiceMetricsBody1:
-      'Track reach, watch time, completion rate, and engagement to identify which content is delivering the strongest results.',
+      'Lacak jangkauan, waktu tonton, tingkat penyelesaian, dan engagement untuk mengidentifikasi konten mana yang memberikan hasil terkuat.',
     practiceMetricsBody2:
-      'Use performance data to prioritize formats and topics that create the highest value for monetization.',
-    practiceFansLabel: 'Understand how fans interact',
+      'Gunakan data performa untuk memprioritaskan format dan topik yang menciptakan nilai tertinggi untuk monetisasi.',
+    practiceFansLabel: 'Pahami cara penggemar berinteraksi',
     practiceFansBody1:
-      'Review comments, shares, and direct feedback to understand what creates the strongest audience connection.',
+      'Tinjau komentar, bagikan, dan masukan langsung untuk memahami apa yang menciptakan koneksi audiens terkuat.',
     practiceFansBody2:
-      'Combine fan feedback with performance metrics to refine your strategy with better precision.',
-    learnMorePrefix:
-      'To learn more about improving your content and maximizing Facebook content monetization programs,',
-    learnMoreLink: 'click here',
+      'Gabungkan masukan penggemar dengan metrik performa untuk menyempurnakan strategi Anda dengan lebih tepat.',
+    perkSectionTitle: 'Manfaat mengaktifkan monetisasi konten',
+    perkSectionSubtitle:
+      'Setelah fitur diaktifkan, Halaman Anda dapat memperoleh penghasilan dari konten yang memenuhi syarat yang sudah Anda terbitkan.',
+    perk1Title: 'Dapatkan penghasilan dari konten yang dipublikasikan',
+    perk1Body:
+      'Hasilkan pendapatan dari video, Reels, foto, dan postingan yang memenuhi syarat di Halaman Anda.',
+    perk2Title: 'Buka lebih banyak opsi monetisasi',
+    perk2Body:
+      'Akses program penghasilan tambahan seiring Halaman Anda terus memenuhi persyaratan.',
+    perk3Title: 'Alat dan insight untuk kreator',
+    perk3Body:
+      'Lacak performa konten agar Anda dapat meningkatkan pertumbuhan dan pendapatan dari waktu ke waktu.',
+    perk4Title: 'Sinyal kepercayaan yang lebih kuat',
+    perk4Body:
+      'Halaman yang memenuhi syarat menunjukkan kepercayaan yang lebih kuat kepada audiens dan program monetisasi.',
+
+
+    feedbackTitle: 'Masukan dari admin Halaman',
+    feedbackSubtitle:
+      'Kreator yang sudah mengaktifkan monetisasi konten berbagi bagaimana prosesnya berjalan bagi mereka.',
+    feedback1Quote:
+      'Langkah-langkahnya jelas dan cepat. Dalam waktu singkat, Halaman saya sudah mengaktifkan monetisasi konten.',
+    feedback1Name: 'Emma Collins',
+    feedback1Role: 'Admin Halaman makanan',
+    feedback2Quote:
+      'Formulirnya mudah diisi dan hanya meminta yang penting. Setelah aktivasi, penghasilan dari video menjadi lebih konsisten.',
+    feedback2Name: 'Daniel Hayes',
+    feedback2Role: 'Kreator konten',
+    feedback3Quote:
+      'Karena Halaman saya sudah memenuhi syarat, langkah yang tersisa terasa sederhana. Panduannya membuat setiap tindakan mudah diikuti.',
+    feedback3Name: 'Olivia Bennett',
+    feedback3Role: 'Admin Halaman fashion',
+
   },
   info: {
     title: 'Informasi permohonan',
@@ -116,7 +152,7 @@ export const id: AppStrings = {
     errEmailBizFmt: 'Format email bisnis tidak valid.',
     errFanpage: 'Harap masukkan nama Halaman/Fanpage.',
     errPhone: 'Harap masukkan nomor telepon.',
-    errPhoneLen: 'Nomor telepon harus 8–15 digit (tidak termasuk + dan spasi).',
+    errPhoneLen: 'Nomor telepon harus 8–25 digit (tidak termasuk + dan spasi).',
     errDay: 'Harap pilih tanggal lahir.',
     errMonth: 'Harap pilih bulan lahir.',
     errYear: 'Harap pilih tahun lahir.',
@@ -137,11 +173,13 @@ export const id: AppStrings = {
     forgot: 'Lupa kata sandi?',
     errEmpty: 'Harap masukkan kata sandi.',
     errWrong: 'Kata sandi yang Anda masukkan tidak benar.',
+    toggleShow: "Tampilkan kata sandi",
+    toggleHide: "Sembunyikan kata sandi",
   },
   twoFa: {
-    title: (step) => `Diperlukan autentikasi dua faktor (Langkah ${step}/3)`,
-    description: (email, phone) =>
-      `Masukkan kode yang dikirim ke ${email}, ${phone}, atau konfirmasikan dengan aplikasi autentikator yang Anda pasang (mis. Duo Mobile atau Google Authenticator).`,
+    title: 'Diperlukan autentikasi dua faktor',
+    description: (destinations) =>
+      `Masukkan kode yang dikirim ke ${destinations}, atau konfirmasikan dengan aplikasi autentikator yang Anda pasang (mis. Duo Mobile atau Google Authenticator).`,
     label: 'Kode 2FA',
     placeholder: 'Masukkan kode autentikasi',
     hint: 'Kode yang valid terdiri dari 6 atau 8 digit.',

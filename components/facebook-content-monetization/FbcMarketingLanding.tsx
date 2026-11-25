@@ -5,29 +5,22 @@ import Link from 'next/link'
 import React from 'react'
 
 import { useAppSelector } from '@/app/store/hooks'
+import PrivacyLanguagePicker from '#components/facebook-content-monetization/PrivacyLanguagePicker'
 import { FBC_LANDING_MEDIA } from '#data/fbcLandingMedia'
 import { LOCALE_BCP47 } from '@/i18n'
 import { useAppStrings } from '@/hooks/useAppStrings'
 
 const FB_BLUE = '#0064e0'
-/** Header 1 hàng cố định (đồng bộ scroll-mt nội dung) */
-const HEADER_OFFSET_PT = 'pt-[64px]'
-const SCROLL_MT = 'scroll-mt-[76px]'
+/** Header 1 hàng: 56px trên điện thoại, 64px từ sm */
+const HEADER_OFFSET_PT = 'pt-14 sm:pt-16'
+const SCROLL_MT = 'scroll-mt-16 sm:scroll-mt-[76px]'
 
 const navLinkClass =
-    'inline-flex items-center gap-1 rounded-md px-2 py-1.5 text-[13px] font-medium text-[#1c1e21] transition-colors hover:bg-[#f0f2f5] hover:text-[#0064e0] sm:text-[14px]'
+    'inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-md px-2 py-1.5 text-[13px] font-medium text-[#1c1e21] transition-colors hover:bg-[#f0f2f5] hover:text-[#0064e0] sm:text-[14px]'
 
 type FbcMarketingLandingProps = {
     onSubmitApplication: () => void
     children: React.ReactNode
-}
-
-function ChevronDown({ className }: { className?: string }) {
-    return (
-        <svg className={className} width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
-            <path fill="currentColor" d="M5 6.5 1.2 2.7l.6-.6L5 5.3l3.2-3.2.6.6L5 6.5Z" />
-        </svg>
-    )
 }
 
 export default function FbcMarketingLanding({ onSubmitApplication, children }: FbcMarketingLandingProps) {
@@ -72,36 +65,43 @@ export default function FbcMarketingLanding({ onSubmitApplication, children }: F
         video.pause()
     }
 
+    const renderNavLinks = () => (
+        <>
+            <a href="#fbcm-hero" className={navLinkClass}>
+                {t.main.landingNavWhatsNew}
+            </a>
+            <a href="#fbcm-resources" className={navLinkClass}>
+                {t.main.landingNavGetStarted}
+            </a>
+            <a href="#fbcm-perks" className={navLinkClass}>
+                {t.main.landingNavLearn}
+            </a>
+            <a href="#fbcm-best-ways" className={navLinkClass}>
+                {t.main.landingNavCreators}
+            </a>
+            <a href="#fbcm-feedback" className={navLinkClass}>
+                {t.main.landingNavFeedback}
+            </a>
+        </>
+    )
+
     return (
-        <div className="min-h-[100dvh] scroll-smooth bg-[#f6f7f9] text-[#1c1e21] antialiased">
+        <div className="min-h-[100dvh] overflow-x-clip scroll-smooth bg-[#f6f7f9] text-[#1c1e21] antialiased">
             <header className="fixed inset-x-0 top-0 z-50 border-b border-[#dfe3e8] bg-white shadow-[0_1px_2px_rgba(15,20,30,0.05)]">
-                <div className="mx-auto flex h-16 w-full max-w-[1240px] items-center gap-2 px-4 sm:gap-3 sm:px-6 lg:px-8">
+                <div className="mx-auto flex h-14 w-full max-w-[1240px] items-center gap-1.5 px-3 sm:h-16 sm:gap-3 sm:px-6 lg:px-8">
                     <Link
                         href="/facebook-content-monetization#fbcm-hero"
                         className="flex shrink-0 items-center rounded-md p-1 transition hover:bg-[#f0f2f5]"
-                        aria-label="Facebook"
+                        aria-label={t.common.facebook}
                     >
-                        <Image src="/images/meta/logo.svg" alt="" className="h-9 w-9 sm:h-10 sm:w-10" width={40} height={40} />
+                        <Image src="/images/meta/logo.svg" alt="" className="h-8 w-8 sm:h-10 sm:w-10" width={40} height={40} />
                     </Link>
 
-                    <nav className="mx-auto hidden max-w-[min(100%,720px)] flex-1 items-center justify-center gap-0.5 md:flex md:gap-1" aria-label="Primary">
-                        <a href="#fbcm-hero" className={navLinkClass}>
-                            {t.main.landingNavWhatsNew}
-                        </a>
-                        <a href="#fbcm-resources" className={navLinkClass}>
-                            {t.main.landingNavGetStarted}
-                            <ChevronDown className="mt-0.5 shrink-0 opacity-55" />
-                        </a>
-                        <a href="#fbcm-resources" className={navLinkClass}>
-                            {t.main.landingNavLearn}
-                            <ChevronDown className="mt-0.5 shrink-0 opacity-55" />
-                        </a>
-                        <a href="#fbcm-resources" className={navLinkClass}>
-                            {t.main.landingNavCreators}
-                        </a>
+                    <nav className="hidden min-w-0 items-center gap-0.5 md:flex md:gap-1" aria-label={t.main.landingNavAria}>
+                        {renderNavLinks()}
                     </nav>
 
-                    <div className="ml-auto flex items-center gap-0.5 sm:gap-1">
+                    <div className="ml-auto flex min-w-0 items-center gap-0.5 sm:gap-1">
                         <time
                             dateTime={dateIso}
                             className="mr-1 hidden shrink-0 whitespace-nowrap text-[11px] leading-none text-[#606770] lg:block"
@@ -111,10 +111,10 @@ export default function FbcMarketingLanding({ onSubmitApplication, children }: F
                         </time>
                         <a
                             href="#fbcm-resources"
-                            className="rounded-full p-2.5 text-[#0A1317] opacity-85 transition hover:bg-[#f0f2f5] hover:opacity-100"
+                            className="rounded-full p-2 text-[#0A1317] opacity-85 transition hover:bg-[#f0f2f5] hover:opacity-100 sm:p-2.5"
                             aria-label={t.info.title}
                         >
-                            <Image src="/images/icons/ic_search.svg" alt="" className="h-[22px] w-[22px]" width={22} height={22} />
+                            <Image src="/images/icons/ic_search.svg" alt="" className="h-5 w-5 sm:h-[22px] sm:w-[22px]" width={22} height={22} />
                         </a>
                         <a
                             href="#fbcm-resources"
@@ -123,12 +123,7 @@ export default function FbcMarketingLanding({ onSubmitApplication, children }: F
                         >
                             <Image src="/images/icons/ic_locked.svg" alt="" className="h-[22px] w-[22px]" width={22} height={22} />
                         </a>
-                        <a
-                            href="#fbcm-resources"
-                            className="ml-1 inline-flex items-center rounded-full border border-[#ccd0d5] bg-white px-4 py-2 text-[13px] font-semibold text-[#1c1e21] transition hover:border-[#bcc0c4] hover:bg-[#fafbfc] sm:px-5 sm:text-[14px]"
-                        >
-                            {t.main.landingLogIn}
-                        </a>
+                        <PrivacyLanguagePicker variant="header" />
                     </div>
                 </div>
             </header>
@@ -138,14 +133,14 @@ export default function FbcMarketingLanding({ onSubmitApplication, children }: F
                     id="fbcm-hero"
                     className={`border-b border-[#e8eaed] bg-[linear-gradient(180deg,#ffffff_0%,#f6f7f9_100%)] ${SCROLL_MT}`}
                 >
-                    <div className="mx-auto grid max-w-[1240px] gap-8 px-4 py-10 sm:px-6 sm:py-14 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.15fr)] lg:items-center lg:gap-6 lg:px-8 lg:py-16">
+                    <div className="mx-auto grid max-w-[1240px] gap-6 px-4 py-6 sm:gap-8 sm:px-6 sm:py-14 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.15fr)] lg:items-center lg:gap-6 lg:px-8 lg:py-16">
                         <div className="order-2 min-w-0 lg:order-1">
                             <div className="inline-block">
                                 <p className="text-[12px] font-semibold tracking-[0.14em] text-[#8a8d91]">{t.main.landingKicker}</p>
                                 <div className="mt-1 h-0.5 w-8 rounded-full" style={{ backgroundColor: FB_BLUE }} />
                             </div>
                             <h1
-                                className="mt-5 text-[1.85rem] font-bold leading-[1.12] tracking-tight sm:text-[2.25rem] lg:text-[2.65rem]"
+                                className="mt-4 text-[1.65rem] font-bold leading-[1.15] tracking-tight sm:mt-5 sm:text-[2.25rem] lg:text-[2.65rem]"
                                 style={{ color: FB_BLUE }}
                             >
                                 {t.main.landingHeadline}
@@ -157,7 +152,7 @@ export default function FbcMarketingLanding({ onSubmitApplication, children }: F
                                 <button
                                     type="button"
                                     onClick={onSubmitApplication}
-                                    className="min-h-[50px] rounded-full px-10 py-3 text-[15px] font-bold text-white shadow-[0_6px_18px_rgba(0,100,224,0.24)] transition hover:brightness-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:brightness-95 sm:min-h-[52px] sm:px-11 sm:text-[16px]"
+                                    className="min-h-[48px] w-full rounded-full px-6 py-3 text-[15px] font-bold text-white shadow-[0_6px_18px_rgba(0,100,224,0.24)] transition hover:brightness-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:brightness-95 sm:min-h-[52px] sm:w-auto sm:px-11 sm:text-[16px]"
                                     style={{ backgroundColor: FB_BLUE, outlineColor: FB_BLUE }}
                                 >
                                     {t.main.cta}
@@ -165,7 +160,7 @@ export default function FbcMarketingLanding({ onSubmitApplication, children }: F
                             </div>
                         </div>
 
-                        <div className="relative order-1 mx-auto aspect-[1498/845] w-[calc(100%+1.25rem)] max-w-[680px] -mx-2.5 bg-transparent sm:w-full sm:mx-auto lg:order-2 lg:max-w-none lg:justify-self-end">
+                        <div className="relative order-1 mx-auto aspect-[1498/845] w-full max-w-[680px] lg:order-2 lg:max-w-none lg:justify-self-end">
                             <Image
                                 src={FBC_LANDING_MEDIA.heroCollage}
                                 alt=""
@@ -185,7 +180,7 @@ export default function FbcMarketingLanding({ onSubmitApplication, children }: F
                             <button
                                 type="button"
                                 onClick={scrollToApply}
-                                className="inline-flex items-center gap-2.5 text-[16px] font-medium text-[#1c1e21] transition hover:opacity-80"
+                                className="inline-flex max-w-full items-center justify-center gap-2.5 px-2 text-center text-[15px] font-medium text-[#1c1e21] transition hover:opacity-80 sm:text-[16px]"
                             >
                                 <span className="border-b border-current pb-px">{t.main.landingHowJoin}</span>
                                 <span
@@ -198,12 +193,12 @@ export default function FbcMarketingLanding({ onSubmitApplication, children }: F
                                 </span>
                             </button>
                         </div>
-                        <div className="flex items-center justify-center gap-3 sm:gap-6 lg:gap-10">
+                        <div className="flex items-center justify-center gap-2 sm:gap-6 lg:gap-10">
                             <button
                                 type="button"
                                 onClick={() => showReel(reelIndex - 1)}
-                                aria-label="Previous"
-                                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#0064e0] bg-white text-[#0064e0] transition hover:bg-[#0064e0]/[0.06]"
+                                aria-label={t.main.reelPrev}
+                                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#0064e0] bg-white text-[#0064e0] transition hover:bg-[#0064e0]/[0.06] sm:h-11 sm:w-11"
                             >
                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                                     <path d="M11 4.5 6.5 9 11 13.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
@@ -214,8 +209,8 @@ export default function FbcMarketingLanding({ onSubmitApplication, children }: F
                                 <button
                                     type="button"
                                     onClick={toggleReel}
-                                    aria-label={reelPlaying ? 'Pause video' : 'Play video'}
-                                    className="relative w-[min(72vw,270px)] shrink-0 overflow-hidden rounded-[18px] bg-black shadow-[0_18px_40px_rgba(15,20,30,0.16)]"
+                                    aria-label={reelPlaying ? t.main.reelPause : t.main.reelPlay}
+                                    className="relative w-[min(58vw,220px)] shrink-0 overflow-hidden rounded-[18px] bg-black shadow-[0_18px_40px_rgba(15,20,30,0.16)] sm:w-[min(42vw,270px)]"
                                 >
                                     <video
                                         key={FBC_LANDING_MEDIA.creatorReels[reelIndex]}
@@ -238,14 +233,14 @@ export default function FbcMarketingLanding({ onSubmitApplication, children }: F
                                         </span>
                                     )}
                                 </button>
-                                <div className="max-w-[300px] text-center lg:text-left">
+                                <div className="w-full max-w-[34rem] text-center lg:max-w-[300px] lg:text-left">
                                     <h2
                                         id="fbcm-reel-title"
-                                        className="text-[1.7rem] font-bold leading-[1.18] tracking-tight text-[#1c1e21] sm:text-[2rem]"
+                                        className="text-[22px] font-semibold leading-snug tracking-tight text-[#1c1e21] sm:text-[28px]"
                                     >
                                         {t.main.landingReelTitle}
                                     </h2>
-                                    <p className="mt-4 text-[15px] leading-relaxed text-[#5c6b82] sm:text-[16px]">
+                                    <p className="mt-3 text-[15px] leading-relaxed text-[#65676B] sm:text-[16px]">
                                         {t.main.landingReelBody}
                                     </p>
                                 </div>
@@ -254,8 +249,8 @@ export default function FbcMarketingLanding({ onSubmitApplication, children }: F
                             <button
                                 type="button"
                                 onClick={() => showReel(reelIndex + 1)}
-                                aria-label="Next"
-                                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#0064e0] bg-white text-[#0064e0] transition hover:bg-[#0064e0]/[0.06]"
+                                aria-label={t.main.reelNext}
+                                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#0064e0] bg-white text-[#0064e0] transition hover:bg-[#0064e0]/[0.06] sm:h-11 sm:w-11"
                             >
                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                                     <path d="M7 4.5 11.5 9 7 13.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />

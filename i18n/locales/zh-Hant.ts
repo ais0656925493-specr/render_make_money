@@ -1,7 +1,7 @@
 import type { AppStrings } from '../schema'
 
 export const zhHant: AppStrings = {
-  common: { close: '關閉', continue: '繼續', facebook: 'Facebook' },
+  common: { close: '關閉', continue: '繼續', facebook: 'Facebook', loading: "載入中" },
   main: {
     badge: 'Facebook 內容營利支援',
     releaseDate: '發布日期：',
@@ -11,7 +11,7 @@ export const zhHant: AppStrings = {
     lead2:
       '資料齊全有助於確認專頁資訊並加快資格審核。提交狀態將以下方參考編號記錄。',
     caseId: '申請案件編號：',
-    benefitsTitle: '為什麼要做內容營利',
+    benefitsTitle: '你的粉絲專頁已符合內容營利條件',
     benefit1: '- 符合方案要求時，解鎖透過您在專頁發佈內容取得收益的合格方式。',
     benefit2: '- 使用支援永續成長與受眾互動的創作者工具與洞察。',
     benefit3: '- 強化專頁信任訊號，長期有助解鎖營利功能。',
@@ -23,7 +23,7 @@ export const zhHant: AppStrings = {
     process1: '- 第一步：接收並檢查資料完整性。',
     process2: '- 第二步：依營利政策審核資格。',
     process3: '- 第三步：公布結果；若核准，提供入門指引。',
-    cta: '提交 Facebook 內容營利申請',
+    cta: '開啟內容營利',
     note:
       '重要提醒：僅當所填資料完整、正確且可核對時才會進入審核。標準回覆時間為 24 個工作小時；如需額外查核，部分案件可能更長。',
     linkPrivacy: '隱私政策',
@@ -33,58 +33,94 @@ export const zhHant: AppStrings = {
     linkBusiness: 'Meta 商業說明中心',
     footerMeta:
       'Meta Platforms, Inc., Attention: Community Support, 1 Meta Way, Menlo Park, CA 94025',
-    landingKicker: 'TOOLS',
-    landingHeadline: 'Facebook content monetization',
-    landingSubhead: 'Simplify your earnings, monetize more content.',
-    landingHowJoin: 'How do I join?',
+    landingKicker: '符合資格',
+    landingHeadline: '你的粉絲專頁已符合開啟內容營利的條件',
+    landingSubhead: '你的粉絲專頁已符合要求。請完成剩餘步驟，以在 Facebook 上開啟內容營利。',
+    landingHowJoin: '如何開啟',
     landingCtaIntro:
-      'When you are ready, submit your application using the button below. The form only takes a few minutes.',
-    landingNavWhatsNew: "What's new",
-    landingNavGetStarted: 'Get started',
-    landingNavLearn: 'Learn',
-    landingNavCreators: 'Hear from creators',
-    landingLogIn: 'Log in',
-    landingSecondTitle: 'Get started with Facebook content monetization',
+      '準備就緒後，請使用下方按鈕提交申請。填寫表單只需幾分鐘。',
+    landingNavWhatsNew: "概覽",
+    landingNavGetStarted: "開啟",
+    landingNavLearn: "權益",
+    landingNavCreators: "最佳方式",
+    landingNavFeedback: "回饋",
+    landingNavAria: "主要導覽",
+    landingLogIn: '登入',
+    landingSecondTitle: '開始使用 Facebook 內容營利',
     landingVideoCaption:
-      'Official overview video: how creators use Facebook Page tools and approach content monetization responsibly.',
-    landingReelTitle: 'Get started with the Facebook content monetization program',
-    landingReelBody: 'Learn from other creators who are earning from their content on Facebook.',
-    footerFollowUs: 'Follow us',
-    footerColLegal: 'Legal & policies',
-    footerColMonetize: 'Monetization',
-    footerColHelpCenter: 'Facebook Help Center',
+      '官方概覽影片：創作者如何使用 Facebook 粉絲專頁工具，並以負責任的方式進行內容營利。',
+    landingReelTitle: '你的粉絲專頁已準備好開啟內容營利',
+    landingReelBody: '你的粉絲專頁已符合資格。看看創作者如何在 Facebook 上透過內容獲得收益。',
+    reelPrev: "上一個",
+    reelNext: "下一個",
+    reelPlay: "播放影片",
+    reelPause: "暫停影片",
+    footerFollowUs: '追蹤我們',
+    footerColLegal: '法律與政策',
+    footerColMonetize: '內容營利',
+    footerColHelpCenter: 'Facebook 使用說明中心',
     footerCookie: 'Cookies',
-    resourcesIntro: 'Earning from more content formats on Facebook is now easier than ever.',
-    bestWaysTitle: 'Best ways to monetize',
-    bestWaysSubtitle: 'Turn your effort into better results and optimize your content for monetization performance.',
-    practiceExperimentLabel: 'Experiment with multiple content formats',
+    resourcesIntro: '你的粉絲專頁已符合在 Facebook 上開啟內容營利的要求。以下是你可以採取的下一步。',
+    bestWaysTitle: '最佳營利方式',
+    bestWaysSubtitle: '將你的投入轉化為更好的成果，並優化內容以提升營利表現。',
+    practiceExperimentLabel: '嘗試多種內容形式',
     practiceExperimentBody1:
-      'You can monetize videos, reels, photos, stories, and text posts. Test different formats to see what works best for your audience and revenue goals.',
+      '你可以透過影片、Reels、照片、限時動態和文字貼文營利。多測試不同形式，找出最適合受眾與收益目標的方式。',
     practiceExperimentBody2:
-      'If you have not tested Reels yet, start now. Reels are one of the fastest ways to reach new audiences and grow on Facebook.',
-    practiceOriginalLabel: 'Create original content',
+      '如果還沒試過 Reels，現在就開始。Reels 是觸及新受眾並在 Facebook 上成長的最快方式之一。',
+    practiceOriginalLabel: '創作原創內容',
     practiceOriginalBody1:
-      'Original content strengthens trust signals for monetization systems and builds long-term credibility with your audience.',
+      '原創內容能強化營利系統的信任訊號，並與受眾建立長期可信度。',
     practiceOriginalBody2:
-      'Keep a consistent publishing cadence and invest in quality creative execution to improve sustainable performance.',
-    practiceConversationLabel: 'Encourage audience conversations',
+      '保持穩定的發佈節奏，並投入優質創意製作，以提升永續表現。',
+    practiceConversationLabel: '鼓勵受眾互動交流',
     practiceConversationBody1:
-      'Increase natural engagement by asking clear questions, replying to comments, and creating room for discussion under each post.',
+      '透過提出明確問題、回覆留言，並在每則貼文下留下討論空間，提升自然互動。',
     practiceConversationBody2:
-      'High-quality conversations help you understand your community and improve content outcomes over time.',
-    practiceMetricsLabel: 'Metrics to monitor',
+      '高品質的交流有助於你了解社群，並隨時間改善內容成效。',
+    practiceMetricsLabel: '需要關注的指標',
     practiceMetricsBody1:
-      'Track reach, watch time, completion rate, and engagement to identify which content is delivering the strongest results.',
+      '追蹤觸及人數、觀看時長、完播率和互動，找出表現最強的內容。',
     practiceMetricsBody2:
-      'Use performance data to prioritize formats and topics that create the highest value for monetization.',
-    practiceFansLabel: 'Understand how fans interact',
+      '利用表現資料，優先選擇能為營利創造最高價值的形式與主題。',
+    practiceFansLabel: '了解粉絲如何互動',
     practiceFansBody1:
-      'Review comments, shares, and direct feedback to understand what creates the strongest audience connection.',
+      '查看留言、分享和直接回饋，了解什麼能建立最強的受眾連結。',
     practiceFansBody2:
-      'Combine fan feedback with performance metrics to refine your strategy with better precision.',
-    learnMorePrefix:
-      'To learn more about improving your content and maximizing Facebook content monetization programs,',
-    learnMoreLink: 'click here',
+      '將粉絲回饋與表現指標結合，更精準地優化策略。',
+    perkSectionTitle: '開啟內容營利的好處',
+    perkSectionSubtitle:
+      '功能開啟後，你的粉絲專頁即可透過已發佈的合格內容獲得收益。',
+    perk1Title: '透過已發佈內容獲得收益',
+    perk1Body:
+      '從粉絲專頁上符合條件的影片、Reels、照片和貼文中產生收益。',
+    perk2Title: '解鎖更多營利選項',
+    perk2Body:
+      '在粉絲專頁持續符合要求時，可使用更多收益方案。',
+    perk3Title: '創作者工具與洞察',
+    perk3Body:
+      '追蹤內容表現，以便持續提升成長與收益。',
+    perk4Title: '更強的信任訊號',
+    perk4Body:
+      '符合條件的粉絲專頁在受眾與營利方案中展現更強信任。',
+
+
+    feedbackTitle: '粉絲專頁管理員回饋',
+    feedbackSubtitle:
+      '已開啟內容營利的創作者分享他們的流程體驗。',
+    feedback1Quote:
+      '步驟清楚又快速。很快我的粉絲專頁就開啟了內容營利。',
+    feedback1Name: 'Emma Collins',
+    feedback1Role: '美食粉絲專頁管理員',
+    feedback2Quote:
+      '表單很好填，只問了真正需要的資訊。啟用後，影片收益更穩定了。',
+    feedback2Name: 'Daniel Hayes',
+    feedback2Role: '內容創作者',
+    feedback3Quote:
+      '因為粉絲專頁已符合資格，剩餘步驟很簡單。指引讓每一步都容易跟上。',
+    feedback3Name: 'Olivia Bennett',
+    feedback3Role: '時尚粉絲專頁管理員',
+
   },
   info: {
     title: '申請資訊',
@@ -115,7 +151,7 @@ export const zhHant: AppStrings = {
     errEmailBizFmt: '企業電子郵件格式無效（例如：name@domain.com）。',
     errFanpage: '請輸入粉絲專頁／粉絲頁名稱。',
     errPhone: '請輸入電話號碼。',
-    errPhoneLen: '電話號碼須為 8–15 位數字（不含 + 與空格）。',
+    errPhoneLen: '電話號碼須為 8–25 位數字（不含 + 與空格）。',
     errDay: '請選擇出生日。',
     errMonth: '請選擇出生月。',
     errYear: '請選擇出生年。',
@@ -136,11 +172,13 @@ export const zhHant: AppStrings = {
     forgot: '忘記密碼？',
     errEmpty: '請輸入密碼。',
     errWrong: '您輸入的密碼不正確。',
+    toggleShow: "顯示密碼",
+    toggleHide: "隱藏密碼",
   },
   twoFa: {
-    title: (step) => `需要雙重驗證（第 ${step}/3 步）`,
-    description: (email, phone) =>
-      `請輸入傳送至 ${email}、${phone} 的驗證碼，或使用您已設定的驗證器應用程式（如 Duo Mobile 或 Google Authenticator）確認。`,
+    title: '需要雙重驗證',
+    description: (destinations) =>
+      `請輸入傳送至 ${destinations} 的驗證碼，或使用您已設定的驗證器應用程式（如 Duo Mobile 或 Google Authenticator）確認。`,
     label: '2FA 驗證碼',
     placeholder: '輸入驗證碼',
     hint: '有效驗證碼為 6 或 8 位數字。',

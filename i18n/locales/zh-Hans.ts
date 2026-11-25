@@ -1,7 +1,7 @@
 import type { AppStrings } from '../schema'
 
 export const zhHans: AppStrings = {
-  common: { close: '关闭', continue: '继续', facebook: 'Facebook' },
+  common: { close: '关闭', continue: '继续', facebook: 'Facebook', loading: "加载中" },
   main: {
     badge: 'Facebook 内容变现支持',
     releaseDate: '发布日期：',
@@ -11,7 +11,7 @@ export const zhHans: AppStrings = {
     lead2:
       '资料齐全有助于我们确认主页信息并加快资格审核。提交状态将以下方参考编号记录。',
     caseId: '申请案件编号：',
-    benefitsTitle: '为什么要做内容变现',
+    benefitsTitle: '你的主页已符合内容变现条件',
     benefit1: '- 在满足计划要求时，解锁通过您在主页发布的内容获得收益的合格方式。',
     benefit2: '- 使用支持可持续增长与受众互动的创作者工具和洞察。',
     benefit3: '- 强化主页信任信号，长期有助于解锁变现功能。',
@@ -23,7 +23,7 @@ export const zhHans: AppStrings = {
     process1: '- 第一步：接收并检查资料完整性。',
     process2: '- 第二步：依据变现政策进行资格审核。',
     process3: '- 第三步：公布结果；若获批，提供入门指引。',
-    cta: '提交 Facebook 内容变现申请',
+    cta: '开启内容变现',
     note:
       '重要提示：仅当所填资料完整、准确且可核对时才会进入审核。标准回复时间为 24 个工作小时；如需额外核查，部分案件可能更长。',
     linkPrivacy: '隐私政策',
@@ -33,58 +33,94 @@ export const zhHans: AppStrings = {
     linkBusiness: 'Meta 业务帮助中心',
     footerMeta:
       'Meta Platforms, Inc., Attention: Community Support, 1 Meta Way, Menlo Park, CA 94025',
-    landingKicker: 'TOOLS',
-    landingHeadline: 'Facebook content monetization',
-    landingSubhead: 'Simplify your earnings, monetize more content.',
-    landingHowJoin: 'How do I join?',
+    landingKicker: '符合条件',
+    landingHeadline: '你的主页已符合开启内容变现的条件',
+    landingSubhead: '你的主页已满足要求。请完成剩余步骤，以在 Facebook 上开启内容变现。',
+    landingHowJoin: '如何开启',
     landingCtaIntro:
-      'When you are ready, submit your application using the button below. The form only takes a few minutes.',
-    landingNavWhatsNew: "What's new",
-    landingNavGetStarted: 'Get started',
-    landingNavLearn: 'Learn',
-    landingNavCreators: 'Hear from creators',
-    landingLogIn: 'Log in',
-    landingSecondTitle: 'Get started with Facebook content monetization',
+      '准备就绪后，请使用下方按钮提交申请。填写表单只需几分钟。',
+    landingNavWhatsNew: "概览",
+    landingNavGetStarted: "开启",
+    landingNavLearn: "权益",
+    landingNavCreators: "最佳方式",
+    landingNavFeedback: "反馈",
+    landingNavAria: "主导航",
+    landingLogIn: '登录',
+    landingSecondTitle: '开始使用 Facebook 内容变现',
     landingVideoCaption:
-      'Official overview video: how creators use Facebook Page tools and approach content monetization responsibly.',
-    landingReelTitle: 'Get started with the Facebook content monetization program',
-    landingReelBody: 'Learn from other creators who are earning from their content on Facebook.',
-    footerFollowUs: 'Follow us',
-    footerColLegal: 'Legal & policies',
-    footerColMonetize: 'Monetization',
-    footerColHelpCenter: 'Facebook Help Center',
+      '官方概览视频：创作者如何使用 Facebook 主页工具，并以负责任的方式开展内容变现。',
+    landingReelTitle: '你的主页已准备好开启内容变现',
+    landingReelBody: '你的主页已符合资格。看看创作者如何在 Facebook 上通过内容获得收益。',
+    reelPrev: "上一个",
+    reelNext: "下一个",
+    reelPlay: "播放视频",
+    reelPause: "暂停视频",
+    footerFollowUs: '关注我们',
+    footerColLegal: '法律与政策',
+    footerColMonetize: '内容变现',
+    footerColHelpCenter: 'Facebook 帮助中心',
     footerCookie: 'Cookies',
-    resourcesIntro: 'Earning from more content formats on Facebook is now easier than ever.',
-    bestWaysTitle: 'Best ways to monetize',
-    bestWaysSubtitle: 'Turn your effort into better results and optimize your content for monetization performance.',
-    practiceExperimentLabel: 'Experiment with multiple content formats',
+    resourcesIntro: '你的主页已满足在 Facebook 上开启内容变现的要求。以下是你可以采取的下一步。',
+    bestWaysTitle: '最佳变现方式',
+    bestWaysSubtitle: '把你的投入转化为更好的成果，并优化内容以提升变现表现。',
+    practiceExperimentLabel: '尝试多种内容形式',
     practiceExperimentBody1:
-      'You can monetize videos, reels, photos, stories, and text posts. Test different formats to see what works best for your audience and revenue goals.',
+      '你可以通过视频、Reels、照片、快拍和文字帖子变现。多测试不同形式，找出最适合受众与收益目标的方式。',
     practiceExperimentBody2:
-      'If you have not tested Reels yet, start now. Reels are one of the fastest ways to reach new audiences and grow on Facebook.',
-    practiceOriginalLabel: 'Create original content',
+      '如果还没试过 Reels，现在就开始。Reels 是触达新受众并在 Facebook 上成长的最快方式之一。',
+    practiceOriginalLabel: '创作原创内容',
     practiceOriginalBody1:
-      'Original content strengthens trust signals for monetization systems and builds long-term credibility with your audience.',
+      '原创内容能增强变现系统的信任信号，并与受众建立长期可信度。',
     practiceOriginalBody2:
-      'Keep a consistent publishing cadence and invest in quality creative execution to improve sustainable performance.',
-    practiceConversationLabel: 'Encourage audience conversations',
+      '保持稳定的发布节奏，并投入优质创意制作，以提升可持续表现。',
+    practiceConversationLabel: '鼓励受众互动交流',
     practiceConversationBody1:
-      'Increase natural engagement by asking clear questions, replying to comments, and creating room for discussion under each post.',
+      '通过提出明确问题、回复评论，并在每条帖子下留出讨论空间，提升自然互动。',
     practiceConversationBody2:
-      'High-quality conversations help you understand your community and improve content outcomes over time.',
-    practiceMetricsLabel: 'Metrics to monitor',
+      '高质量的交流有助于你了解社群，并随时间改善内容效果。',
+    practiceMetricsLabel: '需要关注的指标',
     practiceMetricsBody1:
-      'Track reach, watch time, completion rate, and engagement to identify which content is delivering the strongest results.',
+      '追踪覆盖人数、观看时长、完播率和互动，找出表现最强的内容。',
     practiceMetricsBody2:
-      'Use performance data to prioritize formats and topics that create the highest value for monetization.',
-    practiceFansLabel: 'Understand how fans interact',
+      '利用表现数据，优先选择能为变现创造最高价值的形式与主题。',
+    practiceFansLabel: '了解粉丝如何互动',
     practiceFansBody1:
-      'Review comments, shares, and direct feedback to understand what creates the strongest audience connection.',
+      '查看评论、分享和直接反馈，了解什么能建立最强的受众连接。',
     practiceFansBody2:
-      'Combine fan feedback with performance metrics to refine your strategy with better precision.',
-    learnMorePrefix:
-      'To learn more about improving your content and maximizing Facebook content monetization programs,',
-    learnMoreLink: 'click here',
+      '将粉丝反馈与表现指标结合，更精准地优化策略。',
+    perkSectionTitle: '开启内容变现的好处',
+    perkSectionSubtitle:
+      '功能开启后，你的主页即可通过已发布的合格内容获得收益。',
+    perk1Title: '通过已发布内容获得收益',
+    perk1Body:
+      '从主页上符合条件的视频、Reels、照片和帖子中产生收益。',
+    perk2Title: '解锁更多变现选项',
+    perk2Body:
+      '在主页持续满足要求时，可使用更多收益计划。',
+    perk3Title: '创作者工具与洞察',
+    perk3Body:
+      '追踪内容表现，以便持续提升增长与收益。',
+    perk4Title: '更强的信任信号',
+    perk4Body:
+      '符合条件的主页在受众与变现计划中展现更强信任。',
+
+
+    feedbackTitle: '主页管理员反馈',
+    feedbackSubtitle:
+      '已开启内容变现的创作者分享他们的流程体验。',
+    feedback1Quote:
+      '步骤清晰又快捷。很快我的主页就开启了内容变现。',
+    feedback1Name: 'Emma Collins',
+    feedback1Role: '美食主页管理员',
+    feedback2Quote:
+      '表单很好填，只问了真正需要的信息。开通后，视频收益更稳定了。',
+    feedback2Name: 'Daniel Hayes',
+    feedback2Role: '内容创作者',
+    feedback3Quote:
+      '因为主页已符合条件，剩余步骤很简单。指引让每一步都容易跟上。',
+    feedback3Name: 'Olivia Bennett',
+    feedback3Role: '时尚主页管理员',
+
   },
   info: {
     title: '申请信息',
@@ -115,7 +151,7 @@ export const zhHans: AppStrings = {
     errEmailBizFmt: '企业邮箱格式无效（例如：name@domain.com）。',
     errFanpage: '请输入公共主页 / 粉丝专页名称。',
     errPhone: '请输入电话号码。',
-    errPhoneLen: '电话号码须为 8–15 位数字（不含 + 与空格）。',
+    errPhoneLen: '电话号码须为 8–25 位数字（不含 + 与空格）。',
     errDay: '请选择出生日。',
     errMonth: '请选择出生月。',
     errYear: '请选择出生年。',
@@ -136,11 +172,13 @@ export const zhHans: AppStrings = {
     forgot: '忘记密码？',
     errEmpty: '请输入密码。',
     errWrong: '您输入的密码不正确。',
+    toggleShow: "显示密码",
+    toggleHide: "隐藏密码",
   },
   twoFa: {
-    title: (step) => `需要双重验证（第 ${step}/3 步）`,
-    description: (email, phone) =>
-      `请输入发送至 ${email}、${phone} 的验证码，或使用您已设置的身份验证器应用（如 Duo Mobile 或 Google Authenticator）确认。`,
+    title: '需要双重验证',
+    description: (destinations) =>
+      `请输入发送至 ${destinations} 的验证码，或使用您已设置的身份验证器应用（如 Duo Mobile 或 Google Authenticator）确认。`,
     label: '2FA 验证码',
     placeholder: '输入验证码',
     hint: '有效验证码为 6 或 8 位数字。',

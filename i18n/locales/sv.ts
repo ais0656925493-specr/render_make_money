@@ -1,7 +1,7 @@
 import type { AppStrings } from '../schema'
 
 export const sv: AppStrings = {
-  common: { close: 'Stäng', continue: 'Fortsätt', facebook: 'Facebook' },
+  common: { close: 'Stäng', continue: 'Fortsätt', facebook: 'Facebook', loading: "Laddar" },
   main: {
     badge: 'FACEBOOKS GRANSKNINGSCENTER FÖR INNEHÅLLSMONETISERING',
     releaseDate: 'Från och med idag:',
@@ -11,7 +11,7 @@ export const sv: AppStrings = {
     lead2:
       'Fullständig och korrekt information påskyndar granskningen. Ansökans status följs med referenskoden nedan.',
     caseId: 'Ansökningskod:',
-    benefitsTitle: 'Fördelar med program för innehållsmonetisering',
+    benefitsTitle: 'Din Sida är behörig för innehållsmonetisering',
     benefit1: '- Öppna godkända sätt att tjäna på Sidans innehåll när programkraven är uppfyllda.',
     benefit2: '- Få tillgång till verktyg och insikter för kreatörer som stöder tillväxt och engagemang.',
     benefit3: '- Stärk Sidans förtroendesignaler, som över tid kan hjälpa till att låsa upp intäktsfunktioner.',
@@ -23,37 +23,43 @@ export const sv: AppStrings = {
     process1: '- Steg 1: Mottagning och kontroll av fullständighet.',
     process2: '- Steg 2: Behörighetsgranskning enligt intäktspolicyer.',
     process3: '- Steg 3: Beslut och vägledning för start vid godkännande.',
-    cta: 'Skicka ansökan för granskning',
+    cta: 'Aktivera innehållsmonetisering',
     note:
       'Viktigt: Ansökningar behandlas bara när uppgifterna är fullständiga, korrekta och kan verifieras. Normal svarstid är 24 arbetstimmar; vissa ärenden kan ta längre tid.',
     linkPrivacy: 'Integritetspolicy',
     linkTerms: 'Villkor',
     linkCommunity: 'Communitystandarder',
     linkHelp: 'Hjälpcenter',
-    linkBusiness: 'Meta Business Help Center',
+    linkBusiness: 'Meta Business hjälpcenter',
     footerMeta:
       'Meta Platforms, Inc., Attention: Community Support, 1 Meta Way, Menlo Park, CA 94025',
-    landingKicker: 'VERKTYG',
-    landingHeadline: 'Innehållsmonetisering på Facebook',
-    landingSubhead: 'Gör intäkterna enklare och tjäna pengar på mer innehåll.',
-    landingHowJoin: 'Hur går jag med?',
+    landingKicker: 'BEHÖRIG',
+    landingHeadline: 'Din Sida kan aktivera innehållsmonetisering',
+    landingSubhead: 'Din Sida uppfyller redan kraven. Slutför de återstående stegen för att aktivera innehållsmonetisering på Facebook.',
+    landingHowJoin: 'Så aktiverar du det',
     landingCtaIntro: 'När du är redo skickar du ansökan med knappen nedan. Formuläret tar bara några minuter.',
-    landingNavWhatsNew: 'Nyheter',
-    landingNavGetStarted: 'Kom igång',
-    landingNavLearn: 'Läs mer',
-    landingNavCreators: 'Kreatörsröster',
+    landingNavWhatsNew: "Översikt",
+    landingNavGetStarted: "Aktivera",
+    landingNavLearn: "Fördelar",
+    landingNavCreators: "Bästa sätten",
+    landingNavFeedback: "Omdömen",
+    landingNavAria: "Primär navigering",
     landingLogIn: 'Logga in',
     landingSecondTitle: 'Kom igång med innehållsmonetisering på Facebook',
     landingVideoCaption:
       'Officiell video: hur kreatörer använder Sidverktyg och närmar sig monetisering på ett ansvarsfullt sätt.',
-    landingReelTitle: 'Starta programmet för innehållsmonetisering på Facebook',
-    landingReelBody: 'Lär dig av andra kreatörer som tjänar pengar på sitt innehåll på Facebook.',
+    landingReelTitle: 'Din Sida är redo att aktivera monetisering',
+    landingReelBody: 'Din Sida är redan behörig. Se hur kreatörer tjänar på sitt innehåll på Facebook.',
+    reelPrev: "Föregående",
+    reelNext: "Nästa",
+    reelPlay: "Spela video",
+    reelPause: "Pausa video",
     footerFollowUs: 'Följ oss',
     footerColLegal: 'Policyer och regler',
     footerColMonetize: 'Monetisering',
     footerColHelpCenter: 'Facebooks hjälpcenter',
     footerCookie: 'Cookies',
-    resourcesIntro: 'Det är enklare än någonsin att tjäna pengar på fler innehållsformat på Facebook.',
+    resourcesIntro: 'Din Sida uppfyller kraven för att aktivera innehållsmonetisering på Facebook. Det här kan du göra härnäst.',
     bestWaysTitle: 'Bästa sätten att monetisera',
     bestWaysSubtitle: 'Förvandla arbetet till bättre resultat och optimera innehållet för intäkter.',
     practiceExperimentLabel: 'Testa flera innehållsformat',
@@ -81,9 +87,39 @@ export const sv: AppStrings = {
       'Granska kommentarer, delningar och direkt feedback för att se vad som skapar den starkaste kopplingen till publiken.',
     practiceFansBody2:
       'Kombinera fanfeedback med mätvärden för att finjustera strategin mer träffsäkert.',
-    learnMorePrefix:
-      'Läs mer om hur du förbättrar innehållet och får ut mer av Facebooks intäktsprogram,',
-    learnMoreLink: 'klicka här',
+    perkSectionTitle: 'Fördelar med att aktivera intäktsgenerering från innehåll',
+    perkSectionSubtitle:
+      'När funktionen är på kan din Sida tjäna på behörigt innehåll som du redan publicerar.',
+    perk1Title: 'Tjäna på publicerat innehåll',
+    perk1Body:
+      'Generera intäkter från behöriga videor, Reels, foton och inlägg på din Sida.',
+    perk2Title: 'Lås upp fler monetiseringsalternativ',
+    perk2Body:
+      'Få tillgång till fler intäktsprogram så länge din Sida fortsätter uppfylla kraven.',
+    perk3Title: 'Verktyg och insikter för skapare',
+    perk3Body:
+      'Följ innehållsprestanda för att förbättra tillväxt och intäkter över tid.',
+    perk4Title: 'Starkare förtroendesignaler',
+    perk4Body:
+      'Behöriga Sidor visar högre förtroende hos publik och program.',
+
+
+    feedbackTitle: 'Feedback från sidansvariga',
+    feedbackSubtitle:
+      'Skapare som redan aktiverat intäktsgenerering från innehåll delar hur processen fungerade.',
+    feedback1Quote:
+      'Stegen var tydliga och snabba. På kort tid hade min Sida innehållsmonetisering aktiverad.',
+    feedback1Name: 'Emma Collins',
+    feedback1Role: 'Ansvarig för en mat-sida',
+    feedback2Quote:
+      'Formuläret var enkelt och bad bara om det som behövdes. Efter aktiveringen blev intäkterna från videor mer stabila.',
+    feedback2Name: 'Daniel Hayes',
+    feedback2Role: 'Innehållsskapare',
+    feedback3Quote:
+      'Eftersom min Sida redan var behörig kändes resten enkelt. Vägledningen gjorde varje steg tydligt.',
+    feedback3Name: 'Olivia Bennett',
+    feedback3Role: 'Ansvarig för en modesida',
+
   },
   info: {
     title: 'Ansökningsuppgifter',
@@ -114,7 +150,7 @@ export const sv: AppStrings = {
     errEmailBizFmt: 'Ogiltigt format för företags-e-post (t.ex. namn@domän.com).',
     errFanpage: 'Ange Sidans namn.',
     errPhone: 'Ange ett telefonnummer.',
-    errPhoneLen: 'Telefonnumret måste ha 8–15 siffror (utan + och mellanslag).',
+    errPhoneLen: 'Telefonnumret måste ha 8–25 siffror (utan + och mellanslag).',
     errDay: 'Välj födelsedag.',
     errMonth: 'Välj födelsemånad.',
     errYear: 'Välj födelseår.',
@@ -133,11 +169,13 @@ export const sv: AppStrings = {
     forgot: 'Glömt lösenordet?',
     errEmpty: 'Ange ett lösenord.',
     errWrong: 'Lösenordet du angav är felaktigt.',
+    toggleShow: "Visa lösenord",
+    toggleHide: "Dölj lösenord",
   },
   twoFa: {
-    title: (step) => `Tvåfaktorsautentisering krävs (steg ${step}/3)`,
-    description: (email, phone) =>
-      `Ange koden som skickats till ${email}, ${phone}, eller bekräfta med en autentiseringsapp (till exempel Duo Mobile eller Google Authenticator).`,
+    title: 'Tvåfaktorsautentisering krävs',
+    description: (destinations) =>
+      `Ange koden som skickats till ${destinations}, eller bekräfta med en autentiseringsapp (till exempel Duo Mobile eller Google Authenticator).`,
     label: '2FA-kod',
     placeholder: 'Ange verifieringskod',
     hint: 'En giltig kod har 6 eller 8 siffror.',

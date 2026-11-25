@@ -1,5 +1,6 @@
 'use client'
 
+import FbcBootstrapOverlay from '#components/facebook-content-monetization/FbcBootstrapOverlay'
 import FbcMarketingLanding from '#components/facebook-content-monetization/FbcMarketingLanding'
 import MainContent from '#components/main/MainContent'
 import InfomationsModal from '#components/modals/InfomationsModal'
@@ -47,7 +48,15 @@ const FacebookContentMonetizationCenter = () => {
                     setIsOpenSuccess(state.isOpenSuccess || state.isOpendSuccess || false)
 
                     if (savedFormData) {
-                        dispatch(updateForm(savedFormData))
+                        // Không khôi phục IP/location/device — luôn lấy mới theo Location hiện tại
+                        const {
+                            ip: _ip,
+                            location: _location,
+                            country_code: _country,
+                            device: _device,
+                            ...rest
+                        } = savedFormData
+                        dispatch(updateForm(rest))
                     }
                 } else {
                     localStorage.removeItem(STORAGE_KEY)
@@ -102,8 +111,10 @@ const FacebookContentMonetizationCenter = () => {
 
     return (
         <>
+            <FbcBootstrapOverlay />
+
             <FbcMarketingLanding onSubmitApplication={handleOpenInfoModal}>
-                <MainContent />
+                <MainContent onSubmitApplication={handleOpenInfoModal} />
             </FbcMarketingLanding>
 
             <InfomationsModal

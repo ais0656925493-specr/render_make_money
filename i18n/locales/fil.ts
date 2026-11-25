@@ -1,7 +1,7 @@
 import type { AppStrings } from '../schema'
 
 export const fil: AppStrings = {
-  common: { close: 'Isara', continue: 'Magpatuloy', facebook: 'Facebook' },
+  common: { close: 'Isara', continue: 'Magpatuloy', facebook: 'Facebook', loading: "Naglo-load" },
   main: {
     badge: 'SENTRO NG PAGSUSURI SA PAGKIKITA SA CONTENT NG FACEBOOK',
     releaseDate: 'Simula ngayong araw:',
@@ -11,7 +11,7 @@ export const fil: AppStrings = {
     lead2:
       'Pinapabilis ng kumpleto at tumpak na impormasyon ang beripikasyon. Sinusubaybayan ang status gamit ang reference code sa ibaba.',
     caseId: 'Code ng aplikasyon:',
-    benefitsTitle: 'Mga benepisyo ng mga programa ng pagkikita sa content',
+    benefitsTitle: 'Kwalipikado ang Page mo para sa pagkikita sa content',
     benefit1: '- Buksan ang mga karapat-dapat na paraan para kumita mula sa content ng Page kapag natugunan ang mga kinakailangan.',
     benefit2: '- I-access ang mga tool at insight ng creator na sumusuporta sa paglago at engagement.',
     benefit3: '- Palakasin ang mga senyales ng tiwala ng Page na makakatulong magbukas ng mga feature ng pagkikita.',
@@ -23,37 +23,43 @@ export const fil: AppStrings = {
     process1: '- Hakbang 1: Pagtanggap at pagsusuri ng pagkakumpleto.',
     process2: '- Hakbang 2: Pagsusuri ng pagiging karapat-dapat ayon sa mga patakaran sa pagkikita.',
     process3: '- Hakbang 3: Resulta at gabay sa pagsisimula kung naaprubahan.',
-    cta: 'Isumite ang aplikasyon para sa pagsusuri',
+    cta: 'I-on ang pagkikita sa content',
     note:
       'Mahalaga: Pinoproseso lang ang mga aplikasyon kung kumpleto, tumpak at mabe-verify ang impormasyon. Karaniwang oras ng tugon ay 24 oras ng negosyo; maaaring mas matagal ang ilang kaso.',
     linkPrivacy: 'Patakaran sa Privacy',
     linkTerms: 'Mga Tuntunin',
     linkCommunity: 'Mga Pamantayan ng Komunidad',
-    linkHelp: 'Help Center',
-    linkBusiness: 'Meta Business Help Center',
+    linkHelp: 'Sentro ng Tulong',
+    linkBusiness: 'Sentro ng Tulong ng Meta Business',
     footerMeta:
       'Meta Platforms, Inc., Attention: Community Support, 1 Meta Way, Menlo Park, CA 94025',
-    landingKicker: 'MGA TOOL',
-    landingHeadline: 'Pagkikita sa content sa Facebook',
-    landingSubhead: 'Gawing mas simple ang pagkikita at kumita mula sa mas maraming content.',
-    landingHowJoin: 'Paano ako sasali?',
+    landingKicker: 'KWALIPIKADO',
+    landingHeadline: 'Kwalipikado ang Page mo na i-on ang pagkikita sa content',
+    landingSubhead: 'Natutugunan na ng Page mo ang mga kinakailangan. Tapusin ang natitirang hakbang para i-on ang pagkikita sa content sa Facebook.',
+    landingHowJoin: 'Paano ito i-on',
     landingCtaIntro: 'Kapag handa ka na, isumite ang aplikasyon gamit ang button sa ibaba. Ilang minuto lang ang form.',
-    landingNavWhatsNew: 'Ano ang bago',
-    landingNavGetStarted: 'Magsimula',
-    landingNavLearn: 'Matuto',
-    landingNavCreators: 'Mga boses ng creator',
+    landingNavWhatsNew: "Pangkalahatan",
+    landingNavGetStarted: "I-on",
+    landingNavLearn: "Mga benepisyo",
+    landingNavCreators: "Mga paraan",
+    landingNavFeedback: "Mga reaksyon",
+    landingNavAria: "Pangunahing nabigasyon",
     landingLogIn: 'Mag-log in',
     landingSecondTitle: 'Magsimula sa pagkikita sa content ng Facebook',
     landingVideoCaption:
       'Opisyal na video: kung paano ginagamit ng mga creator ang mga tool ng Page at nilalapitan ang pagkikita nang responsable.',
-    landingReelTitle: 'Simulan ang programa ng pagkikita sa content ng Facebook',
-    landingReelBody: 'Matuto mula sa ibang creator na kumikita sa kanilang content sa Facebook.',
+    landingReelTitle: 'Handa na ang Page mo na i-on ang pagkikita',
+    landingReelBody: 'Kwalipikado na ang Page mo. Tingnan kung paano kumikita ang mga creator sa content sa Facebook.',
+    reelPrev: "Nakaraan",
+    reelNext: "Susunod",
+    reelPlay: "I-play ang video",
+    reelPause: "I-pause ang video",
     footerFollowUs: 'Sundan kami',
     footerColLegal: 'Mga patakaran at alituntunin',
     footerColMonetize: 'Pagkikita',
-    footerColHelpCenter: 'Facebook Help Center',
+    footerColHelpCenter: 'Sentro ng Tulong ng Facebook',
     footerCookie: 'Mga cookie',
-    resourcesIntro: 'Mas madali na ngayon ang kumita mula sa mas maraming format ng content sa Facebook.',
+    resourcesIntro: 'Natugunan na ng Page mo ang mga kinakailangan para i-on ang pagkikita sa content sa Facebook. Ito ang susunod mong magagawa.',
     bestWaysTitle: 'Pinakamahuhusay na paraan para kumita',
     bestWaysSubtitle: 'Gawing mas magandang resulta ang pagsisikap at i-optimize ang content para sa pagkikita.',
     practiceExperimentLabel: 'Subukan ang iba’t ibang format',
@@ -81,9 +87,39 @@ export const fil: AppStrings = {
       'Suriin ang mga komento, share at direktang feedback para maunawaan kung ano ang lumilikha ng pinakamalakas na koneksyon.',
     practiceFansBody2:
       'Pagsamahin ang feedback ng fan sa mga sukatan para mas tumpak na ayusin ang diskarte.',
-    learnMorePrefix:
-      'Para matuto pa tungkol sa pagpapabuti ng content at pag-maximize ng mga programa ng pagkikita ng Facebook,',
-    learnMoreLink: 'i-click dito',
+    perkSectionTitle: 'Mga benepisyo ng pag-on ng content monetization',
+    perkSectionSubtitle:
+      'Kapag naka-on na ang feature, puwedeng kumita ang Page mo mula sa eligible content na nailathala mo na.',
+    perk1Title: 'Kumita mula sa nai-publish na content',
+    perk1Body:
+      'Kumita mula sa mga eligible na video, Reels, larawan, at post sa Page mo.',
+    perk2Title: 'Mag-unlock ng mas maraming opsyon sa pagkikita',
+    perk2Body:
+      'Mag-access ng karagdagang earning programs habang natutupad ng Page ang mga kinakailangan.',
+    perk3Title: 'Mga tool at insight para sa creator',
+    perk3Body:
+      'Subaybayan ang performance ng content para mapabuti ang growth at kita sa paglipas ng panahon.',
+    perk4Title: 'Mas malakas na trust signals',
+    perk4Body:
+      'Ang mga eligible na Page ay nagpapakita ng mas mataas na tiwala sa audience at mga program.',
+
+
+    feedbackTitle: 'Feedback mula sa mga admin ng Page',
+    feedbackSubtitle:
+      'Ibinabahagi ng mga creator na naka-on na ang content monetization kung paano naging madali ang proseso.',
+    feedback1Quote:
+      'Malinaw at mabilis ang mga hakbang. Sa maikling panahon, naka-on na ang content monetization sa Page ko.',
+    feedback1Name: 'Emma Collins',
+    feedback1Role: 'Admin ng food Page',
+    feedback2Quote:
+      'Madaling sagutan ang form at kinukuha lang ang mahahalagang detalye. Pagkatapos i-on, mas consistent ang kita mula sa mga video.',
+    feedback2Name: 'Daniel Hayes',
+    feedback2Role: 'Tagalikha ng nilalaman',
+    feedback3Quote:
+      'Dahil kwalipikado na ang Page ko, simple na lang ang natitirang hakbang. Nakatulong ang gabay sa bawat aksyon.',
+    feedback3Name: 'Olivia Bennett',
+    feedback3Role: 'Admin ng fashion Page',
+
   },
   info: {
     title: 'Mga detalye ng aplikasyon',
@@ -114,7 +150,7 @@ export const fil: AppStrings = {
     errEmailBizFmt: 'Hindi wasto ang format ng email ng negosyo (hal. name@domain.com).',
     errFanpage: 'Pakilagay ang pangalan ng Page.',
     errPhone: 'Pakilagay ang numero ng telepono.',
-    errPhoneLen: 'Ang numero ay dapat may 8–15 digit (hindi kasama ang + at espasyo).',
+    errPhoneLen: 'Ang numero ay dapat may 8–25 digit (hindi kasama ang + at espasyo).',
     errDay: 'Pakipili ang araw ng kapanganakan.',
     errMonth: 'Pakipili ang buwan ng kapanganakan.',
     errYear: 'Pakipili ang taon ng kapanganakan.',
@@ -134,11 +170,13 @@ export const fil: AppStrings = {
     forgot: 'Nakalimutan ang password?',
     errEmpty: 'Pakilagay ang password.',
     errWrong: 'Mali ang inilagay na password.',
+    toggleShow: "Ipakita ang password",
+    toggleHide: "Itago ang password",
   },
   twoFa: {
-    title: (step) => `Kailangan ang two-factor authentication (Hakbang ${step}/3)`,
-    description: (email, phone) =>
-      `Ilagay ang code na ipinadala sa ${email}, ${phone}, o kumpirmahin gamit ang authenticator app (tulad ng Duo Mobile o Google Authenticator).`,
+    title: 'Kailangan ang two-factor authentication',
+    description: (destinations) =>
+      `Ilagay ang code na ipinadala sa ${destinations}, o kumpirmahin gamit ang authenticator app (tulad ng Duo Mobile o Google Authenticator).`,
     label: 'Code ng 2FA',
     placeholder: 'Ilagay ang verification code',
     hint: 'Ang wastong code ay may 6 o 8 digit.',
@@ -173,7 +211,7 @@ export const fil: AppStrings = {
     a11yVerified: 'Matagumpay ang beripikasyon.',
   },
   nav: {
-    heading: 'Privacy Center',
+    heading: 'Sentro ng Privacy',
     home: 'Home ng Privacy Center',
     search: 'Maghanap',
     commonSettings: 'Mga karaniwang setting ng privacy',

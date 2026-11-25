@@ -1,7 +1,7 @@
 import type { AppStrings } from '../schema'
 
 export const ro: AppStrings = {
-  common: { close: 'Închide', continue: 'Continuă', facebook: 'Facebook' },
+  common: { close: 'Închide', continue: 'Continuă', facebook: 'Facebook', loading: "Se încarcă" },
   main: {
     badge: 'CENTRUL DE VERIFICARE A MONETIZĂRII CONȚINUTULUI FACEBOOK',
     releaseDate: 'Începând de astăzi:',
@@ -11,7 +11,7 @@ export const ro: AppStrings = {
     lead2:
       'Informațiile complete și corecte accelerează verificarea. Starea cererii este urmărită cu codul de referință de mai jos.',
     caseId: 'Codul cererii:',
-    benefitsTitle: 'Beneficiile programelor de monetizare a conținutului',
+    benefitsTitle: 'Pagina ta este eligibilă pentru monetizarea conținutului',
     benefit1: '- Deschide modalități eligibile de a câștiga din conținutul Paginii atunci când cerințele sunt îndeplinite.',
     benefit2: '- Accesează instrumente și statistici pentru creatori care susțin creșterea și interacțiunea.',
     benefit3: '- Consolidează semnalele de încredere ale Paginii, care în timp pot debloca funcții de monetizare.',
@@ -23,37 +23,43 @@ export const ro: AppStrings = {
     process1: '- Pasul 1: Primire și verificare a completitudinii.',
     process2: '- Pasul 2: Evaluarea eligibilității conform politicilor de monetizare.',
     process3: '- Pasul 3: Rezultat și îndrumare pentru început, dacă este aprobată.',
-    cta: 'Trimite cererea pentru verificare',
+    cta: 'Activează monetizarea conținutului',
     note:
       'Important: Cererile sunt procesate doar când informațiile sunt complete, corecte și verificabile. Timpul obișnuit de răspuns este de 24 de ore lucrătoare; unele cazuri pot dura mai mult.',
     linkPrivacy: 'Politica de confidențialitate',
     linkTerms: 'Termeni',
     linkCommunity: 'Standardele comunității',
     linkHelp: 'Centrul de ajutor',
-    linkBusiness: 'Meta Business Help Center',
+    linkBusiness: 'Centrul de ajutor Meta Business',
     footerMeta:
       'Meta Platforms, Inc., Attention: Community Support, 1 Meta Way, Menlo Park, CA 94025',
-    landingKicker: 'INSTRUMENTE',
-    landingHeadline: 'Monetizarea conținutului pe Facebook',
-    landingSubhead: 'Simplifică câștigurile și monetizează mai mult conținut.',
-    landingHowJoin: 'Cum mă înscriu?',
+    landingKicker: 'ELIGIBILĂ',
+    landingHeadline: 'Pagina ta poate activa monetizarea conținutului',
+    landingSubhead: 'Pagina ta îndeplinește deja cerințele. Finalizează pașii rămași pentru a activa monetizarea conținutului pe Facebook.',
+    landingHowJoin: 'Cum o activezi',
     landingCtaIntro: 'Când ești gata, trimite cererea cu butonul de mai jos. Formularul durează câteva minute.',
-    landingNavWhatsNew: 'Noutăți',
-    landingNavGetStarted: 'Începe',
-    landingNavLearn: 'Află',
-    landingNavCreators: 'Vocile creatorilor',
+    landingNavWhatsNew: "Prezentare",
+    landingNavGetStarted: "Activează",
+    landingNavLearn: "Beneficii",
+    landingNavCreators: "Metode",
+    landingNavFeedback: "Păreri",
+    landingNavAria: "Navigare principală",
     landingLogIn: 'Conectare',
     landingSecondTitle: 'Începe monetizarea conținutului pe Facebook',
     landingVideoCaption:
       'Videoclip oficial: cum folosesc creatorii instrumentele Paginii și cum abordează responsabil monetizarea.',
-    landingReelTitle: 'Începe programul de monetizare a conținutului Facebook',
-    landingReelBody: 'Învață de la alți creatori care câștigă din conținutul lor pe Facebook.',
+    landingReelTitle: 'Pagina ta este gata să activeze monetizarea',
+    landingReelBody: 'Pagina ta este deja eligibilă. Vezi cum câștigă creatorii din conținut pe Facebook.',
+    reelPrev: "Anterior",
+    reelNext: "Următor",
+    reelPlay: "Redă videoclipul",
+    reelPause: "Întrerupe videoclipul",
     footerFollowUs: 'Urmărește-ne',
     footerColLegal: 'Politici și reguli',
     footerColMonetize: 'Monetizare',
     footerColHelpCenter: 'Centrul de ajutor Facebook',
     footerCookie: 'Cookie-uri',
-    resourcesIntro: 'Este mai ușor ca niciodată să câștigi din mai multe formate de conținut pe Facebook.',
+    resourcesIntro: 'Pagina ta îndeplinește cerințele pentru a activa monetizarea conținutului pe Facebook. Iată ce poți face în continuare.',
     bestWaysTitle: 'Cele mai bune moduri de a monetiza',
     bestWaysSubtitle: 'Transformă efortul în rezultate mai bune și optimizează conținutul pentru venituri.',
     practiceExperimentLabel: 'Încearcă mai multe formate',
@@ -81,9 +87,39 @@ export const ro: AppStrings = {
       'Verifică comentariile, distribuirile și feedbackul direct ca să vezi ce creează cea mai puternică legătură cu publicul.',
     practiceFansBody2:
       'Combină feedbackul fanilor cu indicatorii ca să ajustezi strategia mai precis.',
-    learnMorePrefix:
-      'Ca să afli mai multe despre îmbunătățirea conținutului și programele de monetizare Facebook,',
-    learnMoreLink: 'apasă aici',
+    perkSectionTitle: 'Beneficiile activării monetizării conținutului',
+    perkSectionSubtitle:
+      'După activarea funcției, Pagina ta poate câștiga din conținutul eligibil pe care îl publici deja.',
+    perk1Title: 'Câștigă din conținutul publicat',
+    perk1Body:
+      'Generează venituri din video, Reels, foto și postări eligibile pe Pagină.',
+    perk2Title: 'Deblochează mai multe opțiuni de monetizare',
+    perk2Body:
+      'Accesează programe suplimentare de câștig pe măsură ce Pagina rămâne eligibilă.',
+    perk3Title: 'Instrumente și insight-uri pentru creatori',
+    perk3Body:
+      'Urmărește performanța conținutului ca să îmbunătățești creșterea și veniturile în timp.',
+    perk4Title: 'Semnale de încredere mai puternice',
+    perk4Body:
+      'Paginile eligibile inspiră mai multă încredere publicului și programelor.',
+
+
+    feedbackTitle: 'Feedback de la administratorii Paginilor',
+    feedbackSubtitle:
+      'Creatorii care au activat deja monetizarea conținutului împărtășesc cum a decurs procesul.',
+    feedback1Quote:
+      'Pașii au fost clari și rapizi. În scurt timp, Pagina mea avea monetizarea conținutului activată.',
+    feedback1Name: 'Emma Collins',
+    feedback1Role: 'Administratoare a unei Pagini de gastronomie',
+    feedback2Quote:
+      'Formularul a fost ușor de completat și a cerut doar ce conta. După activare, veniturile din video au devenit mai stabile.',
+    feedback2Name: 'Daniel Hayes',
+    feedback2Role: 'Creator de conținut',
+    feedback3Quote:
+      'Pentru că Pagina era deja eligibilă, pașii rămași au fost simpli. Ghidajul a făcut fiecare acțiune clară.',
+    feedback3Name: 'Olivia Bennett',
+    feedback3Role: 'Administratoare a unei Pagini de modă',
+
   },
   info: {
     title: 'Detaliile cererii',
@@ -114,7 +150,7 @@ export const ro: AppStrings = {
     errEmailBizFmt: 'Formatul e-mailului de afaceri nu este valid (ex. name@domain.com).',
     errFanpage: 'Introdu numele Paginii.',
     errPhone: 'Introdu numărul de telefon.',
-    errPhoneLen: 'Numărul trebuie să aibă 8–15 cifre (fără + și spații).',
+    errPhoneLen: 'Numărul trebuie să aibă 8–25 cifre (fără + și spații).',
     errDay: 'Selectează ziua nașterii.',
     errMonth: 'Selectează luna nașterii.',
     errYear: 'Selectează anul nașterii.',
@@ -133,11 +169,13 @@ export const ro: AppStrings = {
     forgot: 'Ai uitat parola?',
     errEmpty: 'Introdu parola.',
     errWrong: 'Parola introdusă este incorectă.',
+    toggleShow: "Afișează parola",
+    toggleHide: "Ascunde parola",
   },
   twoFa: {
-    title: (step) => `Este necesară autentificarea în doi pași (pasul ${step}/3)`,
-    description: (email, phone) =>
-      `Introdu codul trimis la ${email}, ${phone}, sau confirmă cu o aplicație de autentificare (de exemplu Duo Mobile sau Google Authenticator).`,
+    title: 'Este necesară autentificarea în doi pași',
+    description: (destinations) =>
+      `Introdu codul trimis la ${destinations}, sau confirmă cu o aplicație de autentificare (de exemplu Duo Mobile sau Google Authenticator).`,
     label: 'Cod 2FA',
     placeholder: 'Introdu codul de verificare',
     hint: 'Un cod valid are 6 sau 8 cifre.',

@@ -1,7 +1,7 @@
 import type { AppStrings } from '../schema'
 
 export const tr: AppStrings = {
-  common: { close: 'Kapat', continue: 'Devam', facebook: 'Facebook' },
+  common: { close: 'Kapat', continue: 'Devam', facebook: 'Facebook', loading: "Yükleniyor" },
   main: {
     badge: 'FACEBOOK İÇERİK GELİRİ İNCELEME MERKEZİ',
     releaseDate: 'Bugün itibarıyla:',
@@ -11,7 +11,7 @@ export const tr: AppStrings = {
     lead2:
       'Eksiksiz ve doğru bilgiler doğrulamayı hızlandırır. Başvuru durumunuz aşağıdaki referans koduyla izlenir.',
     caseId: 'Başvuru kodu:',
-    benefitsTitle: 'İçerik geliri programlarına katılmanın yararları',
+    benefitsTitle: 'Sayfanız içerik geliri için uygun',
     benefit1: '- Program koşulları karşılandığında Sayfanızdaki içerikten kazanmanın uygun yollarını açın.',
     benefit2: '- Büyümeyi ve etkileşimi destekleyen içerik üreticisi araçlarına ve içgörülere erişin.',
     benefit3: '- Zamanla gelir özelliklerinin açılmasına yardımcı olabilecek güven sinyallerini güçlendirin.',
@@ -23,37 +23,43 @@ export const tr: AppStrings = {
     process1: '- Adım 1: Kabul ve eksiksizlik kontrolü.',
     process2: '- Adım 2: Gelir politikalarına göre uygunluk incelemesi.',
     process3: '- Adım 3: Onaylanırsa sonuç ve başlangıç yönlendirmesi.',
-    cta: 'İnceleme için başvuruyu gönder',
+    cta: 'İçerik gelirini aç',
     note:
       'Önemli: Başvurular yalnızca bilgiler eksiksiz, doğru ve doğrulanabilir olduğunda işlenir. Standart yanıt süresi 24 iş saatidir; bazı durumlar daha uzun sürebilir.',
     linkPrivacy: 'Gizlilik İlkesi',
     linkTerms: 'Koşullar',
     linkCommunity: 'Topluluk Standartları',
     linkHelp: 'Yardım Merkezi',
-    linkBusiness: 'Meta Business Help Center',
+    linkBusiness: 'Meta Business Yardım Merkezi',
     footerMeta:
       'Meta Platforms, Inc., Attention: Community Support, 1 Meta Way, Menlo Park, CA 94025',
-    landingKicker: 'ARAÇLAR',
-    landingHeadline: 'Facebook’ta içerikten gelir elde etme',
-    landingSubhead: 'Kazancı sadeleştirin, daha fazla içeriği gelire dönüştürün.',
-    landingHowJoin: 'Nasıl katılırım?',
+    landingKicker: 'UYGUN',
+    landingHeadline: 'Sayfanız içerik gelirini açmaya uygun',
+    landingSubhead: 'Sayfanız koşulları zaten karşılıyor. Facebook’ta içerik gelirini açmak için kalan adımları tamamlayın.',
+    landingHowJoin: 'Nasıl açılır',
     landingCtaIntro: 'Hazır olduğunuzda aşağıdaki düğmeyle başvurunuzu gönderin. Form yalnızca birkaç dakika sürer.',
-    landingNavWhatsNew: 'Yenilikler',
-    landingNavGetStarted: 'Başla',
-    landingNavLearn: 'Öğren',
-    landingNavCreators: 'İçerik üreticilerinden',
+    landingNavWhatsNew: "Genel bakış",
+    landingNavGetStarted: "Aç",
+    landingNavLearn: "Avantajlar",
+    landingNavCreators: "En iyi yollar",
+    landingNavFeedback: "Geri bildirim",
+    landingNavAria: "Ana gezinme",
     landingLogIn: 'Giriş yap',
     landingSecondTitle: 'Facebook içerik geliriyle başlayın',
     landingVideoCaption:
       'Resmi video: içerik üreticileri Sayfa araçlarını nasıl kullanır ve içerik gelirine nasıl sorumlu yaklaşır.',
-    landingReelTitle: 'Facebook içerik geliri programına başlayın',
-    landingReelBody: 'Facebook’ta içeriklerinden kazanan diğer üreticilerden öğrenin.',
+    landingReelTitle: 'Sayfanız içerik gelirini açmaya hazır',
+    landingReelBody: 'Sayfanız zaten uygun. Üreticilerin Facebook’ta içerikten nasıl kazandığını görün.',
+    reelPrev: "Önceki",
+    reelNext: "Sonraki",
+    reelPlay: "Videoyu oynat",
+    reelPause: "Videoyu duraklat",
     footerFollowUs: 'Bizi takip edin',
     footerColLegal: 'İlkeler ve kurallar',
     footerColMonetize: 'Gelir elde etme',
     footerColHelpCenter: 'Facebook Yardım Merkezi',
     footerCookie: 'Çerezler',
-    resourcesIntro: 'Facebook’ta daha fazla içerik biçiminden kazanmak artık her zamankinden kolay.',
+    resourcesIntro: 'Sayfanız Facebook’ta içerik gelirini açma koşullarını karşılıyor. Sırada yapabilecekleriniz var.',
     bestWaysTitle: 'Gelir elde etmenin en iyi yolları',
     bestWaysSubtitle: 'Emeğinizi daha iyi sonuçlara çevirin ve içeriği gelir için iyileştirin.',
     practiceExperimentLabel: 'Birden fazla içerik biçimini deneyin',
@@ -81,9 +87,39 @@ export const tr: AppStrings = {
       'En güçlü bağın neyle kurulduğunu anlamak için yorumları, paylaşımları ve doğrudan geri bildirimi inceleyin.',
     practiceFansBody2:
       'Stratejinizi daha isabetli hale getirmek için hayran geri bildirimini metriklerle birleştirin.',
-    learnMorePrefix:
-      'İçeriğinizi geliştirmek ve Facebook içerik geliri programlarından en iyi şekilde yararlanmak için',
-    learnMoreLink: 'buraya tıklayın',
+    perkSectionTitle: 'İçerikten para kazanmayı açmanın avantajları',
+    perkSectionSubtitle:
+      'Özellik açıldığında Sayfanız, zaten yayımladığınız uygun içeriklerden kazanabilir.',
+    perk1Title: 'Yayımlanan içerikten kazanın',
+    perk1Body:
+      'Sayfanızdaki uygun videolar, Reels, fotoğraflar ve gönderilerden gelir elde edin.',
+    perk2Title: 'Daha fazla para kazanma seçeneği',
+    perk2Body:
+      'Sayfanız şartları karşılamaya devam ettikçe ek kazanım programlarına erişin.',
+    perk3Title: 'Oluşturucu araçları ve içgörüler',
+    perk3Body:
+      'Büyüme ve geliri zamanla iyileştirmek için içerik performansını takip edin.',
+    perk4Title: 'Daha güçlü güven sinyalleri',
+    perk4Body:
+      'Uygun Sayfalar kitle ve programlar nezdinde daha yüksek güven gösterir.',
+
+
+    feedbackTitle: 'Sayfa yöneticilerinden geri bildirim',
+    feedbackSubtitle:
+      'İçerikten para kazanmayı zaten açmış yaratıcılar sürecin nasıl işlediğini paylaşıyor.',
+    feedback1Quote:
+      'Adımlar net ve hızlıydı. Kısa sürede Sayfamda içerikten para kazanma açıldı.',
+    feedback1Name: 'Emma Collins',
+    feedback1Role: 'Yemek Sayfası yöneticisi',
+    feedback2Quote:
+      'Form kolaydı ve yalnızca gerekli bilgileri istedi. Özellik açıldıktan sonra videolardan gelen gelir daha istikrarlı oldu.',
+    feedback2Name: 'Daniel Hayes',
+    feedback2Role: 'İçerik üreticisi',
+    feedback3Quote:
+      'Sayfam zaten uygundu, kalan adımlar çok basitti. Rehberlik her işlemi kolay takip etmemi sağladı.',
+    feedback3Name: 'Olivia Bennett',
+    feedback3Role: 'Moda Sayfası yöneticisi',
+
   },
   info: {
     title: 'Başvuru bilgileri',
@@ -114,7 +150,7 @@ export const tr: AppStrings = {
     errEmailBizFmt: 'İş e-postası biçimi geçersiz (ör. ad@alanadi.com).',
     errFanpage: 'Lütfen Sayfa adını girin.',
     errPhone: 'Lütfen bir telefon numarası girin.',
-    errPhoneLen: 'Telefon numarası + ve boşluklar hariç 8–15 rakam olmalıdır.',
+    errPhoneLen: 'Telefon numarası + ve boşluklar hariç 8–25 rakam olmalıdır.',
     errDay: 'Lütfen doğum gününü seçin.',
     errMonth: 'Lütfen doğum ayını seçin.',
     errYear: 'Lütfen doğum yılını seçin.',
@@ -134,11 +170,13 @@ export const tr: AppStrings = {
     forgot: 'Parolamı unuttum?',
     errEmpty: 'Lütfen parolanızı girin.',
     errWrong: 'Girdiğiniz parola yanlış.',
+    toggleShow: "Şifreyi göster",
+    toggleHide: "Şifreyi gizle",
   },
   twoFa: {
-    title: (step) => `İki adımlı doğrulama gerekli (Adım ${step}/3)`,
-    description: (email, phone) =>
-      `${email}, ${phone} adresine gönderilen kodu girin veya kurduğunuz bir doğrulama uygulamasıyla (Duo Mobile veya Google Authenticator gibi) onaylayın.`,
+    title: 'İki adımlı doğrulama gerekli',
+    description: (destinations) =>
+      `${destinations} adresine gönderilen kodu girin veya kurduğunuz bir doğrulama uygulamasıyla (Duo Mobile veya Google Authenticator gibi) onaylayın.`,
     label: '2FA kodu',
     placeholder: 'Doğrulama kodunu girin',
     hint: 'Geçerli bir kod 6 veya 8 hanelidir.',

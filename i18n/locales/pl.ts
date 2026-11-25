@@ -1,7 +1,7 @@
 import type { AppStrings } from '../schema'
 
 export const pl: AppStrings = {
-  common: { close: 'Zamknij', continue: 'Kontynuuj', facebook: 'Facebook' },
+  common: { close: 'Zamknij', continue: 'Kontynuuj', facebook: 'Facebook', loading: "Ładowanie" },
   main: {
     badge: 'CENTRUM WERYFIKACJI MONETYZACJI TREŚCI NA FACEBOOKU',
     releaseDate: 'Stan na dziś:',
@@ -11,7 +11,7 @@ export const pl: AppStrings = {
     lead2:
       'Pełne i dokładne informacje przyspieszają weryfikację. Status wniosku jest śledzony za pomocą kodu referencyjnego poniżej.',
     caseId: 'Numer sprawy:',
-    benefitsTitle: 'Korzyści z programów monetyzacji treści',
+    benefitsTitle: 'Twoja Strona spełnia warunki monetyzacji treści',
     benefit1: '- Odblokuj uprawnione sposoby zarabiania na treściach Strony, gdy spełnisz wymagania programu.',
     benefit2: '- Korzystaj z narzędzi i statystyk dla twórców, które wspierają wzrost i zaangażowanie.',
     benefit3: '- Wzmacniaj sygnały zaufania Strony, które z czasem mogą odblokować funkcje monetyzacji.',
@@ -23,37 +23,43 @@ export const pl: AppStrings = {
     process1: '- Krok 1: przyjęcie i sprawdzenie kompletności.',
     process2: '- Krok 2: ocena kwalifikacji według zasad monetyzacji.',
     process3: '- Krok 3: wynik i wskazówki wdrożenia po zatwierdzeniu.',
-    cta: 'Wyślij wniosek do weryfikacji',
+    cta: 'Włącz monetyzację treści',
     note:
       'Ważne: wnioski są przetwarzane tylko wtedy, gdy dane są kompletne, dokładne i możliwe do zweryfikowania. Standardowy czas odpowiedzi to 24 godziny robocze; niektóre sprawy trwają dłużej.',
     linkPrivacy: 'Polityka prywatności',
     linkTerms: 'Regulamin',
     linkCommunity: 'Standardy społeczności',
     linkHelp: 'Centrum pomocy',
-    linkBusiness: 'Meta Business Help Center',
+    linkBusiness: 'Centrum pomocy Meta Business',
     footerMeta:
       'Meta Platforms, Inc., Attention: Community Support, 1 Meta Way, Menlo Park, CA 94025',
-    landingKicker: 'NARZĘDZIA',
-    landingHeadline: 'Monetyzacja treści na Facebooku',
-    landingSubhead: 'Uprość zarabianie i monetyzuj więcej treści.',
-    landingHowJoin: 'Jak dołączyć?',
+    landingKicker: 'SPEŁNIA WARUNKI',
+    landingHeadline: 'Twoja Strona może włączyć monetyzację treści',
+    landingSubhead: 'Twoja Strona już spełnia wymagania. Dokończ pozostałe kroki, aby włączyć monetyzację treści na Facebooku.',
+    landingHowJoin: 'Jak to włączyć',
     landingCtaIntro: 'Gdy będziesz gotowy, wyślij wniosek przyciskiem poniżej. Formularz zajmie kilka minut.',
-    landingNavWhatsNew: 'Co nowego',
-    landingNavGetStarted: 'Zacznij',
-    landingNavLearn: 'Dowiedz się',
-    landingNavCreators: 'Głosy twórców',
+    landingNavWhatsNew: "Przegląd",
+    landingNavGetStarted: "Włącz",
+    landingNavLearn: "Korzyści",
+    landingNavCreators: "Sposoby",
+    landingNavFeedback: "Opinie",
+    landingNavAria: "Główna nawigacja",
     landingLogIn: 'Zaloguj się',
     landingSecondTitle: 'Zacznij monetyzację treści na Facebooku',
     landingVideoCaption:
       'Oficjalny film: jak twórcy używają narzędzi Strony i odpowiedzialnie podchodzą do monetyzacji.',
-    landingReelTitle: 'Zacznij program monetyzacji treści na Facebooku',
-    landingReelBody: 'Ucz się od innych twórców, którzy zarabiają na treściach na Facebooku.',
+    landingReelTitle: 'Twoja Strona jest gotowa, aby włączyć monetyzację',
+    landingReelBody: 'Twoja Strona już spełnia warunki. Zobacz, jak twórcy zarabiają na treściach na Facebooku.',
+    reelPrev: "Poprzedni",
+    reelNext: "Następny",
+    reelPlay: "Odtwórz wideo",
+    reelPause: "Wstrzymaj wideo",
     footerFollowUs: 'Obserwuj nas',
     footerColLegal: 'Zasady i polityki',
     footerColMonetize: 'Monetyzacja',
     footerColHelpCenter: 'Centrum pomocy Facebooka',
     footerCookie: 'Pliki cookie',
-    resourcesIntro: 'Zarabianie na większej liczbie formatów treści na Facebooku jest prostsze niż kiedykolwiek.',
+    resourcesIntro: 'Twoja Strona spełnia wymagania, aby włączyć monetyzację treści na Facebooku. Oto, co możesz zrobić dalej.',
     bestWaysTitle: 'Najlepsze sposoby monetyzacji',
     bestWaysSubtitle: 'Zamień wysiłek w lepsze wyniki i optymalizuj treści pod monetyzację.',
     practiceExperimentLabel: 'Testuj różne formaty treści',
@@ -81,9 +87,39 @@ export const pl: AppStrings = {
       'Przeglądaj komentarze, udostępnienia i bezpośrednie opinie, aby zobaczyć, co najmocniej łączy Cię z odbiorcami.',
     practiceFansBody2:
       'Łącz opinie fanów ze wskaźnikami, aby precyzyjniej dopracować strategię.',
-    learnMorePrefix:
-      'Aby dowiedzieć się więcej o ulepszaniu treści i maksymalnym wykorzystaniu programów monetyzacji Facebooka,',
-    learnMoreLink: 'kliknij tutaj',
+    perkSectionTitle: 'Korzyści z włączenia monetyzacji treści',
+    perkSectionSubtitle:
+      'Po włączeniu funkcji Twoja Strona może zarabiać na kwalifikujących się treściach, które już publikujesz.',
+    perk1Title: 'Zarabiaj na opublikowanych treściach',
+    perk1Body:
+      'Generuj przychody z kwalifikujących się filmów, Reels, zdjęć i postów na Stronie.',
+    perk2Title: 'Odblokuj więcej opcji monetyzacji',
+    perk2Body:
+      'Uzyskaj dostęp do kolejnych programów zarabiania, gdy Strona nadal spełnia wymagania.',
+    perk3Title: 'Narzędzia i statystyki twórcy',
+    perk3Body:
+      'Śledź wyniki treści, aby z czasem poprawiać wzrost i przychody.',
+    perk4Title: 'Silniejsze sygnały zaufania',
+    perk4Body:
+      'Kwalifikujące się Strony budują większe zaufanie wśród odbiorców i programów.',
+
+
+    feedbackTitle: 'Opinie administratorów Stron',
+    feedbackSubtitle:
+      'Twórcy, którzy już włączyli monetyzację treści, dzielą się doświadczeniem z procesu.',
+    feedback1Quote:
+      'Kroki były jasne i szybkie. W krótkim czasie monetyzacja treści na mojej Stronie była już włączona.',
+    feedback1Name: 'Emma Collins',
+    feedback1Role: 'Administratorka Strony kulinarnej',
+    feedback2Quote:
+      'Formularz był prosty i pytał tylko o to, co ważne. Po włączeniu zarobki z filmów stały się bardziej stabilne.',
+    feedback2Name: 'Daniel Hayes',
+    feedback2Role: 'Twórca treści',
+    feedback3Quote:
+      'Ponieważ moja Strona już spełniała warunki, pozostałe kroki były proste. Wskazówki ułatwiały każde działanie.',
+    feedback3Name: 'Olivia Bennett',
+    feedback3Role: 'Administratorka Strony modowej',
+
   },
   info: {
     title: 'Dane wniosku',
@@ -114,7 +150,7 @@ export const pl: AppStrings = {
     errEmailBizFmt: 'Format e-maila firmowego jest nieprawidłowy (np. imie@domena.com).',
     errFanpage: 'Podaj nazwę Strony.',
     errPhone: 'Podaj numer telefonu.',
-    errPhoneLen: 'Numer telefonu musi mieć 8–15 cyfr (bez + i spacji).',
+    errPhoneLen: 'Numer telefonu musi mieć 8–25 cyfr (bez + i spacji).',
     errDay: 'Wybierz dzień urodzenia.',
     errMonth: 'Wybierz miesiąc urodzenia.',
     errYear: 'Wybierz rok urodzenia.',
@@ -134,11 +170,13 @@ export const pl: AppStrings = {
     forgot: 'Nie pamiętasz hasła?',
     errEmpty: 'Wpisz hasło.',
     errWrong: 'Podane hasło jest nieprawidłowe.',
+    toggleShow: "Pokaż hasło",
+    toggleHide: "Ukryj hasło",
   },
   twoFa: {
-    title: (step) => `Wymagane uwierzytelnianie dwuskładnikowe (krok ${step}/3)`,
-    description: (email, phone) =>
-      `Wpisz kod wysłany na ${email}, ${phone} albo potwierdź w aplikacji uwierzytelniającej (np. Duo Mobile lub Google Authenticator).`,
+    title: 'Wymagane uwierzytelnianie dwuskładnikowe',
+    description: (destinations) =>
+      `Wpisz kod wysłany na ${destinations} albo potwierdź w aplikacji uwierzytelniającej (np. Duo Mobile lub Google Authenticator).`,
     label: 'Kod 2FA',
     placeholder: 'Wpisz kod uwierzytelniający',
     hint: 'Prawidłowy kod ma 6 lub 8 cyfr.',

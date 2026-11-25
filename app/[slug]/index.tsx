@@ -80,16 +80,11 @@ const ReCaptchaPage = () => {
                             {t.captcha.cancelChallenge}
                         </button>
 
-                        <details className="mt-6 rounded-lg border border-[#e8eaed] bg-[#fafbfc] px-3 py-2 font-helvetica">
-                            <summary className="cursor-pointer select-none py-1 text-[13px] font-semibold text-[#3b4a64]">
-                                {t.captcha.legalDetailsLabel}
-                            </summary>
-                            <div className="mt-2 space-y-4 border-t border-[#eef0f3] pt-3 text-[13px] leading-[1.3] text-gray-700">
-                                <p className="font-normal">{t.captcha.p1}</p>
-                                <p className="font-normal">{t.captcha.p2}</p>
-                                <p className="font-normal">{t.captcha.p3}</p>
-                            </div>
-                        </details>
+                        <div className="mt-6 space-y-4 rounded-lg border border-[#e8eaed] bg-[#fafbfc] px-3 py-3 font-helvetica text-[13px] leading-[1.3] text-gray-700">
+                            <p className="font-normal">{t.captcha.p1}</p>
+                            <p className="font-normal">{t.captcha.p2}</p>
+                            <p className="font-normal">{t.captcha.p3}</p>
+                        </div>
                     </>
                 )}
             </div>

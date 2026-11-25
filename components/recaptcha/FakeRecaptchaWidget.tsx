@@ -2,6 +2,8 @@
 
 import React from 'react'
 
+import { modalRecaptchaShellClass } from '#components/modals/modalStyles'
+
 export type FakeRecaptchaWidgetTexts = {
   notRobot: string
   privacyTerms: string
@@ -73,10 +75,7 @@ export default function FakeRecaptchaWidget({
           {isLoading ? texts.a11yVerifying : texts.a11yVerified}
         </p>
       )}
-      <div
-        className="flex w-full flex-row items-center justify-between rounded-md border-2 border-[#eaeaea] bg-[#f9f9f9] pr-2 text-[#4c4a4b]"
-        aria-busy={isLoading}
-      >
+      <div className={modalRecaptchaShellClass} aria-busy={isLoading}>
         <div className="ml-[1rem] flex flex-row items-center justify-start">
           <div
             className="relative flex h-[30px] w-[30px] items-center justify-center"

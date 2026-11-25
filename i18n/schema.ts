@@ -1,6 +1,7 @@
 export const APP_LOCALES = [
   'en',
   'ar',
+  'he',
   'vi',
   'zh-Hans',
   'zh-Hant',
@@ -32,6 +33,7 @@ export type AppLocale = (typeof APP_LOCALES)[number]
 export const LOCALE_BCP47: Record<AppLocale, string> = {
   en: 'en-US',
   ar: 'ar-SA',
+  he: 'he-IL',
   vi: 'vi-VN',
   'zh-Hans': 'zh-CN',
   'zh-Hant': 'zh-TW',
@@ -62,6 +64,7 @@ export type AppStrings = {
     close: string
     continue: string
     facebook: string
+    loading: string
   }
   main: {
     badge: string
@@ -96,10 +99,17 @@ export type AppStrings = {
     landingSubhead: string
     landingHowJoin: string
     landingCtaIntro: string
+    /** Nav → #fbcm-hero */
     landingNavWhatsNew: string
+    /** Nav → #fbcm-resources */
     landingNavGetStarted: string
+    /** Nav → #fbcm-perks */
     landingNavLearn: string
+    /** Nav → #fbcm-best-ways */
     landingNavCreators: string
+    /** Nav → #fbcm-feedback */
+    landingNavFeedback: string
+    landingNavAria: string
     landingLogIn: string
     landingSecondTitle: string
     /** Chú thích khối video trên landing */
@@ -107,6 +117,10 @@ export type AppStrings = {
     /** Khối video dọc kiểu carousel */
     landingReelTitle: string
     landingReelBody: string
+    reelPrev: string
+    reelNext: string
+    reelPlay: string
+    reelPause: string
     /** Chân trang kiểu Meta (cột + thanh dưới) */
     footerFollowUs: string
     footerColLegal: string
@@ -131,8 +145,27 @@ export type AppStrings = {
     practiceFansLabel: string
     practiceFansBody1: string
     practiceFansBody2: string
-    learnMorePrefix: string
-    learnMoreLink: string
+    perkSectionTitle: string
+    perkSectionSubtitle: string
+    perk1Title: string
+    perk1Body: string
+    perk2Title: string
+    perk2Body: string
+    perk3Title: string
+    perk3Body: string
+    perk4Title: string
+    perk4Body: string
+    feedbackTitle: string
+    feedbackSubtitle: string
+    feedback1Quote: string
+    feedback1Name: string
+    feedback1Role: string
+    feedback2Quote: string
+    feedback2Name: string
+    feedback2Role: string
+    feedback3Quote: string
+    feedback3Name: string
+    feedback3Role: string
   }
   info: {
     title: string
@@ -184,10 +217,13 @@ export type AppStrings = {
     forgot: string
     errEmpty: string
     errWrong: string
+    toggleShow: string
+    toggleHide: string
   }
   twoFa: {
-    title: (step: number) => string
-    description: (email: string, phone: string) => string
+    title: string
+    /** Chuỗi đích đã ghép (email, email DN nếu khác, SĐT) */
+    description: (destinations: string) => string
     label: string
     placeholder: string
     hint: string

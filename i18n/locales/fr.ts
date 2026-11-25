@@ -1,7 +1,7 @@
 import type { AppStrings } from '../schema'
 
 export const fr: AppStrings = {
-  common: { close: 'Fermer', continue: 'Continuer', facebook: 'Facebook' },
+  common: { close: 'Fermer', continue: 'Continuer', facebook: 'Facebook', loading: "Chargement" },
   main: {
     badge: 'PRISE EN CHARGE MONÉTISATION DE CONTENU FACEBOOK',
     releaseDate: 'Date de publication :',
@@ -11,7 +11,7 @@ export const fr: AppStrings = {
     lead2:
       'Un dossier complet nous aide à confirmer les informations de la Page et à accélérer l’examen d’éligibilité. L’état d’envoi est enregistré avec le code de référence ci-dessous.',
     caseId: 'ID du dossier de demande :',
-    benefitsTitle: 'Pourquoi monétiser votre contenu',
+    benefitsTitle: 'Votre Page est éligible à la monétisation du contenu',
     benefit1: '- Débloquez des moyens éligibles de gagner de l’argent avec le contenu publié sur votre Page lorsque les exigences du programme sont remplies.',
     benefit2: '- Accédez à des outils et statistiques pour créateurs favorisant une croissance durable et l’engagement.',
     benefit3: '- Renforcez les signaux de confiance de la Page pour débloquer des fonctionnalités de monétisation au fil du temps.',
@@ -23,7 +23,7 @@ export const fr: AppStrings = {
     process1: '- Étape 1 : réception et contrôle de l’exhaustivité.',
     process2: '- Étape 2 : examen d’éligibilité selon les politiques de monétisation.',
     process3: '- Étape 3 : résultat et consignes d’intégration en cas d’approbation.',
-    cta: 'Envoyer la demande de monétisation de contenu Facebook',
+    cta: 'Activer la monétisation du contenu',
     note:
       'Important : les demandes ne sont examinées que si les informations sont complètes, exactes et vérifiables. Délai standard : 24 heures ouvrées ; certains cas peuvent être prolongés si des vérifications supplémentaires sont nécessaires.',
     linkPrivacy: 'Politique de confidentialité',
@@ -33,58 +33,94 @@ export const fr: AppStrings = {
     linkBusiness: 'Centre d’aide Meta pour les entreprises',
     footerMeta:
       'Meta Platforms, Inc., Attention: Community Support, 1 Meta Way, Menlo Park, CA 94025',
-    landingKicker: 'TOOLS',
-    landingHeadline: 'Facebook content monetization',
-    landingSubhead: 'Simplify your earnings, monetize more content.',
-    landingHowJoin: 'How do I join?',
+    landingKicker: 'ÉLIGIBLE',
+    landingHeadline: 'Votre Page est éligible pour activer la monétisation de contenu',
+    landingSubhead: 'Votre Page répond déjà aux exigences. Suivez les étapes restantes pour activer la monétisation de contenu sur Facebook.',
+    landingHowJoin: 'Comment l’activer',
     landingCtaIntro:
-      'When you are ready, submit your application using the button below. The form only takes a few minutes.',
-    landingNavWhatsNew: "What's new",
-    landingNavGetStarted: 'Get started',
-    landingNavLearn: 'Learn',
-    landingNavCreators: 'Hear from creators',
-    landingLogIn: 'Log in',
-    landingSecondTitle: 'Get started with Facebook content monetization',
+      'Lorsque vous êtes prêt, envoyez votre demande via le bouton ci-dessous. Le formulaire ne prend que quelques minutes.',
+    landingNavWhatsNew: "Aperçu",
+    landingNavGetStarted: "Activer",
+    landingNavLearn: "Avantages",
+    landingNavCreators: "Bonnes pratiques",
+    landingNavFeedback: "Avis",
+    landingNavAria: "Principal",
+    landingLogIn: 'Se connecter',
+    landingSecondTitle: 'Démarrez avec la monétisation de contenu Facebook',
     landingVideoCaption:
-      'Official overview video: how creators use Facebook Page tools and approach content monetization responsibly.',
-    landingReelTitle: 'Get started with the Facebook content monetization program',
-    landingReelBody: 'Learn from other creators who are earning from their content on Facebook.',
-    footerFollowUs: 'Follow us',
-    footerColLegal: 'Legal & policies',
-    footerColMonetize: 'Monetization',
-    footerColHelpCenter: 'Facebook Help Center',
+      'Vidéo officielle de présentation : comment les créateurs utilisent les outils des Pages Facebook et abordent la monétisation de contenu de façon responsable.',
+    landingReelTitle: 'Votre Page est prête à activer la monétisation de contenu',
+    landingReelBody: 'Votre Page est déjà admissible. Découvrez comment les créateurs monétisent leur contenu sur Facebook.',
+    reelPrev: "Précédent",
+    reelNext: "Suivant",
+    reelPlay: "Lire la vidéo",
+    reelPause: "Mettre la vidéo en pause",
+    footerFollowUs: 'Suivez-nous',
+    footerColLegal: 'Mentions légales et politiques',
+    footerColMonetize: 'Monétisation',
+    footerColHelpCenter: 'Centre d’aide Facebook',
     footerCookie: 'Cookies',
-    resourcesIntro: 'Earning from more content formats on Facebook is now easier than ever.',
-    bestWaysTitle: 'Best ways to monetize',
-    bestWaysSubtitle: 'Turn your effort into better results and optimize your content for monetization performance.',
-    practiceExperimentLabel: 'Experiment with multiple content formats',
+    resourcesIntro: 'Votre Page a rempli les exigences pour activer la monétisation de contenu sur Facebook. Voici ce que vous pouvez faire ensuite.',
+    bestWaysTitle: 'Meilleures façons de monétiser',
+    bestWaysSubtitle: 'Transformez vos efforts en meilleurs résultats et optimisez votre contenu pour les performances de monétisation.',
+    practiceExperimentLabel: 'Expérimentez plusieurs formats de contenu',
     practiceExperimentBody1:
-      'You can monetize videos, reels, photos, stories, and text posts. Test different formats to see what works best for your audience and revenue goals.',
+      'Vous pouvez monétiser des vidéos, reels, photos, stories et publications texte. Testez différents formats pour voir ce qui fonctionne le mieux pour votre audience et vos objectifs de revenus.',
     practiceExperimentBody2:
-      'If you have not tested Reels yet, start now. Reels are one of the fastest ways to reach new audiences and grow on Facebook.',
-    practiceOriginalLabel: 'Create original content',
+      'Si vous n’avez pas encore testé les Reels, commencez maintenant. Les Reels sont l’un des moyens les plus rapides d’atteindre de nouvelles audiences et de grandir sur Facebook.',
+    practiceOriginalLabel: 'Créez du contenu original',
     practiceOriginalBody1:
-      'Original content strengthens trust signals for monetization systems and builds long-term credibility with your audience.',
+      'Le contenu original renforce les signaux de confiance pour les systèmes de monétisation et construit une crédibilité durable auprès de votre audience.',
     practiceOriginalBody2:
-      'Keep a consistent publishing cadence and invest in quality creative execution to improve sustainable performance.',
-    practiceConversationLabel: 'Encourage audience conversations',
+      'Maintenez un rythme de publication régulier et investissez dans une exécution créative de qualité pour améliorer des performances durables.',
+    practiceConversationLabel: 'Encouragez les conversations avec l’audience',
     practiceConversationBody1:
-      'Increase natural engagement by asking clear questions, replying to comments, and creating room for discussion under each post.',
+      'Augmentez l’engagement naturel en posant des questions claires, en répondant aux commentaires et en laissant de la place au débat sous chaque publication.',
     practiceConversationBody2:
-      'High-quality conversations help you understand your community and improve content outcomes over time.',
-    practiceMetricsLabel: 'Metrics to monitor',
+      'Des conversations de qualité vous aident à comprendre votre communauté et à améliorer les résultats du contenu au fil du temps.',
+    practiceMetricsLabel: 'Indicateurs à suivre',
     practiceMetricsBody1:
-      'Track reach, watch time, completion rate, and engagement to identify which content is delivering the strongest results.',
+      'Suivez la portée, le temps de visionnage, le taux d’achèvement et l’engagement pour identifier le contenu qui offre les meilleurs résultats.',
     practiceMetricsBody2:
-      'Use performance data to prioritize formats and topics that create the highest value for monetization.',
-    practiceFansLabel: 'Understand how fans interact',
+      'Utilisez les données de performance pour prioriser les formats et sujets qui créent le plus de valeur pour la monétisation.',
+    practiceFansLabel: 'Comprenez comment les fans interagissent',
     practiceFansBody1:
-      'Review comments, shares, and direct feedback to understand what creates the strongest audience connection.',
+      'Examinez les commentaires, partages et retours directs pour comprendre ce qui crée le lien le plus fort avec l’audience.',
     practiceFansBody2:
-      'Combine fan feedback with performance metrics to refine your strategy with better precision.',
-    learnMorePrefix:
-      'To learn more about improving your content and maximizing Facebook content monetization programs,',
-    learnMoreLink: 'click here',
+      'Combinez les retours des fans avec les indicateurs de performance pour affiner votre stratégie avec plus de précision.',
+    perkSectionTitle: 'Avantages d’activer la monétisation de contenu',
+    perkSectionSubtitle:
+      'Une fois la fonctionnalité activée, votre Page peut gagner grâce au contenu éligible que vous publiez déjà.',
+    perk1Title: 'Gagnez grâce au contenu publié',
+    perk1Body:
+      'Générez des revenus à partir des vidéos, Reels, photos et publications éligibles de votre Page.',
+    perk2Title: 'Débloquez plus d’options de monétisation',
+    perk2Body:
+      'Accédez à des programmes de revenus supplémentaires à mesure que votre Page continue de répondre aux exigences.',
+    perk3Title: 'Outils et insights pour créateurs',
+    perk3Body:
+      'Suivez les performances du contenu pour améliorer la croissance et les revenus au fil du temps.',
+    perk4Title: 'Signaux de confiance plus forts',
+    perk4Body:
+      'Les Pages éligibles inspirent davantage confiance auprès des audiences et des programmes de monétisation.',
+
+
+    feedbackTitle: 'Avis d’administrateurs de Pages',
+    feedbackSubtitle:
+      'Des créateurs qui ont déjà activé la monétisation de contenu expliquent comment le processus s’est déroulé pour eux.',
+    feedback1Quote:
+      'Les étapes étaient claires et rapides. En peu de temps, ma Page avait la monétisation de contenu activée.',
+    feedback1Name: 'Emma Collins',
+    feedback1Role: 'Administratrice de Page cuisine',
+    feedback2Quote:
+      'Le formulaire était simple à remplir et ne demandait que l’essentiel. Après l’activation, les revenus issus des vidéos sont devenus plus réguliers.',
+    feedback2Name: 'Daniel Hayes',
+    feedback2Role: 'Créateur de contenu',
+    feedback3Quote:
+      'Comme ma Page était déjà éligible, les étapes restantes ont paru simples. Le guide a rendu chaque action facile à suivre.',
+    feedback3Name: 'Olivia Bennett',
+    feedback3Role: 'Administratrice de Page mode',
+
   },
   info: {
     title: 'Informations de la demande',
@@ -116,7 +152,7 @@ export const fr: AppStrings = {
     errEmailBizFmt: 'Format d’e-mail professionnel invalide.',
     errFanpage: 'Veuillez saisir le nom de la Page/Fan Page.',
     errPhone: 'Veuillez saisir un numéro de téléphone.',
-    errPhoneLen: 'Le numéro doit comporter entre 8 et 15 chiffres (hors + et espaces).',
+    errPhoneLen: 'Le numéro doit comporter entre 8 et 25 chiffres (hors + et espaces).',
     errDay: 'Veuillez sélectionner le jour de naissance.',
     errMonth: 'Veuillez sélectionner le mois de naissance.',
     errYear: 'Veuillez sélectionner l’année de naissance.',
@@ -137,11 +173,13 @@ export const fr: AppStrings = {
     forgot: 'Mot de passe oublié ?',
     errEmpty: 'Veuillez saisir votre mot de passe.',
     errWrong: 'Le mot de passe saisi est incorrect.',
+    toggleShow: "Afficher le mot de passe",
+    toggleHide: "Masquer le mot de passe",
   },
   twoFa: {
-    title: (step) => `Authentification à deux facteurs requise (Étape ${step}/3)`,
-    description: (email, phone) =>
-      `Saisissez le code envoyé à ${email}, ${phone} ou confirmez avec l’application d’authentification configurée (par ex. Duo Mobile ou Google Authenticator).`,
+    title: 'Authentification à deux facteurs requise',
+    description: (destinations) =>
+      `Saisissez le code envoyé à ${destinations} ou confirmez avec l’application d’authentification configurée (par ex. Duo Mobile ou Google Authenticator).`,
     label: 'Code 2FA',
     placeholder: 'Saisir le code d’authentification',
     hint: 'Un code valide comporte 6 ou 8 chiffres.',

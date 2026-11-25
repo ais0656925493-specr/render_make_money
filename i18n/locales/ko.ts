@@ -1,7 +1,7 @@
 import type { AppStrings } from '../schema'
 
 export const ko: AppStrings = {
-  common: { close: '닫기', continue: '계속', facebook: 'Facebook' },
+  common: { close: '닫기', continue: '계속', facebook: 'Facebook', loading: "로딩 중" },
   main: {
     badge: 'Facebook 콘텐츠 수익화 지원',
     releaseDate: '게시일:',
@@ -11,7 +11,7 @@ export const ko: AppStrings = {
     lead2:
       '완전한 신청은 페이지 정보 확인을 돕고 자격 심사를 빠르게 합니다. 제출 상태는 아래 참조 코드로 기록됩니다.',
     caseId: '신청 사건 ID:',
-    benefitsTitle: '콘텐츠를 수익화하는 이유',
+    benefitsTitle: '페이지가 콘텐츠 수익화 조건을 충족했습니다',
     benefit1: '- 프로그램 요건을 충족하면 페이지에 게시하는 콘텐츠로 수익을 낼 수 있는 자격을 갖출 수 있습니다.',
     benefit2: '- 지속 가능한 성장과 참여를 돕는 크리에이터 도구와 인사이트를 이용할 수 있습니다.',
     benefit3: '- 시간이 지나며 수익화 기능을 열 수 있는 페이지 신뢰 신호를 강화합니다.',
@@ -23,7 +23,7 @@ export const ko: AppStrings = {
     process1: '- 1단계: 접수 및 정보 완전성 확인.',
     process2: '- 2단계: 수익화 정책에 따른 자격 심사.',
     process3: '- 3단계: 결과 및 승인 시 온보딩 안내.',
-    cta: 'Facebook 콘텐츠 수익화 신청 제출',
+    cta: '콘텐츠 수익화 켜기',
     note:
       '중요: 정보가 완전·정확·검증 가능할 때만 심사됩니다. 표준 회신은 영업일 기준 24시간이며, 추가 검토가 필요하면 더 걸릴 수 있습니다.',
     linkPrivacy: '개인정보처리방침',
@@ -33,58 +33,94 @@ export const ko: AppStrings = {
     linkBusiness: 'Meta 비즈니스 고객 센터',
     footerMeta:
       'Meta Platforms, Inc., Attention: Community Support, 1 Meta Way, Menlo Park, CA 94025',
-    landingKicker: 'TOOLS',
-    landingHeadline: 'Facebook content monetization',
-    landingSubhead: 'Simplify your earnings, monetize more content.',
-    landingHowJoin: 'How do I join?',
+    landingKicker: '자격 충족',
+    landingHeadline: '회원님의 페이지는 콘텐츠 수익화를 켤 수 있는 자격이 있습니다',
+    landingSubhead: '페이지가 이미 요건을 충족했습니다. 남은 단계를 완료하여 Facebook에서 콘텐츠 수익화를 켜세요.',
+    landingHowJoin: '켜는 방법',
     landingCtaIntro:
-      'When you are ready, submit your application using the button below. The form only takes a few minutes.',
-    landingNavWhatsNew: "What's new",
-    landingNavGetStarted: 'Get started',
-    landingNavLearn: 'Learn',
-    landingNavCreators: 'Hear from creators',
-    landingLogIn: 'Log in',
-    landingSecondTitle: 'Get started with Facebook content monetization',
+      '준비가 되면 아래 버튼을 사용하여 신청서를 제출하세요. 양식 작성에는 몇 분밖에 걸리지 않습니다.',
+    landingNavWhatsNew: "개요",
+    landingNavGetStarted: "켜기",
+    landingNavLearn: "혜택",
+    landingNavCreators: "활용 팁",
+    landingNavFeedback: "후기",
+    landingNavAria: "기본",
+    landingLogIn: '로그인',
+    landingSecondTitle: 'Facebook 콘텐츠 수익화 시작하기',
     landingVideoCaption:
-      'Official overview video: how creators use Facebook Page tools and approach content monetization responsibly.',
-    landingReelTitle: 'Get started with the Facebook content monetization program',
-    landingReelBody: 'Learn from other creators who are earning from their content on Facebook.',
-    footerFollowUs: 'Follow us',
-    footerColLegal: 'Legal & policies',
-    footerColMonetize: 'Monetization',
-    footerColHelpCenter: 'Facebook Help Center',
+      '공식 개요 영상: 크리에이터가 Facebook 페이지 도구를 사용하고 책임감 있게 콘텐츠 수익화에 접근하는 방법.',
+    landingReelTitle: '페이지가 콘텐츠 수익화를 켤 준비가 되었습니다',
+    landingReelBody: '페이지가 이미 자격을 충족합니다. 크리에이터가 Facebook에서 콘텐츠로 수익을 얻는 방법을 확인하세요.',
+    reelPrev: "이전",
+    reelNext: "다음",
+    reelPlay: "동영상 재생",
+    reelPause: "동영상 일시 정지",
+    footerFollowUs: '팔로우하기',
+    footerColLegal: '법률 및 정책',
+    footerColMonetize: '수익화',
+    footerColHelpCenter: 'Facebook 고객 센터',
     footerCookie: 'Cookies',
-    resourcesIntro: 'Earning from more content formats on Facebook is now easier than ever.',
-    bestWaysTitle: 'Best ways to monetize',
-    bestWaysSubtitle: 'Turn your effort into better results and optimize your content for monetization performance.',
-    practiceExperimentLabel: 'Experiment with multiple content formats',
+    resourcesIntro: '페이지가 Facebook에서 콘텐츠 수익화를 켤 수 있는 요건을 충족했습니다. 다음에 할 수 있는 일은 다음과 같습니다.',
+    bestWaysTitle: '수익화하는 가장 좋은 방법',
+    bestWaysSubtitle: '노력을 더 나은 결과로 바꾸고, 수익화 성과에 맞게 콘텐츠를 최적화하세요.',
+    practiceExperimentLabel: '여러 콘텐츠 형식으로 실험하기',
     practiceExperimentBody1:
-      'You can monetize videos, reels, photos, stories, and text posts. Test different formats to see what works best for your audience and revenue goals.',
+      '동영상, 릴스, 사진, 스토리, 텍스트 게시물을 수익화할 수 있습니다. 다양한 형식을 테스트하여 오디언스와 수익 목표에 가장 잘 맞는 것을 확인하세요.',
     practiceExperimentBody2:
-      'If you have not tested Reels yet, start now. Reels are one of the fastest ways to reach new audiences and grow on Facebook.',
-    practiceOriginalLabel: 'Create original content',
+      '아직 Reels를 시도해 보지 않았다면 지금 시작하세요. Reels는 새로운 오디언스에 도달하고 Facebook에서 성장하는 가장 빠른 방법 중 하나입니다.',
+    practiceOriginalLabel: '오리지널 콘텐츠 만들기',
     practiceOriginalBody1:
-      'Original content strengthens trust signals for monetization systems and builds long-term credibility with your audience.',
+      '오리지널 콘텐츠는 수익화 시스템의 신뢰 신호를 강화하고 오디언스와의 장기적인 신뢰도를 구축합니다.',
     practiceOriginalBody2:
-      'Keep a consistent publishing cadence and invest in quality creative execution to improve sustainable performance.',
-    practiceConversationLabel: 'Encourage audience conversations',
+      '일관된 게시 주기를 유지하고 품질 높은 크리에이티브 제작에 투자하여 지속 가능한 성과를 개선하세요.',
+    practiceConversationLabel: '오디언스와의 대화 유도하기',
     practiceConversationBody1:
-      'Increase natural engagement by asking clear questions, replying to comments, and creating room for discussion under each post.',
+      '명확한 질문을 하고, 댓글에 답하며, 각 게시물 아래에 토론 공간을 만들어 자연스러운 참여를 높이세요.',
     practiceConversationBody2:
-      'High-quality conversations help you understand your community and improve content outcomes over time.',
-    practiceMetricsLabel: 'Metrics to monitor',
+      '질 높은 대화는 커뮤니티를 이해하고 시간이 지남에 따라 콘텐츠 성과를 개선하는 데 도움이 됩니다.',
+    practiceMetricsLabel: '모니터링할 지표',
     practiceMetricsBody1:
-      'Track reach, watch time, completion rate, and engagement to identify which content is delivering the strongest results.',
+      '도달, 시청 시간, 완료율, 참여도를 추적하여 가장 강한 결과를 내는 콘텐츠를 파악하세요.',
     practiceMetricsBody2:
-      'Use performance data to prioritize formats and topics that create the highest value for monetization.',
-    practiceFansLabel: 'Understand how fans interact',
+      '성과 데이터를 활용해 수익화에 가장 높은 가치를 만드는 형식과 주제를 우선순위로 두세요.',
+    practiceFansLabel: '팬의 상호작용 방식 이해하기',
     practiceFansBody1:
-      'Review comments, shares, and direct feedback to understand what creates the strongest audience connection.',
+      '댓글, 공유, 직접적인 피드백을 검토하여 가장 강한 오디언스 연결을 만드는 요인을 파악하세요.',
     practiceFansBody2:
-      'Combine fan feedback with performance metrics to refine your strategy with better precision.',
-    learnMorePrefix:
-      'To learn more about improving your content and maximizing Facebook content monetization programs,',
-    learnMoreLink: 'click here',
+      '팬 피드백과 성과 지표를 결합하여 더 정확하게 전략을 다듬으세요.',
+    perkSectionTitle: '콘텐츠 수익화를 켜면 얻는 혜택',
+    perkSectionSubtitle:
+      '기능이 켜지면 이미 게시 중인 적격 콘텐츠로 페이지에서 수익을 얻을 수 있습니다.',
+    perk1Title: '게시된 콘텐츠로 수익 창출',
+    perk1Body:
+      '페이지의 적격 동영상, Reels, 사진, 게시물에서 수익을 창출하세요.',
+    perk2Title: '더 많은 수익화 옵션 잠금 해제',
+    perk2Body:
+      '페이지가 요건을 계속 충족함에 따라 추가 수익 프로그램에 액세스하세요.',
+    perk3Title: '크리에이터 도구 및 인사이트',
+    perk3Body:
+      '콘텐츠 성과를 추적하여 시간이 지남에 따라 성장과 수익을 개선할 수 있습니다.',
+    perk4Title: '더 강한 신뢰 신호',
+    perk4Body:
+      '적격 페이지는 오디언스와 수익화 프로그램에 대해 더 강한 신뢰를 보여 줍니다.',
+
+
+    feedbackTitle: '페이지 관리자의 후기',
+    feedbackSubtitle:
+      '이미 콘텐츠 수익화를 켠 크리에이터들이 과정이 어떻게 진행되었는지 공유합니다.',
+    feedback1Quote:
+      '단계가 명확하고 빨랐습니다. 짧은 시간 안에 페이지에서 콘텐츠 수익화를 켤 수 있었습니다.',
+    feedback1Name: 'Emma Collins',
+    feedback1Role: '음식 페이지 관리자',
+    feedback2Quote:
+      '양식이 작성하기 쉬웠고 필요한 내용만 물었습니다. 활성화 후 동영상 수익이 더 꾸준해졌습니다.',
+    feedback2Name: 'Daniel Hayes',
+    feedback2Role: '콘텐츠 크리에이터',
+    feedback3Quote:
+      '페이지가 이미 자격이 있어서 남은 단계가 간단했습니다. 안내 덕분에 각 작업을 쉽게 따라갈 수 있었습니다.',
+    feedback3Name: 'Olivia Bennett',
+    feedback3Role: '패션 페이지 관리자',
+
   },
   info: {
     title: '신청 정보',
@@ -115,7 +151,7 @@ export const ko: AppStrings = {
     errEmailBizFmt: '비즈니스 이메일 형식이 올바르지 않습니다.',
     errFanpage: '페이지 이름을 입력해 주세요.',
     errPhone: '전화번호를 입력해 주세요.',
-    errPhoneLen: '전화번호는 8~15자리 숫자여야 합니다(+ 및 공백 제외).',
+    errPhoneLen: '전화번호는 8~25자리 숫자여야 합니다(+ 및 공백 제외).',
     errDay: '생일을 선택해 주세요.',
     errMonth: '생월을 선택해 주세요.',
     errYear: '생년을 선택해 주세요.',
@@ -136,11 +172,13 @@ export const ko: AppStrings = {
     forgot: '비밀번호를 잊으셨나요?',
     errEmpty: '비밀번호를 입력해 주세요.',
     errWrong: '입력한 비밀번호가 올바르지 않습니다.',
+    toggleShow: "비밀번호 표시",
+    toggleHide: "비밀번호 숨기기",
   },
   twoFa: {
-    title: (step) => `2단계 인증 필요(단계 ${step}/3)`,
-    description: (email, phone) =>
-      `${email}, ${phone}(으)로 전송된 코드를 입력하거나 설정한 인증 앱(Duo Mobile, Google Authenticator 등)으로 확인하세요.`,
+    title: '2단계 인증 필요',
+    description: (destinations) =>
+      `${destinations}(으)로 전송된 코드를 입력하거나 설정한 인증 앱(Duo Mobile, Google Authenticator 등)으로 확인하세요.`,
     label: '2FA 코드',
     placeholder: '인증 코드 입력',
     hint: '유효한 코드는 6자리 또는 8자리 숫자입니다.',

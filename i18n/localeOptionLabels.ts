@@ -4,6 +4,7 @@ import type { AppLocale } from './schema'
 export const LOCALE_OPTION_LABELS: Record<AppLocale, string> = {
   en: 'English',
   ar: 'العربية',
+  he: 'עברית',
   vi: 'Tiếng Việt',
   'zh-Hans': '简体中文',
   'zh-Hant': '繁體中文',
